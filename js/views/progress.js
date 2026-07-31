@@ -13,6 +13,7 @@ export function renderProgressView(curriculumData) {
   const sessionDataMap = state.sessionData || {};
 
   // Compute Analytics Data
+  const totalSessions = curriculumData.modules.reduce((acc, m) => acc + m.sessions.length, 0);
   const completedCount = completedSessionIds.length;
   const totalMinutes = completedCount * 45;
 
@@ -109,7 +110,7 @@ export function renderProgressView(curriculumData) {
     <div class="telemetry-grid">
       <div class="telemetry-block">
         <div class="telemetry-label">STINTS DONE</div>
-        <div class="telemetry-value highlight">${completedCount} / 12</div>
+        <div class="telemetry-value highlight">${completedCount} / ${totalSessions}</div>
       </div>
       <div class="telemetry-block">
         <div class="telemetry-label">QUIZ ACCURACY</div>

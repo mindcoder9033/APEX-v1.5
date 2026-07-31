@@ -34,9 +34,9 @@ export function renderDashboardView(curriculumData, settingsData) {
   }
 
   // Compute Stats
-  const totalSessions = 12;
+  const totalSessions = curriculumData.modules.reduce((acc, m) => acc + m.sessions.length, 0);
   const completedCount = completedSessions.length;
-  const progressPercent = Math.round((completedCount / totalSessions) * 100);
+  const progressPercent = Math.round((completedCount / (totalSessions || 1)) * 100);
   const totalMinutes = completedCount * 45;
 
   // Calculate assessment pass rate
@@ -96,7 +96,7 @@ export function renderDashboardView(curriculumData, settingsData) {
     <div class="telemetry-grid">
       <div class="telemetry-block">
         <div class="telemetry-label">DRILLS DONE</div>
-        <div class="telemetry-value highlight">${completedCount} / 12</div>
+        <div class="telemetry-value highlight">${completedCount} / ${totalSessions}</div>
       </div>
       <div class="telemetry-block">
         <div class="telemetry-label">PASS RATE</div>
