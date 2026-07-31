@@ -1,0 +1,69 @@
+### Real Tracks
+- **Circuit de Barcelona-Catalunya (3)**
+  - Circuit de Barcelona-Catalunya GP
+  - Circuit de Barcelona-Catalunya National
+  - Circuit de Barcelona-Catalunya National Alt
+- **Circuit de Spa-Francorchamps (1)**
+  - Circuit de Spa-Francorchamps
+- **Homestead-Miami (2)**
+  - Homestead Road
+  - Homestead Speedway
+- **Indianapolis Motor Speedway (2)**
+  - Indianapolis Brickyard Oval
+  - Indianapolis GP
+- **Kyalami Grand Prix Circuit† (1)**
+  - Kyalami Grand Prix Circuit†
+- **Le Mans – Circuit International de la Sarthe (2)**
+  - Le Mans La Sarthe Full
+  - Le Mans Old Mulsanne
+- **Laguna Seca Raceway (2)**
+  - Laguna Seca
+  - Laguna Seca Short
+- **Lime Rock Park (3)**
+  - Lime Rock Full
+  - Lime Rock Full Alt
+  - Lime Rock South
+- **Mid-Ohio Sports Car Course† (2)**
+  - Mid-Ohio
+  - Mid-Ohio Short
+- **Mugello Circuit (2)**
+  - Mugello Club
+  - Mugello Full
+- **Nurburgring (2)**
+  - Nurburgring GP
+  - Nurburgring Sprint
+- **Road America (2)**
+  - Road America
+  - Road America East
+- **Silverstone Circuit (3)**
+  - Silverstone GP
+  - Silverstone International
+  - Silverstone National
+- **Suzuka Circuit (2)**
+  - Suzuka East
+  - Suzuka Full
+- **Virginia International Raceway (5)**
+  - VIR Full
+  - VIR Grand East
+  - VIR Grand West
+  - VIR North
+  - VIR South
+- **Watkins Glen (2)**
+  - Watkins Glen Full
+  - Watkins Glen Short
+
+### Fictional Tracks
+- **Eaglerock Speedway† (3)**
+  - Eaglerock Club & Reverse
+  - Eaglerock Oval
+- **Grand Oak Raceway† (3)**
+  - Grand Oak Club
+  - Grand Oak National & Reverse
+- **Hakone† (3)**
+  - Hakone Club & Reverse
+  - Hakone Grand Prix
+- **Maple Valley (3)**
+  - Maple Valley
+  - Maple Valley Short & Reverse
+
+*(Note: Track layouts grouped with "& Reverse" account for the total layout count indicated in the parentheses.)*

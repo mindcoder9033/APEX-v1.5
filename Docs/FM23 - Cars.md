@@ -1,0 +1,595 @@
+- **Acura (3)**
+  - Acura Integra Type R 2001
+  - Acura NSX 2017
+  - Acura NSX GT3 #36 2018 – RDCP
+- **Alfa Romeo (1)**
+  - Alfa Romeo Giulietta QV 2011
+- **Alpine (2)**
+  - Alpine A110 2017
+  - Alpine GTA Le Mans 1990
+- **AMC (2)**
+  - AMC Javelin AMX 1970
+  - AMC Rebel “The Machine” 1970
+- **Apollo (1)**
+  - Apollo Intensa Emozione 2018
+- **Ariel (1)**
+  - Ariel Atom 500 V8 2013
+- **Aston Martin (16)**
+  - Aston Martin AMR1 #18 1989
+  - Aston Martin DB4 GT Zagato 1960
+  - Aston Martin DB5 1964
+  - Aston Martin DBR1 1958
+  - Aston Martin DBS 1967
+  - Aston Martin DBS 2008
+  - Aston Martin DBS Superleggera 2019
+  - Aston Martin V8 Vantage V600 1998
+  - Aston Martin V12 Vanquish 2001
+  - Aston Martin V12 Vantage GT3 AMR #7 2017
+  - Aston Martin Valhalla Concept Car 2019
+  - Aston Martin Vanquish Zagato Coupe 2017
+  - Aston Martin Vantage GT12 2015
+  - Aston Martin Vantage 2019
+  - Aston Martin Vulcan 2016
+  - Aston Martin Vulcan AMR Pro 2017
+- **Audi (24)**
+  - Audi 90 quattro IMSA GTO #4 1989
+  - Audi R8 Coupe V10 plus 5.2 FSI quattro 2013
+  - Audi R8 V10 plus 2016
+  - Audi R8 LMS GT3 #44 2018 – RDCP
+  - Audi R18 e-tron quattro Team Joest #2 2014
+  - Audi RS e-tron GT 2021
+  - Audi RS2 Avant 1995
+  - Audi RS3 LMS #1 Audi Sport 2018
+  - Audi RS3 Sedan 2020
+  - Audi RS3 Sportback 2011
+  - Audi RS4 2006
+  - Audi RS4 Avant 2001
+  - Audi RS4 Avant 2013
+  - Audi RS4 Avant 2018
+  - Audi RS5 Coupe 2018
+  - Audi RS6 2003
+  - Audi RS6 Avant 2015
+  - Audi RS6 Avant 2021
+  - Audi RS7 Sportback 2021
+  - Audi S1 2015
+  - Audi S4 2004
+  - Audi Sport quattro 1984
+  - Audi TT RS 2018
+  - Audi TT RS Rotek Racing #17 2016
+- **Austin-Healey (1)**
+  - Austin-Healey 3000 MkIII 1965
+- **Automobili Pininfarina (1)**
+  - Automobili Pininfarina Battista 2020
+- **Auto Union (1)**
+  - Auto Union Type D 1939
+- **BAC (1)**
+  - BAC Mono 2014
+- **Bentley (3)**
+  - Bentley Continental M-Sport #17 GT3 2014
+  - Bentley Continental Supersports 2017
+  - Bentley Speed 8 #7 2003
+- **BMW (25)**
+  - BMW 2002 Turbo 1973
+  - BMW 3.0 CSL 25 BMW Motorsport 1975
+  - BMW 323ti Sport 2000
+  - BMW 850CSi 1995
+  - BMW i8 2015
+  - BMW M1 1981
+  - BMW M1 Procar #6 BMW Motorsport 1979
+  - BMW M3 1991
+  - BMW M3 1997
+  - BMW M3 2005
+  - BMW M3 Competition Sedan 2021
+  - BMW M3-GTR 2002
+  - BMW M3 GTS 2010
+  - BMW M4 Competition Coupe 2021
+  - BMW M4 GTS 2016
+  - BMW M5 1988
+  - BMW M5 2012
+  - BMW M5 2018
+  - BMW M6 Coupe 2013
+  - BMW M6 GTLM #24 Team RLL 2017
+  - BMW M8 Competition Coupe 2020
+  - BMW M8 GTE #1 BMW M Motorsport 2018
+  - BMW V12 LMR #15 BMW Motorsport 1999
+  - BMW Z3 M Coupe 2002
+  - BMW Z4 Roadster 2019
+- **Brabham (2)**
+  - Brabham BT24 1967
+  - Brabham BT62 2019
+- **BRM (1)**
+  - BRM P201 #14 Team Motul 1974 – RDCP
+- **Bugatti (4)**
+  - Bugatti Chiron 2018
+  - Bugatti Divo 2019
+  - Bugatti EB110 Super Sport 1992
+  - Bugatti Type 35 C 1926
+- **Buick (2)**
+  - Buick Regal GNX 1987
+  - Buick GSX 1970
+- **Cadillac (7)**
+  - Cadillac ATS-V 2016
+  - Cadillac CT4-V Blackwing 2022
+  - Cadillac CT5-V Blackwing 2022
+  - Cadillac CTS-V Sedan 2016
+  - Cadillac V-Series.R #01 Cadillac Racing 2023
+  - Cadillac V-Series.R #2 Cadillac Racing 2023
+  - Cadillac V-Series.R #31 Whelen Engineering 2023
+- **Caterham (1)**
+  - Caterham Superlight R500 2013
+- **Chaparral (1)**
+  - Chaparral 2E #66 1966
+- **Chevrolet (27)**
+  - Chevrolet Camaro 35th Anniversary Super Sport 2002
+  - Chevrolet Camaro IROC-Z 1990
+  - Chevrolet Camaro Super Sport Coupe 1969
+  - Chevrolet Camaro Super Sport 2016
+  - Chevrolet Camaro Z28 1970
+  - Chevrolet Camaro ZL1 2017
+  - Chevrolet Camaro ZL1 1LE 2018
+  - Chevrolet Camaro ZL1 1LE 2018 Forza Edition – VIP
+  - Chevrolet Chevelle Super Sport 454 1970
+  - Chevrolet Corvette #76 Greenwood 1976
+  - Chevrolet Corvette Daytona Prototype #10 Konica Minolta 2015
+  - Chevrolet Corvette Stingray 427 1967
+  - Chevrolet Corvette C7 Stingray Coupe 2020
+  - Chevrolet Corvette C7 Stingray Coupe 2020 Forza Edition – VIP
+  - Chevrolet Corvette C7.R #3 Corvette Racing 2014
+  - Chevrolet Corvette C8 E-Ray 2024
+  - Chevrolet Corvette C8.R #3 Corvette Racing 2020
+  - Chevrolet Corvette Z06 2002
+  - Chevrolet Corvette Z06 2015
+  - Chevrolet Corvette Z06 2023
+  - Chevrolet Corvette ZR-1 1970
+  - Chevrolet Corvette ZR-1 1995
+  - Chevrolet Corvette ZR1 2009
+  - Chevrolet Corvette ZR1 2019
+  - Chevrolet Monte Carlo Super Sport 1988
+  - Chevrolet Nova Super Sport 396 1969
+  - Chevrolet Oreca FLM09 #55 Level 5 Motorsports 2010
+- **Chrysler (1)**
+  - Chrysler VH Valiant Charger R/T E49 1972
+- **Citroen (1)**
+  - Citroen DS3 Racing 2011
+- **Datsun (3)**
+  - Datsun 2000 Roadster 1969
+  - Datsun 280ZX Turbo #33 1979
+  - Datsun 510 1970
+- **Dodge (16)**
+  - Dodge Challenger R/T 1970
+  - Dodge Challenger SRT Demon 2018 – Reward Car
+  - Dodge Challenger SRT8 2012
+  - Dodge Charger Daytona HEMI 1969
+  - Dodge Charger R/T 1969
+  - Dodge Charger SRT Hellcat 2015
+  - Dodge Coronet Super Bee 1970
+  - Dodge Dart GT 2013
+  - Dodge Shelby Omni GLHS 1986
+  - Dodge Stealth R/T Turbo 1996
+  - Dodge SRT-4 ACR 2005
+  - Dodge SRT Viper GTS 2013
+  - Dodge Viper ACR 2016
+  - Dodge Viper GTS ACR 1999
+  - Dodge Viper GTS-R #93 SRT Motorsports 2014
+  - Dodge Viper SRT10 ACR 2008
+- **Donkervoort (1)**
+  - Donkervoort D8 GTO 2013
+- **Eagle (1)**
+  - Eagle Talon TSi Turbo 1998
+- **Eagle-Weslake (1)**
+  - Eagle-Weslake T1G 1967
+- **Exomotive (1)**
+  - Exomotive Exocet Sport V8 XP-5 2018
+- **Ferrari (40)**
+  - Ferrari 166 Inter Sport 1948
+  - Ferrari 250 GT Berlinetta Lusso 1962
+  - Ferrari 250 GTO 1962
+  - Ferrari 250 Testa Rossa 1957
+  - Ferrari 250LM 1963
+  - Ferrari 288 GTO 1984
+  - Ferrari 312 T2 #1 Scuderia Ferrari 1976
+  - Ferrari 330 P4 #24 Ferrari Spa 1967
+  - Ferrari 360 Challenge Stradale 2003
+  - Ferrari 458 Italia 2009
+  - Ferrari 458 Speciale 2013
+  - Ferrari 488 Challenge #25 Corse Clienti 2017
+  - Ferrari 488 Pista 2019
+  - Ferrari 500 Mondial 1953
+  - Ferrari 512 BB/LM #72 NART 1982
+  - Ferrari 512 S 1970
+  - Ferrari 512 TR 1992
+  - Ferrari 575M Maranello 2002
+  - Ferrari 599XX Evoluzione 2012
+  - Ferrari 641 Scuderia Ferrari #1 1990
+  - Ferrari 812 Superfast 2017
+  - Ferrari California T 2014
+  - Ferrari Dino 246 GT 1969
+  - Ferrari Enzo Ferrari 2002
+  - Ferrari F-158 F1 1964
+  - Ferrari F12tdf 2015
+  - Ferrari F333 SP #12 Risi Competizione 1988
+  - Ferrari F355 Berlinetta
+  - Ferrari F40 1987
+  - Ferrari F40 Competizione 1989
+  - Ferrari F50 1995
+  - Ferrari F50 GT 1996
+  - Ferrari F8 Tributo 2019
+  - Ferrari FXX-K EVO 2018
+  - Ferrari J50 2017
+  - Ferrari LaFerrari 2013
+  - Ferrari Monza SP2 2019
+  - Ferrari Portofino 2018
+  - Ferrari Roma 2020
+  - Ferrari SF90 Stradale 2020
+- **Ford (33)**
+  - Ford Capri Turbo #2 Zakspeed Racing 1981
+  - Ford Escort RS1600 1973
+  - Ford Escort RS1800 1977
+  - Ford Escort RS Cosworth 1992
+  - Ford Escort RS Turbo 1986
+  - Ford Falcon FG X #17 Shell V-Power Racing Team 2017
+  - Ford Falcon GT 1992
+  - Ford Falcon GT F 351 2015
+  - Ford Fiesta XR2 1981
+  - Ford Focus RS 2003
+  - Ford Focus RS 2009
+  - Ford Focus RS 2017
+  - Ford Focus ST BTCC #17 AMD Tuning 2014 – RDCP
+  - Ford GT 2005
+  - Ford GT 2017 – Reward Car
+  - Ford GT Le Mans #66 Ford Racing 2016
+  - Ford GT40 Mk I 1964
+  - Ford GT40 MkII Le Mans #2 1966
+  - Ford Lotus Cortina 1966
+  - Ford Mustang Boss 302 1969
+  - Ford Mustang GT 2+2 Fastback 1968
+  - Ford Mustang GT Coupe 1965
+  - Ford Mustang GT 2018
+  - Ford Mustang IMSA GT #6 Zakspeed Roush 1982
+  - Ford Mustang Shelby GT350R 2016
+  - Ford Mustang Shelby GT500 2020
+  - Ford Mustang SVO 1986
+  - Ford Racing Puma 1999
+  - Ford Riley MkXXVI Daytona Prototype #02 Chip Ganassi Racing 2015
+  - Ford Sierra Cosworth RS500 1987
+  - Ford SVT Cobra R 1993
+  - Ford SVT Cobra R 2000
+  - Ford XB Falcon GT 1973
+- **Holden (5)**
+  - Holden HQ Monaro GTS 350 1973
+  - Holden Monaro GTS 327 1968
+  - Holden Torana A9X 1977
+  - Holden VF Commodore #22 Walkinshaw Performance 2017
+  - Holden VL Commodore Group A SV 1988
+- **Honda (11)**
+  - Honda Civic #73 LA Honda World Racing 2020
+  - Honda Civic Type R 1997
+  - Honda Civic Type R 2004
+  - Honda Civic Type R 2018
+  - Honda CR-X SiR 1991
+  - Honda NSX-R 1992
+  - Honda NSX-R 2005
+  - Honda Prelude Type SH 2000
+  - Honda RA300 1967
+  - Honda S2000 CR 2009
+  - Honda S800 1970
+- **HSV (2)**
+  - HSV GEN-F GTS 2014
+  - HSV GTSR 1996
+- **Hyundai (3)**
+  - Hyundai Veloster N 2019
+  - Hyundai Veloster N 2019 Forza Edition – VIP
+  - Hyundai Veloster N #98 Bryan Herta Autosport 2020
+- **Infiniti (3)**
+  - Infiniti G35 Coupe 2003
+  - Infiniti IPL G Coupe 2012
+  - Infiniti Q50 Eau Rouge 2014
+- **Jaguar (11)**
+  - Jaguar D-Type 1956
+  - Jaguar E-Type 1961
+  - Jaguar F-Type R Coupe 2015
+  - Jaguar XFR-S 2015
+  - Jaguar XJ220 1993
+  - Jaguar XJ220S TWR 1993
+  - Jaguar XJR-5 #44 Group 44 1983
+  - Jaguar XJR-9 #1 Jaguar Racing 1988
+  - Jaguar XKR-S GT 2015
+  - Jaguar MkII 3.8 1959
+  - Jaguar Sport XJR-15 1991
+- **Koenigsegg (2)**
+  - Koenigsegg Agera RS 2017
+  - Koenigsegg Jesko 2020
+- **KTM (2)**
+  - KTM X-Bow GT4 2018
+  - KTM X-Bow R 2013
+- **Lamborghini (16)**
+  - Lamborghini Aventador J 2012
+  - Lamborghini Aventador SVJ 2018
+  - Lamborghini Centenario LP 770-4 2016
+  - Lamborghini Countach LP5000 QV 1988
+  - Lamborghini Diablo GTR 1999
+  - Lamborghini Diablo SV 1997
+  - Lamborghini Espada 400 GT 1973
+  - Lamborghini Essenza SCV12 2021
+  - Lamborghini Gallardo LP 570-4 Superleggera 2011
+  - Lamborghini Huracan EVO 2020
+  - Lamborghini Huracan Performante 2018
+  - Lamborghini Huracan STO 2020
+  - Lamborghini Jarama S 1972
+  - Lamborghini Miura P400 1967
+  - Lamborghini Sian FKP 37 2019
+  - Lamborghini Veneno 2013
+- **Lexus (6)**
+  - Lexus GS350 F Sport 2013
+  - Lexus IS 350 F Sport 2014
+  - Lexus LC 500 2021
+  - Lexus LFA 2010 – Reward Car
+  - Lexus RC F 2015
+  - Lexus RC F Track Edition 2020
+- **Lola (2)**
+  - Lola T70 MkIIIB #6 Penske Sunoco 1969
+  - Lola T163 #10 Simoniz Special 1969
+- **Lotus (8)**
+  - Lotus 3-Eleven 2016
+  - Lotus 77 #5 Team Lotus 1976
+  - Lotus Elan Sprint 1971
+  - Lotus Emira 2023
+  - Lotus Esprit V8 2002
+  - Lotus Evija 2020
+  - Lotus Evora S 2011
+  - Lotus Type 49 1967
+- **Lynk&Co (2)**
+  - Lynk & Co 03 #62 Cyan Racing 2020
+  - Lynk & Co 03+ 2021
+- **Maserati (7)**
+  - Maserati 300 S 1957
+  - Maserati 8CTF 1939
+  - Maserati A6GCS/53 PininFarina Berlinetta 1953
+  - Maserati Ghibli Cup 1997
+  - Maserati Ghibli S Q4 2014
+  - Maserati MC12 2004
+  - Maserati Tipo 61 Birdcage 1961
+- **Mazda (16)**
+  - Mazda 323 GT-R 1992
+  - Mazda 787B #55 1991
+  - Mazda Cosmo 110S Series II 1972
+  - Mazda Formula Mazda 2015
+  - Mazda Lola B12/80 #70 SpeedSource 2014
+  - Mazda MX-5 2013
+  - Mazda MX-5 2016
+  - Mazda MX-5 Miata 1990
+  - Mazda MX-5 Miata 1994
+  - Mazda RX-3 1973
+  - Mazda RX-7 1997
+  - Mazda RX-7 #62 Mazda Motorsport 1991
+  - Mazda RX-7 GSL-SE 1985
+  - Mazda RX-7 Spirit R Type-A 2002
+  - Mazda RX-8 R3 2011
+  - Mazda Savanna RX-7 1990
+- **McLaren (16)**
+  - McLaren 600LT Coupe 2018
+  - McLaren 620R 2021
+  - McLaren 720S Coupe 2018
+  - McLaren 720S Spider 2019
+  - McLaren 765LT 2021
+  - McLaren F1 1993
+  - McLaren F1 GT 1997
+  - McLaren GT 2020
+  - McLaren M1B #4 Bruce McLaren Motor Racing 1966
+  - McLaren M2B 1966
+  - McLaren M8B #4 McLaren Cars 1969
+  - McLaren M23 #11 Team McLaren 1976
+  - McLaren MP4/4 Honda #12 1988
+  - McLaren P1 2013
+  - McLaren P1 GTR 2015
+  - McLaren Senna 2018
+- **Mercedes-AMG (7)**
+  - Mercedes-AMG C 63 S Coupe 2016
+  - Mercedes-AMG C 63 S Coupe 2016 Forza Edition – VIP
+  - Mercedes-AMG E 63 S 2018
+  - Mercedes-AMG GT 4-Door Coupe 2018
+  - Mercedes-AMG GT Black Series 2021
+  - Mercedes-AMG GT R 2017
+  - Mercedes-AMG ONE 2021
+- **Mercedes-Benz (12)**
+  - Mercedes-Benz 190E 2.5-16 Evolution II 1990
+  - Mercedes-Benz 300 SL Coupe 1954
+  - Mercedes-Benz 300 SLR 1955
+  - Mercedes-Benz A 45 AMG 2013
+  - Mercedes-Benz A-Class #33 Mac Tools Ciceley Motorsport 2017
+  - Mercedes-Benz C32 AMG 2004
+  - Mercedes-Benz C 63 AMG Coupe Black Series 2012
+  - Mercedes-Benz C9 #63 Sauber-Mercedes 1989
+  - Mercedes-Benz SL 65 AMG Black Series 2009
+  - Mercedes-Benz SLK 55 AMG 2012
+  - Mercedes-Benz SLS AMG 2011
+  - Mercedes-Benz W154 1939
+- **Mercury (2)**
+  - Mercury Cougar Eliminator 1970
+  - Mercury Cougar XR-7 #15 Whistler Radar 1990
+- **Merkur (1)**
+  - Merkur XR4Ti #11 MAC Tools 1986
+- **MG (3)**
+  - MG MG6 XPower 2021
+  - MG MGA Twin-Cam 1958
+  - MG MGB GT 1966
+- **MINI (3)**
+  - MINI Cooper S 1965
+  - MINI John Cooper Works GP 2012
+  - MINI John Cooper Works GP 2021
+- **Mitsubishi (8)**
+  - Mitsubishi Eclipse GSX 1995
+  - Mitsubishi FTO GP Version R 1998
+  - Mitsubishi Galant VR-4 1992
+  - Mitsubishi GTO 1997
+  - Mitsubishi Lancer Evolution VI GSR 1999
+  - Mitsubishi Lancer Evolution VIII MR 2004
+  - Mitsubishi Lancer Evolution IX MR 2006
+  - Mitsubishi Lancer Evolution X GSR 2008
+- **NIO (1)**
+  - NIO EP9 2016
+- **Nissan (30)**
+  - Nissan 240SX SE 1993
+  - Nissan 300ZX #33 Bob Sharp Racing 1988
+  - Nissan 370Z Nismo 2019
+  - Nissan Altima Racecar 2017
+  - Nissan Bluebird Super Silhouette #20 1984
+  - Nissan Fairlady Z 2003
+  - Nissan Fairlady Z 432 1969
+  - Nissan Fairlady Z Version S Twin Turbo 1994
+  - Nissan GT-R LM NISMO #23 2015
+  - Nissan GT-R (R35) 2017
+  - Nissan GT-R NISMO (R35) 2020
+  - Nissan Pulsar GTi-R 1990
+  - Nissan R380 II 1967
+  - Nissan R382 #21 Nissan Racing 1969
+  - Nissan R390 GT1 1998
+  - Nissan R91CP #23 Nissan 1991
+  - Nissan Sentra NISMO 2018
+  - Nissan Silvia CLUB K’s 1992
+  - Nissan Silvia K’s 1994
+  - Nissan Silvia K’s Aero 1998
+  - Nissan Silvia Spec-R 2000
+  - Nissan Skyline 2000GT-R 1971
+  - Nissan Skyline GT-R V-Spec 1993
+  - Nissan Skyline GT-R V-Spec 1997
+  - Nissan Skyline GT-R V-Spec II 2002
+  - Nissan Skyline GTS-R (HR31) 1987
+  - Nissan Skyline H/T 2000GT-R 1973
+  - Nissan Skyline Turbo Super Silhouette #11 Tomica 1984
+  - Nissan Z 2023
+  - Nissan ZX-Turbo #83 GTP 1985
+- **Oldsmobile (2)**
+  - Oldsmobile Cutlass Supreme Trans Am #75 1990 – RDCP
+  - Oldsmobile Hurst/Olds 442 1969
+- **Opel (1)**
+  - Opel Kadett C GT/E 1979
+- **Pagani (1)**
+  - Pagani Huayra BC 2016
+- **Peugeot (3)**
+  - Peugeot 205 Turbo 16 1984
+  - Peugeot 308 GTI 2011
+  - Peugeot 905 EVO 1C #3 Peugeot Talbot Sport 1993
+- **Plymouth (2)**
+  - Plymouth Cuda 426 Hemi 1971
+  - Plymouth GTX 426 Hemi 1971
+- **Pontiac (5)**
+  - Pontiac Firebird Trans Am 1969
+  - Pontiac Firebird Trans Am GTA 1987
+  - Pontiac Firebird Trans Am Ram Air 2002
+  - Pontiac Firebird Trans Am SD-455 1973
+  - Pontiac GTO Judge 1969
+- **Porsche (34)**
+  - Porsche 356A Speedster 1957
+  - Porsche 718 Cayman GTS 2018
+  - Porsche 718 RS 60 1960
+  - Porsche 550 Spyder 1955
+  - Porsche 911 GT2 1995 – Reward Car
+  - Porsche 911 GT2 RS 2012
+  - Porsche 911 GT2 RS 2018
+  - Porsche 911 GT3 2004
+  - Porsche 911 GT3 2007
+  - Porsche 911 GT3 2021
+  - Porsche 911 GT3 RS 2019
+  - Porsche 911 GT3 R #73 Park Place Motorsport 2018 – RDCP
+  - Porsche 911 RSR #92 Porsche GT Team 2017
+  - Porsche 911 RSR #91 Porsche Team Manthey 2015
+  - Porsche 911 Carrera RS 1973
+  - Porsche 911 GT1 Strassenversion 1997
+  - Porsche 911 Carrera S 2019
+  - Porsche 911 Speedster 2019
+  - Porsche 911 Turbo 3.3 1982
+  - Porsche 911 Turbo S Leichtbau 1993
+  - Porsche 914/6 1970
+  - Porsche 917 LH #3 1970
+  - Porsche 918 Spyder 2014
+  - Porsche 919 Hybrid #2 Porsche Team 2017
+  - Porsche 924 Carrera GTS 1980
+  - Porsche 928 GTS 1993
+  - Porsche 944 Turbo 1989
+  - Porsche 959 1987
+  - Porsche 962C #17 Porsche AG 1987
+  - Porsche 968 Turbo S 1993
+  - Porsche Carrera GT 2003
+  - Porsche Mission R 2021
+  - Porsche Panamera Turbo 2017
+  - Porsche Taycan Turbo S 2020
+- **Radical (1)**
+  - Radical RXC Turbo 2015
+- **RAESR (1)**
+  - RAESR Tachyon Speed 2019
+- **Renault (7)**
+  - Renault 5 Turbo 1980
+  - Renault 8 Gordini 1967
+  - Renault Clio R.S. 16 Concept 2016
+  - Renault Clio Williams 1993
+  - Renault Megane R26.R 2008
+  - Renault Megane R.S. 2018
+  - Renault Sport Clio V6 2003
+- **Rimac (2)**
+  - Rimac Concept Two 2019
+  - Rimac Nevera 2021
+- **Saleen (2)**
+  - Saleen S1 2018
+  - Saleen S7 2004
+- **Shelby (3)**
+  - Shelby Cobra 427 S/C 1965
+  - Shelby Cobra Daytona Coupe 1965
+  - Shelby Monaco King Cobra 1963
+- **Subaru (11)**
+  - Subaru BRZ 2013
+  - Subaru Impreza 22B-STi Version 1998
+  - Subaru Impreza WRX STI 2004
+  - Subaru Impreza WRX STi 2008
+  - Subaru Impreza WRX STi 2011
+  - Subaru Levorg GT Adrian Flux #1 BTCC 2018 – RDCP
+  - Subaru Legacy RS 1990
+  - Subaru STI S209 2019
+  - Subaru STI S209 2019 Forza Edition – VIP
+  - Subaru WRX STI 2011
+  - Subaru WRX STI 2015
+- **Toyota (15)**
+  - Toyota 2000GT 1969
+  - Toyota Celica GT 1974
+  - Toyota Celica GT-Four ST205 1994
+  - Toyota Celica GT-Four RC ST185 1992
+  - Toyota Celica Sport Specialty II 2003
+  - Toyota Corolla SR5 1974
+  - Toyota Eagle Mk III #99 All American Racers 1992
+  - Toyota GR Supra 2020
+  - Toyota GT-ONE TS020 #3 Toyota Motorsports 1999
+  - Toyota MR2 GT 1995
+  - Toyota MR2 SC 1989
+  - Toyota Sprinter Trueno GT Apex 1985
+  - Toyota Supra 2.0 GT 1992
+  - Toyota Supra RZ 1998
+  - Toyota TS040 HYBRID #8 Toyota Racing 2014
+- **TVR (1)**
+  - TVR Griffith 2018
+- **Ultima (1)**
+  - Ultima Evolution Coupe 1020 2015
+- **Vauxhall (5)**
+  - Vauxhall Astra #66 Power Maxed TAG Racing 2017 – RDCP
+  - Vauxhall Astra VXR 2006
+  - Vauxhall Astra VXR 2012
+  - Vauxhall Corsa VXR 2016
+  - Vauxhall Lotus Carlton 1990
+- **Volkswagen (10)**
+  - Volkswagen Corrado VR6 1995
+  - Volkswagen Golf R 2014
+  - Volkswagen Golf R 2020
+  - Volkswagen Golf R 2021
+  - Volkswagen Golf R32 2003
+  - Volkswagen Golf GTI 1983
+  - Volkswagen Golf GTI 16v Mk2 1992
+  - Volkswagen Golf GTI VR6 Mk3 1998
+  - Volkswagen Scirocco 16v 1988
+  - Volkswagen Scirocco S 1981
+- **Volvo (1)**
+  - Volvo 850R 1997
+- **VUHL (1)**
+  - VUHL 05RR 2017
+- **XPeng (1)**
+  - XPeng P7 2020
+- **Zenvo (1)**
+  - Zenvo TSR-S 2019
