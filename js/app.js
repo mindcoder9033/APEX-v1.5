@@ -7,7 +7,7 @@ import { router } from './router.js';
 import { ui } from './ui.js';
 
 import { renderDashboardView } from './views/dashboard.js';
-import { renderCurriculumView } from './views/curriculum.js';
+import { renderCurriculumView, renderModuleDetailView } from './views/curriculum.js';
 import { renderSessionView } from './views/session.js';
 import { renderProgressView } from './views/progress.js';
 
@@ -67,6 +67,10 @@ class ApexApp {
 
     router.register('/curriculum', 'view-curriculum', () => {
       renderCurriculumView(this.curriculumData);
+    });
+
+    router.register('/module/:modId', 'view-module', (params) => {
+      renderModuleDetailView(this.curriculumData, params.modId);
     });
 
     router.register('/session/:modId/:sessId', 'view-session', (params) => {

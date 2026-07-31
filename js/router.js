@@ -124,8 +124,8 @@ class HashRouter {
     const navItems = document.querySelectorAll('.bottom-nav .nav-item');
     navItems.forEach(item => {
       const targetView = item.getAttribute('data-view');
-      // If we are in session wizard view, highlight curriculum tab
-      if (viewId === 'view-session' && targetView === 'curriculum') {
+      // If we are in session wizard view or module detail view, highlight curriculum tab
+      if ((viewId === 'view-session' || viewId === 'view-module') && targetView === 'curriculum') {
         item.classList.add('active');
       } else if (`view-${targetView}` === viewId) {
         item.classList.add('active');
