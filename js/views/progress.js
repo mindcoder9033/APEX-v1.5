@@ -3,6 +3,8 @@
    ========================================== */
 
 import { storage } from '../storage.js';
+import { ui } from '../ui.js';
+import { exportSessionPDF } from '../pdf/pdf-exporter.js';
 
 export function renderProgressView(curriculumData) {
   const viewContainer = document.getElementById('view-progress');
@@ -92,6 +94,14 @@ export function renderProgressView(curriculumData) {
               " ${reflections[0]} "
             </div>
           ` : ''}
+          <div style="margin-top: 0.6rem; display: flex; justify-content: flex-end;">
+            <button class="btn btn-secondary export-history-pdf-btn" style="padding: 0.35rem 0.75rem; font-size: 0.8rem; min-height: 32px;" data-sessid="${item.session.id}" data-modid="${item.module.id}">
+              <svg viewBox="0 0 24 24" width="14" height="14" fill="currentColor" style="vertical-align: middle; margin-right: 4px;">
+                <path d="M19 9h-4V3H9v6H5l7 7 7-7zM5 18v2h14v-2H5z"/>
+              </svg>
+              DOWNLOAD PDF
+            </button>
+          </div>
         </div>
       `;
     });
@@ -146,6 +156,36 @@ export function renderProgressView(curriculumData) {
       ${historyListHtml}
     </div>
   `;
+
+  // Attach PDF Export Event Listeners for History Items
+  const exportPdfBtns = viewContainer.querySelectorAll('.export-history-pdf-btn');
+  exportPdfBtns.forEach(btn => {
+    btn.addEventListener('click', async () => {
+      const sessId = btn.getAttribute('data-sessid');
+      const modId = btn.getAttribute('data-modid');
+
+      const mod = curriculumData.modules.find(m => m.id == modId);
+      const sess = mod ? mod.sessions.find(s => s.id == sessId) : null;
+      const sData = sessionDataMap[sessId] || {};
+
+      if (!sess || !mod) return;
+
+      try {
+        btn.disabled = true;
+        const originalHtml = btn.innerHTML;
+        btn.innerHTML = 'GENERATING...';
+
+        await exportSessionPDF(sess, sData, mod);
+        ui.showToast('PDF Telemetry Report Generated!', 'success');
+        btn.innerHTML = originalHtml;
+      } catch (err) {
+        console.error('PDF Export Error:', err);
+        ui.showToast('Failed to generate PDF report', 'error');
+      } finally {
+        btn.disabled = false;
+      }
+    });
+  });
 }
 
 function generateSVGGraph(historyItems) {

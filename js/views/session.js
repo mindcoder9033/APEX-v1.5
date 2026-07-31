@@ -5,6 +5,7 @@
 import { storage } from '../storage.js';
 import { router } from '../router.js';
 import { ui } from '../ui.js';
+import { exportSessionPDF } from '../pdf/pdf-exporter.js';
 
 let currentStep = 1; // 1 to 9
 let activeSession = null;
@@ -293,7 +294,13 @@ function renderWizardStep() {
             </div>
           </div>
 
-          <div style="margin-top: 1.5rem;">
+          <div style="margin-top: 1.5rem; display: flex; flex-direction: column; gap: 0.75rem;">
+            <button id="export-pdf-step9-btn" class="btn btn-secondary btn-block" style="padding: 0.85rem; font-size: 1rem;">
+              <svg viewBox="0 0 24 24" width="20" height="20" fill="currentColor" style="vertical-align: middle; margin-right: 6px;">
+                <path d="M19 9h-4V3H9v6H5l7 7 7-7zM5 18v2h14v-2H5z"/>
+              </svg>
+              EXPORT PDF REPORT
+            </button>
             <button id="complete-session-action-btn" class="btn btn-primary btn-block" style="padding: 1rem; font-size: 1.1rem;">
               <svg viewBox="0 0 24 24" width="22" height="22" fill="currentColor"><path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z"/></svg>
               LOG & COMPLETE SESSION DRILL
@@ -432,6 +439,50 @@ function attachWizardListeners() {
       renderWizardStep();
     });
   });
+
+  // Step 9 Export PDF Button Listener
+  const exportPdfBtn = document.getElementById('export-pdf-step9-btn');
+  if (exportPdfBtn) {
+    exportPdfBtn.addEventListener('click', async () => {
+      try {
+        exportPdfBtn.disabled = true;
+        const originalHtml = exportPdfBtn.innerHTML;
+        exportPdfBtn.innerHTML = `GENERATING TELEMETRY PDF...`;
+
+        let correctCount = 0;
+        if (activeSession.assessment) {
+          activeSession.assessment.forEach(q => {
+            if (wizardFormData.assessmentAnswers[q.id] === q.correctIndex) {
+              correctCount++;
+            }
+          });
+        }
+
+        const currentSessionData = {
+          completedAt: new Date().toISOString(),
+          assessmentScores: wizardFormData.assessmentAnswers,
+          assessmentPassed: correctCount >= 2,
+          correctCount: correctCount,
+          totalQuestions: activeSession.assessment ? activeSession.assessment.length : 3,
+          psychRatings: wizardFormData.psychRatings,
+          reflections: wizardFormData.reflectionAnswers,
+          feedbackRating: wizardFormData.feedbackRating,
+          lapsCompleted: wizardFormData.lapsCompleted || "",
+          bestLapTime: wizardFormData.bestLapTime || "",
+          driverNotes: wizardFormData.driverNotes || ""
+        };
+
+        await exportSessionPDF(activeSession, currentSessionData, activeModule);
+        ui.showToast('PDF Telemetry Report Generated!', 'success');
+        exportPdfBtn.innerHTML = originalHtml;
+      } catch (err) {
+        console.error('PDF Export Error:', err);
+        ui.showToast('Failed to generate PDF report', 'error');
+      } finally {
+        exportPdfBtn.disabled = false;
+      }
+    });
+  }
 
   // Complete Session Button Listener
   const completeActionBtn = document.getElementById('complete-session-action-btn');
