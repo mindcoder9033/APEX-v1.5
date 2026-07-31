@@ -1,0 +1,166 @@
+/* ==========================================
+   APEX Simracing Coach - Main & Design System
+   High-Performance Telemetry Aesthetic
+   ========================================== */
+
+@import url('https://fonts.googleapis.com/css2?family=Oswald:wght@500;600;700&family=Rajdhani:wght@600;700&family=Roboto+Mono:wght@400;500;700&family=Share+Tech+Mono&family=Titillium+Web:ital,wght@0,400;0,600;0,700;1,400&display=swap');
+
+:root {
+  /* Color Palette */
+  --bg-primary: #121212;
+  --bg-secondary: #1E1E28;
+  --bg-tertiary: #272732;
+  --bg-card: #1E1E28;
+  
+  --accent-red: #E10600;
+  --accent-red-hover: #B80500;
+  --accent-red-active: #900400;
+  --accent-red-alpha: rgba(225, 6, 0, 0.15);
+  --accent-red-glow: rgba(225, 6, 0, 0.4);
+
+  --accent-green: #00E676;
+  --accent-green-alpha: rgba(0, 230, 118, 0.15);
+  --accent-amber: #FFAB00;
+  --accent-amber-alpha: rgba(255, 171, 0, 0.15);
+  
+  --text-primary: #FFFFFF;
+  --text-secondary: #A0A0B0;
+  --text-muted: #6C6C7D;
+
+  --border-color: #3A3A45;
+  --border-highlight: #5A5A6A;
+  --border-red: #E10600;
+
+  /* Typography */
+  --font-header: 'Rajdhani', 'Oswald', sans-serif;
+  --font-title: 'Oswald', sans-serif;
+  --font-mono: 'Share Tech Mono', 'Roboto Mono', monospace;
+  --font-body: 'Titillium Web', -apple-system, BlinkMacSystemFont, sans-serif;
+
+  /* Layout Dimensions */
+  --header-height: 56px;
+  --bottom-nav-height: 64px;
+  --touch-target-min: 48px;
+
+  /* Transitions */
+  --transition-fast: 0.15s ease;
+  --transition-normal: 0.25s ease;
+}
+
+/* Reset & Base Rules */
+*, *::before, *::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  border-radius: 0 !important; /* Strict 0px sharp corner geometry rule */
+}
+
+html, body {
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  background-color: var(--bg-primary);
+  color: var(--text-primary);
+  font-family: var(--font-body);
+  font-size: 15px;
+  line-height: 1.5;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  user-select: none;
+}
+
+/* Base Typography */
+h1, h2, h3, h4, h5, h6 {
+  font-family: var(--font-header);
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  line-height: 1.2;
+  color: var(--text-primary);
+}
+
+h1 { font-size: 1.75rem; font-weight: 700; }
+h2 { font-size: 1.35rem; font-weight: 700; }
+h3 { font-size: 1.15rem; font-weight: 600; }
+h4 { font-size: 1.00rem; font-weight: 600; }
+
+.mono-text, .telemetry-val, .stat-value {
+  font-family: var(--font-mono);
+  letter-spacing: 0.02em;
+}
+
+p {
+  color: var(--text-secondary);
+  margin-bottom: 0.75rem;
+}
+
+p:last-child {
+  margin-bottom: 0;
+}
+
+a {
+  color: var(--accent-red);
+  text-decoration: none;
+}
+
+button, input, select, textarea {
+  font-family: inherit;
+  font-size: inherit;
+  color: inherit;
+  outline: none;
+}
+
+/* Main Container Shell */
+#app {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  height: 100%;
+  max-width: 540px; /* Mobile focused max width */
+  margin: 0 auto;
+  position: relative;
+  background-color: var(--bg-primary);
+  border-left: 1px solid var(--border-color);
+  border-right: 1px solid var(--border-color);
+}
+
+/* Scrollable Viewport */
+.app-content {
+  flex: 1;
+  overflow-y: auto;
+  overflow-x: hidden;
+  padding: 1rem;
+  padding-top: calc(var(--header-height) + 1rem);
+  padding-bottom: calc(var(--bottom-nav-height) + 1rem + env(safe-area-inset-bottom, 0px));
+  -webkit-overflow-scrolling: touch;
+}
+
+/* View Container Mechanics */
+.view {
+  display: none;
+  width: 100%;
+  animation: fadeIn 0.15s ease-in-out;
+}
+
+.view.active {
+  display: block;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(4px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+/* Utilities */
+.text-red { color: var(--accent-red); }
+.text-green { color: var(--accent-green); }
+.text-amber { color: var(--accent-amber); }
+.text-muted { color: var(--text-muted); }
+.text-secondary { color: var(--text-secondary); }
+
+.bg-dark { background-color: var(--bg-secondary); }
+.border-red { border-left: 3px solid var(--accent-red) !important; }
+
+.flex-row { display: flex; align-items: center; }
+.flex-between { display: flex; align-items: center; justify-content: space-between; }
+.gap-sm { gap: 0.5rem; }
+.gap-md { gap: 1rem; }

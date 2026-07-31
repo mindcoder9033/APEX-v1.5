@@ -1,0 +1,48 @@
+{
+  "hardware": {
+    "wheelName": "Moza R3 Direct Drive Wheel & SR-P Lite Pedals",
+    "platform": "Xbox Series X / Series S / PC",
+    "game": "Forza Motorsport (2023)",
+    "mozaPitHouseDefaults": {
+      "maximumSteeringAngle": 900,
+      "gameForceFeedbackIntensity": 100,
+      "maximumSteeringSpeed": 100,
+      "mechanicalDamper": 10,
+      "mechanicalFriction": 5,
+      "speedSensitiveDamping": 15,
+      "naturalInertia": 100,
+      "wheelForceFeedbackEqualizer": "Linear 1:1"
+    },
+    "forzaAdvancedControlsDefaults": {
+      "steeringAxisDeadzoneInside": 0,
+      "steeringAxisDeadzoneOutside": 100,
+      "steeringLinearity": 50,
+      "accelerationAxisDeadzoneInside": 0,
+      "accelerationAxisDeadzoneOutside": 100,
+      "decelerationAxisDeadzoneInside": 2,
+      "decelerationAxisDeadzoneOutside": 98,
+      "clutchAxisDeadzoneInside": 10,
+      "clutchAxisDeadzoneOutside": 90,
+      "handbrakeAxisDeadzoneInside": 10,
+      "handbrakeAxisDeadzoneOutside": 90,
+      "vibrationScale": 50,
+      "forceFeedbackScale": 100,
+      "aligningTorqueScale": 100,
+      "mechanicalTrailScale": 100,
+      "pneumaticTrailScale": 100,
+      "roadFeelScale": 40,
+      "loadSensitivity": 50,
+      "wheelDamperScale": 10,
+      "centerSpringScale": 0,
+      "dynamicDamperScale": 20
+    }
+  },
+  "appDefaults": {
+    "theme": "dark",
+    "haptics": true,
+    "autoSave": true,
+    "soundEffects": true,
+    "telemetryDisplayUnits": "metric",
+    "version": "1.5.0"
+  }
+}

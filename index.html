@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover">
+  <meta name="theme-color" content="#121212">
+  <meta name="description" content="APEX - 30-Day Simracing Coach for Moza R3 on Xbox Forza Motorsport 2023">
+  <title>APEX // Simracing Telemetry Coach</title>
+  
+  <!-- F1 Telemetry Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@500;600;700&family=Rajdhani:wght@600;700&family=Roboto+Mono:wght@400;500;700&family=Share+Tech+Mono&family=Titillium+Web:wght@400;600;700&display=swap" rel="stylesheet">
+  
+  <!-- App Stylesheets -->
+  <link rel="stylesheet" href="css/main.css">
+  <link rel="stylesheet" href="css/components.css">
+  <link rel="stylesheet" href="css/views.css">
+</head>
+<body>
+  <div id="app">
+    <!-- Top Fixed Header -->
+    <header class="app-header">
+      <div class="logo-container">
+        <div class="logo-icon"></div>
+        <div class="logo-text">APEX<span>//</span></div>
+      </div>
+      <div class="header-actions">
+        <button id="settings-toggle-btn" class="icon-btn" aria-label="Settings" title="App Settings">
+          <svg viewBox="0 0 24 24">
+            <path d="M19.14 12.94c.04-.3.06-.61.06-.94 0-.32-.02-.64-.07-.94l2.03-1.58c.18-.14.23-.41.12-.61l-1.92-3.32c-.12-.22-.37-.29-.59-.22l-2.39.96c-.5-.38-1.03-.7-1.62-.94l-.36-2.54c-.04-.24-.24-.41-.48-.41h-3.84c-.24 0-.43.17-.47.41l-.36 2.54c-.59.24-1.13.57-1.62.94l-2.39-.96c-.22-.08-.47 0-.59.22L2.74 8.87c-.12.21-.08.47.12.61l2.03 1.58c-.05.3-.09.63-.09.94s.02.64.07.94l-2.03 1.58c-.18.14-.23.41-.12.61l1.92 3.32c.12.22.37.29.59.22l2.39-.96c.5.38 1.03.7 1.62.94l.36 2.54c.05.24.24.41.48.41h3.84c.24 0 .44-.17.47-.41l.36-2.54c.59-.24 1.13-.56 1.62-.94l2.39.96c.22.08.47 0 .59-.22l1.92-3.32c.12-.22.07-.47-.12-.61l-2.01-1.58zM12 15.6c-1.98 0-3.6-1.62-3.6-3.6s1.62-3.6 3.6-3.6 3.6 1.62 3.6 3.6-1.62 3.6-3.6 3.6z"/>
+          </svg>
+        </button>
+      </div>
+    </header>
+
+    <!-- Slide-Out Settings Drawer -->
+    <aside id="settings-drawer" class="settings-drawer">
+      <div class="drawer-header">
+        <h2>TELEMETRY // SETTINGS</h2>
+        <button id="drawer-close-btn" class="icon-btn" aria-label="Close Settings">
+          <svg viewBox="0 0 24 24"><path d="M19 6.41L17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </div>
+      <div class="drawer-content">
+        <div class="drawer-section">
+          <div class="drawer-section-title">SYSTEM HARDWARE</div>
+          <div class="telemetry-block" style="margin-bottom: 0.75rem;">
+            <div class="telemetry-label">WHEEL BASE</div>
+            <div class="telemetry-value" style="font-size: 0.95rem;">MOZA R3 DIRECT DRIVE</div>
+          </div>
+          <div class="telemetry-block">
+            <div class="telemetry-label">SIMULATOR</div>
+            <div class="telemetry-value" style="font-size: 0.95rem;">FORZA MOTORSPORT (2023)</div>
+          </div>
+        </div>
+
+        <div class="drawer-section">
+          <div class="drawer-section-title">DATA MANAGEMENT</div>
+          <button id="export-json-btn" class="btn btn-secondary btn-block" style="margin-bottom: 0.75rem;">
+            <svg viewBox="0 0 24 24" width="18" height="18" fill="currentColor"><path d="M19 9h-4V3H9v6H5l7 7 7-7zM5 18v2h14v-2H5z"/></svg>
+            EXPORT BACKUP (JSON)
+          </button>
+          
+          <label class="btn btn-secondary btn-block" style="margin-bottom: 0.75rem; cursor: pointer;">
+            <svg viewBox="0 0 24 24" width="18" height="18" fill="currentColor"><path d="M9 16h6v-6h4l-7-7-7 7h4zm-4 2h14v2H5z"/></svg>
+            IMPORT BACKUP (JSON)
+            <input type="file" id="import-json-input" accept=".json" style="display: none;">
+          </label>
+        </div>
+
+        <div class="drawer-section">
+          <div class="drawer-section-title" style="color: var(--accent-red);">DANGER ZONE</div>
+          <button id="reset-progress-btn" class="btn btn-danger btn-block">
+            RESET ALL PROGRESS
+          </button>
+        </div>
+
+        <div class="drawer-section" style="margin-top: auto; padding-top: 1rem; border-top: 1px solid var(--border-color);">
+          <div class="telemetry-label">APEX TELEMETRY SYSTEM v1.5.0</div>
+          <div class="card-subtitle" style="margin-top: 4px;">NO BACKEND // LOCAL PERSISTENCE</div>
+        </div>
+      </div>
+    </aside>
+    <div id="drawer-backdrop" class="drawer-backdrop"></div>
+
+    <!-- Notification Toast Banner -->
+    <div id="toast-banner" class="toast-banner">
+      <div id="toast-message" class="toast-message">Notification Message</div>
+    </div>
+
+    <!-- Scrollable Viewport Main Content -->
+    <main class="app-content">
+      <section id="view-dashboard" class="view active"></section>
+      <section id="view-curriculum" class="view"></section>
+      <section id="view-session" class="view"></section>
+      <section id="view-progress" class="view"></section>
+    </main>
+
+    <!-- Fixed Bottom Navigation Bar -->
+    <nav class="bottom-nav">
+      <button class="nav-item active" data-view="dashboard">
+        <svg viewBox="0 0 24 24"><path d="M3 13h8V3H3v10zm0 8h8v-6H3v6zm10 0h8V11h-8v10zm0-18v6h8V3h-8z"/></svg>
+        <span>Dashboard</span>
+      </button>
+      <button class="nav-item" data-view="curriculum">
+        <svg viewBox="0 0 24 24"><path d="M4 6H2v14c0 1.1.9 2 2 2h14v-2H4V6zm16-4H8c-1.1 0-2 .9-2 2v12c0 1.1.9 2 2 2h12c1.1 0 2-.9 2-2V4c0-1.1-.9-2-2-2zm0 14H8V4h12v12z"/></svg>
+        <span>Curriculum</span>
+      </button>
+      <button class="nav-item" data-view="progress">
+        <svg viewBox="0 0 24 24"><path d="M19 3H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zM9 17H7v-7h2v7zm4 0h-2V7h2v10zm4 0h-2v-4h2v4z"/></svg>
+        <span>Progress</span>
+      </button>
+    </nav>
+  </div>
+
+  <!-- Entry Script Module -->
+  <script type="module" src="js/app.js"></script>
+</body>
+</html>

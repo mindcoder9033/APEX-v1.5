@@ -1,0 +1,242 @@
+/* ==========================================
+   APEX Simracing Coach - View-Specific Styles
+   Dashboard, Curriculum, Session Wizard, Progress
+   ========================================== */
+
+/* Dashboard View */
+.dashboard-hero {
+  background-color: var(--bg-secondary);
+  border: 1px solid var(--border-color);
+  border-left: 4px solid var(--accent-red);
+  padding: 1.25rem;
+  margin-bottom: 1rem;
+}
+
+.hero-tag {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  font-family: var(--font-mono);
+  font-size: 0.75rem;
+  color: var(--accent-red);
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  margin-bottom: 0.5rem;
+}
+
+.hero-tag-pulse {
+  width: 8px;
+  height: 8px;
+  background-color: var(--accent-red);
+  display: inline-block;
+  animation: pulseGlow 1.5s infinite alternate;
+}
+
+@keyframes pulseGlow {
+  from { opacity: 0.4; box-shadow: 0 0 0 rgba(225, 6, 0, 0); }
+  to { opacity: 1; box-shadow: 0 0 8px var(--accent-red); }
+}
+
+.hero-title {
+  font-size: 1.4rem;
+  margin-bottom: 0.25rem;
+}
+
+.hero-subtitle {
+  font-size: 0.9rem;
+  color: var(--text-secondary);
+  margin-bottom: 1rem;
+}
+
+/* Linear Progress Bar Component */
+.overall-progress-card {
+  background-color: var(--bg-secondary);
+  border: 1px solid var(--border-color);
+  padding: 1rem;
+  margin-bottom: 1rem;
+}
+
+.progress-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 0.5rem;
+}
+
+/* Hardware Reminder Card */
+.hardware-badge-card {
+  background-color: var(--bg-secondary);
+  border: 1px solid var(--border-color);
+  padding: 1rem;
+  margin-bottom: 1rem;
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+.hardware-icon {
+  width: 44px;
+  height: 44px;
+  background-color: var(--bg-tertiary);
+  border: 1px solid var(--border-highlight);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--accent-red);
+}
+
+.hardware-details {
+  flex: 1;
+}
+
+/* Curriculum Grid View */
+.module-accordion {
+  margin-bottom: 1rem;
+}
+
+.module-header-card {
+  background-color: var(--bg-secondary);
+  border: 1px solid var(--border-color);
+  padding: 1rem;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  transition: var(--transition-fast);
+}
+
+.module-header-card:hover {
+  background-color: var(--bg-tertiary);
+  border-color: var(--border-highlight);
+}
+
+.session-list {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  margin-top: 0.5rem;
+}
+
+.session-card {
+  background-color: var(--bg-primary);
+  border: 1px solid var(--border-color);
+  padding: 0.85rem 1rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  cursor: pointer;
+  transition: var(--transition-fast);
+}
+
+.session-card:hover {
+  border-color: var(--accent-red);
+  background-color: var(--bg-secondary);
+}
+
+.session-card.locked {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+.session-card.locked:hover {
+  border-color: var(--border-color);
+  background-color: var(--bg-primary);
+}
+
+.session-card.completed {
+  border-left: 3px solid var(--accent-green);
+}
+
+/* Interactive Session Wizard View */
+.wizard-header {
+  background-color: var(--bg-secondary);
+  border: 1px solid var(--border-color);
+  padding: 1rem;
+  margin-bottom: 1rem;
+}
+
+.wizard-title-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 0.5rem;
+}
+
+.wizard-step-badge {
+  font-family: var(--font-mono);
+  font-size: 0.75rem;
+  color: var(--accent-red);
+  text-transform: uppercase;
+}
+
+.step-card {
+  background-color: var(--bg-secondary);
+  border: 1px solid var(--border-color);
+  padding: 1.25rem;
+  margin-bottom: 1.25rem;
+}
+
+.step-section-title {
+  font-family: var(--font-header);
+  font-size: 1rem;
+  color: var(--text-primary);
+  margin-bottom: 0.75rem;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding-bottom: 0.4rem;
+  border-bottom: 1px solid var(--border-color);
+}
+
+.step-section-title svg {
+  fill: var(--accent-red);
+  width: 18px;
+  height: 18px;
+}
+
+.setup-spec-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 0.75rem;
+  margin-top: 0.75rem;
+}
+
+@media (min-width: 400px) {
+  .setup-spec-grid {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+
+.wizard-nav-footer {
+  display: flex;
+  gap: 0.75rem;
+  margin-top: 1.5rem;
+}
+
+/* Progress & Analytics View */
+.analytics-chart-container {
+  background-color: var(--bg-primary);
+  border: 1px solid var(--border-color);
+  padding: 1rem;
+  margin-bottom: 1rem;
+}
+
+.analytics-svg-graph {
+  width: 100%;
+  height: 160px;
+  overflow: visible;
+}
+
+.history-log-item {
+  background-color: var(--bg-secondary);
+  border: 1px solid var(--border-color);
+  padding: 0.85rem 1rem;
+  margin-bottom: 0.5rem;
+}
+
+.history-log-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 0.4rem;
+}
