@@ -77,13 +77,13 @@ The fundamental objective of a race driver is simple: **minimize the time taken 
 However, average straightaway speed is directly dictated by the speed at which you exit the preceding corner. Therefore, before attempting to late-brake or hustle the car, your highest priority is to discover the path that allows the car to corner at its optimum radius. Finding this line is Step 1 of fast driving.
 
 ### 🎯 Practice Drill (15 Mins)
-**The Coasting Line Drill:** Drive 5 slow laps around Lime Rock Park at 50% throttle. Focus entirely on placing your front tires within 6 inches of the inside kerbs at the apex of Turn 1 (Big Bend), Turn 3 (Lefthand), Turn 4 (Right-hander), and Turn 6 (The Downhill). Do not care about lap times.
+**The Coasting Line Drill:** Drive 5 slow laps around Lime Rock Park at 50% throttle. Focus entirely on placing your front tires within 15 cm of the inside kerbs at the apex of Turn 1 (Big Bend), Turn 3 (Lefthand), Turn 4 (Right-hander), and Turn 6 (The Downhill). Do not care about lap times.
 
 ### 🏁 Practical Application (15 Mins)
 Drive 8 full-tempo laps. Focus on establishing a repeatable, smooth arc through Turn 1 (Big Bend) and Turn 6 (The Downhill). Ensure your car starts on the extreme outside edge before turn-in.
 
 ### ⚡ Challenge
-Complete 3 consecutive laps where your apex distance to the inner edge of the track does not exceed 1 foot.
+Complete 3 consecutive laps where your apex distance to the inner edge of the track does not exceed 30 cm.
 
 ### 📝 Assessment (3 Short Questions)
 1. What is the single fundamental goal of a race driver on any circuit?
@@ -129,7 +129,7 @@ The optimal path—**The Line**—starts on the extreme outside edge, sweeps in 
 Execute a 10-lap stint focusing on linking entry, apex, and exit at Lime Rock Park's Turn 3 (Lefthand) and Turn 4 (Right-hander / Ess-bend). 
 
 ### ⚡ Challenge
-Achieve a minimum cornering speed through Turn 6 that is 2 mph higher than your Session 1 baseline, while using the full track width at exit.
+Achieve a minimum cornering speed through Turn 6 that is 3 km/h higher than your Session 1 baseline, while using the full track width at exit.
 
 ### 📝 Assessment (3 Short Questions)
 1. What happens to a car's cornering radius when speed increases at 100% grip limit?
@@ -212,9 +212,9 @@ Complete 5 consecutive laps with lap times within a 0.3-second delta of each oth
 ### 📖 Theory (~200 words)
 Once you have established the proper geometric line, Skip Barber's second priority is **maximizing corner exit speed**. The speed at which you exit a corner onto a straightaway sets your initial velocity for that entire straight section. 
 
-Consider this mathematical example: If Driver A exits a corner at 53 mph and accelerates down a quarter-mile straightaway, they reach a top speed of 155 mph. If Driver B adjusts their line to carry just 57 mph out of the corner exit, they enter the straight 4 mph faster and reach a top speed of 157 mph. 
+Consider this mathematical example: If Driver A exits a corner at 85 km/h and accelerates down a 400-meter straightaway, they reach a top speed of 250 km/h. If Driver B adjusts their line to carry just 92 km/h out of the corner exit, they enter the straight 7 km/h faster and reach a top speed of 253 km/h. 
 
-Because Driver B carries higher speed along every single foot of that straightaway, they complete the straight in 0.16 seconds less time. Accumulating a 0.16-second advantage across four corners on a circuit results in nearly a **0.65-second lap time improvement**. 
+Because Driver B carries higher speed along every single meter of that straightaway, they complete the straight in 0.16 seconds less time. Accumulating a 0.16-second advantage across four corners on a circuit results in nearly a **0.65-second lap time improvement**. 
 
 Exit speed is compounding interest in motor racing. Gaining exit speed requires getting to 100% full throttle as early as possible without causing the car to run wide off the track surface.
 
@@ -225,7 +225,7 @@ Exit speed is compounding interest in motor racing. Gaining exit speed requires 
 Drive a 10-lap stint experimenting with earlier throttle application out of Turn 2 (The Ess) and Turn 6 (Downhill). Prioritize smooth, progressive throttle engagement over sudden stomping.
 
 ### ⚡ Challenge
-Increase your maximum straightaway speed prior to Turn 1 by 3 mph compared to your Week 1 average.
+Increase your maximum straightaway speed prior to Turn 1 by 5 km/h compared to your Week 1 average.
 
 ### 📝 Assessment (3 Short Questions)
 1. Why does a small increase in exit speed create a large gain in overall lap time?
@@ -317,7 +317,7 @@ The secret to exit speed is initiating this smooth compromise early in the corne
 Execute a 10-lap stint linking all corners at Lime Rock Park. Focus on achieving a seamless, linear transition from trail-throttle to full acceleration across all exits.
 
 ### ⚡ Challenge
-Log a 5-lap consistency run where your exit speed out of Turn 4 varies by less than 1.0 mph across all laps.
+Log a 5-lap consistency run where your exit speed out of Turn 4 varies by less than 1.5 km/h across all laps.
 
 ### 📝 Assessment (3 Short Questions)
 1. What concept describes the finite friction limit of a racing tire?
@@ -361,10 +361,10 @@ Threshold braking means applying maximum brake pressure to bring the tires to th
 In a straight line, the car’s full grip capacity is dedicated to deceleration. You should apply heavy brake pressure rapidly at your braking marker while the car is travelling completely straight, then hold that pressure steady as speed drops. As aerodynamic downforce declines (in wing cars) or speed bleeds off, you must slightly bleed off pedal pressure to prevent tire lockup as you approach turn-in.
 
 ### 🎯 Practice Drill (15 Mins)
-**Braking Marker Calibration Drill:** Drive 6 laps focusing on Turn 1 (Big Bend). Establish a conservative braking marker (e.g., 300ft board). Practice hard, immediate initial brake application in a straight line, ensuring the car is slowed to entry speed *before* initiating turn-in.
+**Braking Marker Calibration Drill:** Drive 6 laps focusing on Turn 1 (Big Bend). Establish a conservative braking marker (e.g., 100m board). Practice hard, immediate initial brake application in a straight line, ensuring the car is slowed to entry speed *before* initiating turn-in.
 
 ### 🏁 Practical Application (15 Mins)
-Run 10 laps at full pace. Move your braking point forward in 10-foot increments for Turn 1 and Turn 3, while holding to the strict rule: **all heavy threshold braking must be completed in a straight line**.
+Run 10 laps at full pace. Move your braking point forward in 3-meter increments for Turn 1 and Turn 3, while holding to the strict rule: **all heavy threshold braking must be completed in a straight line**.
 
 ### ⚡ Challenge
 Identify a precise braking point for Turn 1 that allows 100% threshold braking without locking tires or triggering ABS intervention.
