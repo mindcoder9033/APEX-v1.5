@@ -36,7 +36,10 @@ export function renderSessionView(curriculumData, modId, sessId) {
     assessmentAnswers: existingSessionData.assessmentScores || {},
     psychRatings: existingSessionData.psychRatings || {},
     reflectionAnswers: existingSessionData.reflections || ["", "", ""],
-    feedbackRating: existingSessionData.feedbackRating || 5
+    feedbackRating: existingSessionData.feedbackRating || 5,
+    lapsCompleted: existingSessionData.lapsCompleted || "",
+    bestLapTime: existingSessionData.bestLapTime || "",
+    driverNotes: existingSessionData.driverNotes || ""
   };
 
   currentStep = 1;
@@ -259,6 +262,7 @@ function renderWizardStep() {
             <svg viewBox="0 0 24 24"><path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"/></svg>
             SESSION FEEDBACK & DEBRIEF
           </div>
+
           <div class="form-group">
             <label class="form-label">RATE THIS DRILL SESSION EXPERIENCE:</label>
             <div class="flex-row gap-sm">
@@ -267,6 +271,25 @@ function renderWizardStep() {
                         style="flex: 1; padding: 0.6rem 0;"
                         data-fval="${val}">★ ${val}</button>
               `).join('')}
+            </div>
+          </div>
+
+          <!-- Empirical Telemetry Stint Log -->
+          <div class="telemetry-block" style="margin-top: 1.25rem; background-color: var(--bg-primary);">
+            <div class="telemetry-label" style="color: var(--accent-red); margin-bottom: 0.5rem;">TELEMETRY STINT LOG</div>
+            <div class="flex-row gap-sm" style="margin-bottom: 0.75rem;">
+              <div style="flex: 1;">
+                <label class="form-label" style="font-size: 0.75rem;">LAPS COMPLETED</label>
+                <input type="number" id="telemetry-laps-input" class="form-input" style="width: 100%; padding: 0.5rem; background: var(--bg-secondary); border: 1px solid var(--border-color); color: var(--text-primary); font-family: var(--font-mono);" placeholder="e.g. 10" value="${wizardFormData.lapsCompleted || ''}">
+              </div>
+              <div style="flex: 1;">
+                <label class="form-label" style="font-size: 0.75rem;">BEST LAP TIME</label>
+                <input type="text" id="telemetry-laptime-input" class="form-input" style="width: 100%; padding: 0.5rem; background: var(--bg-secondary); border: 1px solid var(--border-color); color: var(--text-primary); font-family: var(--font-mono);" placeholder="e.g. 0:58.420" value="${wizardFormData.bestLapTime || ''}">
+              </div>
+            </div>
+            <div>
+              <label class="form-label" style="font-size: 0.75rem;">DRIVER DEBRIEF NOTES</label>
+              <textarea id="telemetry-notes-input" class="form-textarea" style="width: 100%; padding: 0.5rem; background: var(--bg-secondary); border: 1px solid var(--border-color); color: var(--text-primary); min-height: 60px;" placeholder="Notes on balance, apex line, or force feedback sensations...">${wizardFormData.driverNotes || ''}</textarea>
             </div>
           </div>
 
@@ -381,6 +404,26 @@ function attachWizardListeners() {
     });
   });
 
+  // Telemetry Input Listeners (Step 9)
+  const lapsInput = document.getElementById('telemetry-laps-input');
+  if (lapsInput) {
+    lapsInput.addEventListener('input', (e) => {
+      wizardFormData.lapsCompleted = e.target.value;
+    });
+  }
+  const lapTimeInput = document.getElementById('telemetry-laptime-input');
+  if (lapTimeInput) {
+    lapTimeInput.addEventListener('input', (e) => {
+      wizardFormData.bestLapTime = e.target.value;
+    });
+  }
+  const notesInput = document.getElementById('telemetry-notes-input');
+  if (notesInput) {
+    notesInput.addEventListener('input', (e) => {
+      wizardFormData.driverNotes = e.target.value;
+    });
+  }
+
   // Feedback Rating Listeners
   const feedbackBtns = document.querySelectorAll('.feedback-btn');
   feedbackBtns.forEach(btn => {
@@ -425,7 +468,10 @@ function saveAndCompleteSession() {
       totalQuestions: activeSession.assessment.length,
       psychRatings: wizardFormData.psychRatings,
       reflections: wizardFormData.reflectionAnswers,
-      feedbackRating: wizardFormData.feedbackRating
+      feedbackRating: wizardFormData.feedbackRating,
+      lapsCompleted: wizardFormData.lapsCompleted || "",
+      bestLapTime: wizardFormData.bestLapTime || "",
+      driverNotes: wizardFormData.driverNotes || ""
     };
   });
 

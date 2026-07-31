@@ -2,676 +2,663 @@
   "modules": [
     {
       "id": 1,
-      "title": "MODULE 1: STEERING & CAR CONTROL",
-      "description": "Master rotational dynamics, grip limits, and smooth wheel inputs with the Moza R3 Direct Drive wheel.",
+      "title": "MODULE 1: A PLAN OF ATTACK",
+      "description": "Based on Skip Barber 'Going Faster!' — Chapter 1: A Plan of Attack. Master Skip Barber's three-tiered hierarchy of high-performance driving: The Line, Corner Exit Speed, and Threshold Braking.",
       "mozaR3Global": {
         "ffbStrength": "100%",
         "wheelRotation": "900°",
-        "speedDamping": "10%",
-        "equalizerFFB": "Linear 1:1"
+        "wheelDamper": "0%",
+        "ffbInterpolator": "Level 0 / Level 1",
+        "speedDamping": "0%"
       },
       "forzaGlobal": {
-        "steeringMode": "Normal",
-        "abs": "ON",
+        "steeringMode": "Simulation",
+        "abs": "OFF",
         "tcs": "OFF",
         "stm": "OFF",
-        "transmission": "Manual (No Clutch)"
+        "transmission": "Manual (or Manual with Clutch for MX-5)",
+        "drivingLine": "OFF"
+      },
+      "fm23AdvancedFFB": {
+        "vibrationScale": "20–30%",
+        "ffbScale": "65–70%",
+        "mechanicalTrail": "100%",
+        "pneumaticTrail": "115%",
+        "roadFeel": "35%",
+        "loadSensitivity": "50%"
       },
       "sessions": [
         {
           "id": "session_1_1",
           "moduleId": 1,
           "sessionNum": 1,
-          "title": "Smooth Steering Inputs & Hand Position",
-          "subtitle": "Eliminating erratic wheel corrections to maximize tire contact patch",
+          "weekNum": 1,
+          "weekTitle": "WEEK 1 — Priority 1: Finding The Line & Geometric Arcs",
+          "title": "Defining the Goal & The 3 Problems",
+          "subtitle": "Priority 1: Finding The Line — Session 1",
           "durationMinutes": 45,
           "setup": {
-            "car": "2019 Hyundai Veloster N",
-            "track": "Kyalami Grand Prix Circuit",
-            "mozaR3Note": "Maintain a firm 9-and-3 grip. Let the Moza R3 force feedback self-align smoothly out of turns.",
-            "forzaNote": "Set Steering to Normal. Ensure Force Feedback Scale is set to 100 in Forza Advanced Controls."
+            "car": "Mazda MX-5 Miata (1990)",
+            "track": "Lime Rock Park (Full)",
+            "mozaR3Note": "Max Steering Angle: 900°, FFB: 100%, Max Wheel Speed: 100%, Damper: 0%, Interpolator: Level 0/1, Speed Damping: 0%.",
+            "forzaNote": "Steering: Simulation, TCS: OFF, STM: OFF, ABS: OFF, Shifting: Manual, Driving Line: OFF."
           },
-          "theory": "Tires operate on a slip angle curve. Jerking the steering wheel spikes tire slip past its peak friction coefficient, inducing understeer and heating front tires rapidly. Smooth, progressive steering inputs keep the front contact patches at maximum grip, allowing higher entry speeds and predictable rotation through apexes.",
-          "drill": "Drive 5 slow calibration laps at 70% pace. Concentrate on turning the wheel in one continuous fluid motion per corner. Avoid micro-adjustments or sawing at the wheel mid-corner.",
-          "practical": "Execute a 15-minute uninterrupted practice stint on Kyalami. Pay attention to how the Moza R3 motor feedback lightens when understeer occurs.",
-          "challenge": "Complete 5 consecutive laps where zero sudden wheel sawing occurs and tire scrub sound is minimal.",
+          "theory": "At first glance, racecar driving looks like sheer chaos: straights blur past, the car bounces around, and instinct screams that speed is everything. However, fast driving is brought down to earth once you realize there are only three basic problems to solve in racing:\n1. Driving on the best path around the track (The Line).\n2. Carrying speed away from corners onto straightaways (Corner Exit Speed).\n3. Efficiently slowing the car at corner entry (Braking).\n\nThe fundamental objective of a race driver is simple: minimize the time taken to travel around a circuit. A racetrack consists of two primary elements: straightaways and corners. Straightaways account for 70% to 80% of a racetrack distance, making them the primary area where maximum acceleration is applied. However, average straightaway speed is directly dictated by the speed at which you exit the preceding corner. Therefore, before attempting to late-brake or hustle the car, your highest priority is to discover the path that allows the car to corner at its optimum radius. Finding this line is Step 1 of fast driving.",
+          "drill": "The Coasting Line Drill: Drive 5 slow laps around Lime Rock Park at 50% throttle. Focus entirely on placing your front tires within 6 inches of the inside kerbs at the apex of Turn 1 (Big Bend), Turn 3 (Lefthand), Turn 4 (Right-hander), and Turn 6 (The Downhill). Do not care about lap times.",
+          "practical": "Drive 8 full-tempo laps. Focus on establishing a repeatable, smooth arc through Turn 1 (Big Bend) and Turn 6 (The Downhill). Ensure your car starts on the extreme outside edge before turn-in.",
+          "challenge": "Complete 3 consecutive laps where your apex distance to the inner edge of the track does not exceed 1 foot.",
           "assessment": [
             {
               "id": "q1",
-              "question": "What happens to the front tires when you jerk the steering wheel suddenly into a corner?",
+              "question": "What is the single fundamental goal of a race driver on any circuit?",
               "options": [
-                "Front tire slip angle spikes past peak friction, causing understeer",
-                "Tire grip increases immediately due to downforce",
-                "Rear tires lock up instantly",
-                "Braking distance is shortened"
+                "Minimize the time taken to travel around a circuit",
+                "Achieve the highest possible top speed on straightaways",
+                "Brake as late as possible into every corner",
+                "Pass as many cars as possible on turn-in"
               ],
               "correctIndex": 0
             },
             {
               "id": "q2",
-              "question": "Where should your hands be positioned on the Moza R3 wheel at all times?",
+              "question": "What three basic problems must every race driver solve?",
               "options": [
-                "10 and 2",
-                "9 and 3",
-                "12 and 6",
-                "One hand on the wheel top, one on shifter"
+                "Engine tuning, tire pressure management, and fuel strategy",
+                "Driving on the best path (The Line), carrying exit speed, and efficient braking",
+                "Gear selection, clutch pedal modulation, and heel-toe downshifting",
+                "Downforce adjustment, damper tuning, and wheel alignment"
               ],
               "correctIndex": 1
             },
             {
               "id": "q3",
-              "question": "How does the Moza R3 force feedback indicate front tire understeer?",
+              "question": "Why does corner exit speed have a greater impact on lap time than entry speed?",
               "options": [
-                "Wheel gets heavy and vibrates violently",
-                "Wheel align torque lightens and resistance drops",
-                "Wheel locks in place completely",
-                "Pedals start vibrating"
+                "Because straightaways account for 70% to 80% of track distance, compounding exit speed down the entire straight",
+                "Because entry speed causes tire wear",
+                "Because exit speed increases engine RPM in low gears",
+                "Because brakes overheat if entry speed is too high"
               ],
-              "correctIndex": 1
+              "correctIndex": 0
             }
           ],
           "psychCheckin": [
             {
               "id": "p1",
-              "prompt": "How relaxed were your hands and shoulders on the wheel today?",
+              "prompt": "On a scale of 1–5, how calm was your breathing during the session?",
               "type": "scale",
               "minLabel": "1 (Very Tense)",
-              "maxLabel": "5 (Completely Relaxed)"
+              "maxLabel": "5 (Calm & Deep)"
             },
             {
               "id": "p2",
-              "prompt": "How patient were you during corner entry phase?",
+              "prompt": "Did you feel rushed or tempted to drive over your limit?",
               "type": "scale",
               "minLabel": "1 (Rushed/Impatient)",
               "maxLabel": "5 (Disciplined & Calibrated)"
             },
             {
               "id": "p3",
-              "prompt": "Did you feel frustrated when understeer occurred?",
+              "prompt": "Were you focused on track position or lap times?",
               "type": "scale",
-              "minLabel": "1 (High Frustration)",
-              "maxLabel": "5 (Calm & Observant)"
+              "minLabel": "1 (Fixated on Lap Times)",
+              "maxLabel": "5 (Focused on Track Position)"
             }
           ],
           "reflection": [
-            "What specific turn felt smoothest on steering input today?",
-            "At what point in the stint did you feel tire grip fading due to over-driving?",
-            "What is your single focus for tomorrow's session?"
+            "What visual cues helped you identify the apex of Big Bend?",
+            "How did driving at 50% pace change your awareness of the track edges?",
+            "Where on the circuit did you feel least confident in your trajectory?"
           ]
         },
         {
           "id": "session_1_2",
           "moduleId": 1,
           "sessionNum": 2,
-          "title": "Finding the Limit of Lateral Grip",
-          "subtitle": "Feeling FFB drop-off and managing tire scrub angles",
+          "weekNum": 1,
+          "weekTitle": "WEEK 1 — Priority 1: Finding The Line & Geometric Arcs",
+          "title": "Corner Radius & The Geometric Line",
+          "subtitle": "Priority 1: Finding The Line — Session 2",
           "durationMinutes": 45,
           "setup": {
-            "car": "2019 Hyundai Veloster N",
-            "track": "Mugello Circuit (Full)",
-            "mozaR3Note": "Adjust Moza Pit House Mechanical Damper to 15% to clearly isolate pneumatic trail loss.",
-            "forzaNote": "Keep TCS and STM disabled. Use Telemetry HUD (Tire Load/Slip) to verify slip ratios."
+            "car": "Mazda MX-5 Miata (1990)",
+            "track": "Lime Rock Park (Full)",
+            "mozaR3Note": "Max Steering Angle: 900°, FFB: 100%, Max Wheel Speed: 100%, Damper: 0%, Interpolator: Level 0/1, Speed Damping: 0%.",
+            "forzaNote": "Steering: Simulation, TCS: OFF, STM: OFF, ABS: OFF, Shifting: Manual, Driving Line: OFF."
           },
-          "theory": "The force feedback on your Moza R3 communicates pneumatic trail. As you turn in, steering resistance rises until peak grip is reached. Exceeding peak grip causes pneumatic trail to collapse, making the wheel feel lighter. Learning to operate right at this torque peak maximizes cornering speed.",
-          "drill": "Perform 3 laps deliberately pushing past cornering limits in long sweeping turns to feel the FFB torque drop off, followed by 5 laps staying right at the peak resistance point.",
-          "practical": "Run a 15-minute stint targeting clean, consistent cornering speeds through Mugello's Arrabbiata 1 & 2 sweeps.",
-          "challenge": "Log 3 consecutive laps with lap time variance under 0.4 seconds without scrubbing tires excessively.",
+          "theory": "Tires have a physical limit of lateral traction. If you take a car onto a wide skidpad and lock the steering wheel at a 45-degree angle, the car will drive in a circle. As you gradually increase speed, the tires work harder to overcome centrifugal force. Eventually, at 100% cornering traction limit, any further increase in speed forces the car into a wider arc.\n\nThis leads to a core law of racing physics: a larger radius allows a higher cornering speed.\n\nWhen approaching a corner, you have infinite choices for your path. Driving tight along the inside edge yields a small radius (R1), restricting your maximum speed. Hugging the outside edge yields a slightly larger radius (R2).\n\nThe optimal path—The Line—starts on the extreme outside edge, sweeps in to touch the inside edge (apex) near the middle of the turn, and unwinds back out to the extreme outside edge at the exit. This creates the maximum possible radius (R3), allowing the car to travel through the turn at the highest possible velocity without exceeding tire grip.",
+          "drill": "Radius Maximization Drill: At Turn 6 (The Downhill), consciously use every inch of pavement. Start with your left tires on the left edge paint line before turn-in, clip the right apex kerb cleanly, and track out until your left tires reach the outside kerb on the main straight.",
+          "practical": "Execute a 10-lap stint focusing on linking entry, apex, and exit at Lime Rock Park's Turn 3 (Lefthand) and Turn 4 (Right-hander / Ess-bend).",
+          "challenge": "Achieve a minimum cornering speed through Turn 6 that is 2 mph higher than your Session 1 baseline, while using the full track width at exit.",
           "assessment": [
             {
               "id": "q1",
-              "question": "What is pneumatic trail in simracing force feedback?",
+              "question": "What happens to a car's cornering radius when speed increases at 100% grip limit?",
               "options": [
-                "The distance between tire contact center and total lateral force resultant",
-                "The air pressure inside the tires",
-                "The force generated by aerodynamic wings",
-                "The rumble felt over curb stones"
-              ],
-              "correctIndex": 0
-            },
-            {
-              "id": "q2",
-              "question": "When lateral tire grip drops off, how does steering wheel torque react?",
-              "options": [
-                "Torque increases exponentially",
-                "Torque lightens or drops off",
-                "Torque oscillates side to side",
-                "Torque stays completely static"
+                "The arc tightens toward the inside edge",
+                "The car is forced into a wider arc",
+                "The radius stays exactly constant",
+                "The rear tires lock up instantly"
               ],
               "correctIndex": 1
             },
             {
-              "id": "q3",
-              "question": "What is the primary indicator of over-driving in long sweeps?",
+              "id": "q2",
+              "question": "Why is the inside path (R1) around a corner slower than the geometric line (R3)?",
               "options": [
-                "Loud tire squeal and rising steering angle without tighter turning arc",
-                "RPM hitting limiter",
-                "Brake temperature dropping",
-                "Clutch slipping"
+                "Inside path yields a smaller radius, restricting maximum cornering speed",
+                "Inside path forces higher aerodynamic drag",
+                "Inside path increases engine braking drag",
+                "Inside path requires higher steering force than DD motor capacity"
               ],
               "correctIndex": 0
+            },
+            {
+              "id": "q3",
+              "question": "What three key track positions define a classic geometric cornering arc?",
+              "options": [
+                "Braking board, gear shift point, engine rev-limiter",
+                "Extreme outside edge (entry), inside edge (apex), extreme outside edge (exit)",
+                "Left kerb, center line, pit entry marker",
+                "Tire barrier, rumble strip, flag stand"
+              ],
+              "correctIndex": 1
             }
           ],
           "psychCheckin": [
             {
               "id": "p1",
-              "prompt": "How clearly could you feel the FFB force drop-off point?",
+              "prompt": "Did you feel comfortable using the extreme edges of the track?",
               "type": "scale",
-              "minLabel": "1 (Couldn't Feel It)",
-              "maxLabel": "5 (Crystal Clear)"
+              "minLabel": "1 (Hesitant/Scared)",
+              "maxLabel": "5 (Highly Comfortable)"
             },
             {
               "id": "p2",
-              "prompt": "How consistent was your visual focus down the track?",
+              "prompt": "Were you looking far enough down the track toward the exit?",
               "type": "scale",
-              "minLabel": "1 (Looked Close)",
-              "maxLabel": "5 (Far Ahead)"
+              "minLabel": "1 (Looking at Hood)",
+              "maxLabel": "5 (Eye Focus Far Ahead)"
             },
             {
               "id": "p3",
-              "prompt": "How confident do you feel in feeling tire slip limits?",
+              "prompt": "Did you experience any tension in your hands or shoulders on the steering wheel?",
               "type": "scale",
-              "minLabel": "1 (Uncertain)",
-              "maxLabel": "5 (Highly Confident)"
+              "minLabel": "1 (High Tension)",
+              "maxLabel": "5 (Completely Loose & Smooth)"
             }
           ],
           "reflection": [
-            "Which corner on Mugello best demonstrated FFB lightness under push understeer?",
-            "How did adjusting your visual focus affect steering accuracy?",
-            "What adjustment will you make to hand pressure for the next stint?"
+            "How did utilizing the full road width at the exit of Turn 6 affect your car's stability?",
+            "What difference did you notice in steering angle between a tight line and a wide geometric line?",
+            "Did the Moza R3 force feedback feel lighter or heavier as you widened the arc radius?"
           ]
         },
         {
           "id": "session_1_3",
           "moduleId": 1,
           "sessionNum": 3,
-          "title": "Throttle Steering & Mid-Corner Car Balance",
-          "subtitle": "Using throttle lift to tuck the nose into apexes",
+          "weekNum": 1,
+          "weekTitle": "WEEK 1 — Priority 1: Finding The Line & Geometric Arcs",
+          "title": "Visual Reference Points",
+          "subtitle": "Priority 1: Finding The Line — Session 3",
           "durationMinutes": 45,
           "setup": {
-            "car": "2019 Hyundai Veloster N",
-            "track": "Catalunya National Circuit",
-            "mozaR3Note": "Ensure Xbox pedal deadzones are set to 0 inner and 100 outer for direct throttle response.",
-            "forzaNote": "Set Mechanical Damage to Off, Fuel/Tires to Cosmetic."
+            "car": "Mazda MX-5 Miata (1990)",
+            "track": "Lime Rock Park (Full)",
+            "mozaR3Note": "Max Steering Angle: 900°, FFB: 100%, Max Wheel Speed: 100%, Damper: 0%, Interpolator: Level 0/1, Speed Damping: 0%.",
+            "forzaNote": "Steering: Simulation, TCS: OFF, STM: OFF, ABS: OFF, Shifting: Manual, Driving Line: OFF."
           },
-          "theory": "Lifting off the throttle transfers weight to the front tires, compressing front suspension and increasing front grip while lightening the rear. This weight shift naturally rotates the car into the apex without adding steering angle. Over-steering with the wheel slows you down; throttle-steering keeps your arc clean.",
-          "drill": "On Turn 1 and Turn 3 at Catalunya, turn the wheel to a fixed angle and modulate car rotation purely by smoothly lifting off the accelerator.",
-          "practical": "Run 12 continuous practice laps focusing on minimal steering movement mid-corner, adjusting radius using throttle modulation.",
-          "challenge": "Complete 4 consecutive clean laps with zero off-track penalties and consistent mid-corner apex hits.",
+          "theory": "Consistently driving the geometric line requires replacing guesswork with precise visual discipline. Expert race drivers do not rely on instinct or sudden reactions to negotiate corners; they plan every action seconds before it happens. To take a racecar to its limit safely, you must establish three distinct physical reference points for every corner:\n\n1. Turn-in Point: The exact spot on the outside edge of the track where you initiate steering input.\n2. Apex Point: The target location on the inside curve where your car comes closest to the inside track edge.\n3. Exit / Track-out Point: The spot on the outside edge where the car completes its cornering arc.\n\nReference points must be fixed physical markers: trackside distance boards, pavement seams, changes in kerb texture, or shadow lines. Looking at these points in sequence conditions your peripheral vision to calculate speed and trajectory automatically. If you lack defined reference points, your turn-in point will wander lap after lap, destroying consistency and forcing sudden, destabilizing steering corrections.",
+          "drill": "Reference Point Identification Drill: Complete 5 slow reconnaissance laps. Pick out and write down 1 specific physical marker for Turn-in, Apex, and Exit for Big Bend (Turn 1), the Lefthand (Turn 3), and the Downhill (Turn 6).",
+          "practical": "Run 10 laps focusing on visual discipline: as you approach your turn-in marker, your eyes must already be looking ahead at the apex marker; as you reach the apex, your eyes must instantly shift to the exit marker.",
+          "challenge": "Complete 5 consecutive laps with lap times within a 0.3-second delta of each other, proving visual consistency.",
           "assessment": [
             {
               "id": "q1",
-              "question": "What primary vehicle dynamic effect occurs when you smoothly lift off the throttle mid-corner?",
+              "question": "What are the three essential visual reference points for every corner?",
               "options": [
-                "Weight shifts forward, increasing front tire grip and nose rotation",
-                "Weight shifts backward, locking rear brakes",
-                "Front tires lose all grip instantly",
-                "Engine stalls"
+                "Turn-in Point, Apex Point, and Exit / Track-out Point",
+                "Braking Marker, Shift Light, Speedometer",
+                "Pit Board, Flag Stand, Rearview Mirror",
+                "Grid Slot, Tire Wall, Guardrail"
               ],
               "correctIndex": 0
             },
             {
               "id": "q2",
-              "question": "Why is throttle steering preferred over adding more wheel angle during understeer?",
+              "question": "Why is relying on driver reaction time inferior to spatial anticipation?",
               "options": [
-                "Adding wheel angle overheats front tires and increases drag",
-                "Throttle steering consumes more fuel",
-                "Adding wheel angle causes automatic gear shifts",
-                "There is no difference"
+                "Reaction time causes delayed inputs, whereas spatial anticipation conditions vision to plan actions seconds ahead",
+                "Reaction time uses more force feedback strength",
+                "Spatial anticipation reduces engine RPM fluctuations",
+                "Reaction time only works with ABS turned ON"
               ],
               "correctIndex": 0
             },
             {
               "id": "q3",
-              "question": "If the car begins oversteering on corner exit, what is the initial correction?",
+              "question": "What is a recommended physical object to use as a braking or turn-in marker?",
               "options": [
-                "Slam on full brakes",
-                "Smoothly unwind steering wheel and hold steady throttle",
-                "Pull handbrake",
-                "Turn wheel further into the corner"
+                "Trackside distance boards, pavement seams, or kerb texture changes",
+                "Moving shadows from other cars",
+                "Temporary cloud reflections on track",
+                "Floating HUD indicators"
               ],
-              "correctIndex": 1
+              "correctIndex": 0
             }
           ],
           "psychCheckin": [
             {
               "id": "p1",
-              "prompt": "How smooth was your right foot throttle modulation?",
+              "prompt": "Where was your eye focus directed—immediately in front of the hood, or far down the track?",
               "type": "scale",
-              "minLabel": "1 (Abrupt On/Off)",
-              "maxLabel": "5 (Linear Control)"
+              "minLabel": "1 (Hood Fixated)",
+              "maxLabel": "5 (Scanning Far Ahead)"
             },
             {
               "id": "p2",
-              "prompt": "How composed did you stay during snap rotation moments?",
+              "prompt": "Did having fixed reference points reduce mental fatigue?",
+              "type": "scale",
+              "minLabel": "1 (High Mental Fatigue)",
+              "maxLabel": "5 (Calm & Structured)"
+            },
+            {
+              "id": "p3",
+              "prompt": "Did you feel in control during entry into Turn 1?",
+              "type": "scale",
+              "minLabel": "1 (Chaotic Entry)",
+              "maxLabel": "5 (Complete Control)"
+            }
+          ],
+          "reflection": [
+            "Which specific physical objects did you select as your turn-in markers at Lime Rock Park?",
+            "What happened to your line when you looked at the apex kerb too late?",
+            "How did visual discipline affect your steering smoothness on the Moza R3 wheel?"
+          ]
+        },
+        {
+          "id": "session_1_4",
+          "moduleId": 1,
+          "sessionNum": 4,
+          "weekNum": 2,
+          "weekTitle": "WEEK 2 — Priority 2: Corner Exit Speed & Acceleration",
+          "title": "Exit Speed & The Compound Straightaway Gain",
+          "subtitle": "Priority 2: Corner Exit Speed — Session 4",
+          "durationMinutes": 45,
+          "setup": {
+            "car": "Mazda MX-5 Miata (1990)",
+            "track": "Lime Rock Park (Full)",
+            "mozaR3Note": "Max Steering Angle: 900°, FFB: 100%, Max Wheel Speed: 100%, Damper: 0%, Interpolator: Level 0/1, Speed Damping: 0%.",
+            "forzaNote": "Steering: Simulation, TCS: OFF, STM: OFF, ABS: OFF, Shifting: Manual, Driving Line: OFF."
+          },
+          "theory": "Once you have established the proper geometric line, Skip Barber's second priority is maximizing corner exit speed. The speed at which you exit a corner onto a straightaway sets your initial velocity for that entire straight section.\n\nConsider this mathematical example: If Driver A exits a corner at 53 mph and accelerates down a quarter-mile straightaway, they reach a top speed of 155 mph. If Driver B adjusts their line to carry just 57 mph out of the corner exit, they enter the straight 4 mph faster and reach a top speed of 157 mph.\n\nBecause Driver B carries higher speed along every single foot of that straightaway, they complete the straight in 0.16 seconds less time. Accumulating a 0.16-second advantage across four corners on a circuit results in nearly a 0.65-second lap time improvement.\n\nExit speed is compounding interest in motor racing. Gaining exit speed requires getting to 100% full throttle as early as possible without causing the car to run wide off the track surface.",
+          "drill": "Early Throttle Commitment Drill: On Lime Rock’s Sam Posey Straight (following Turn 6), focus on picking up the throttle at the apex. Note your top speed on the telemetry speedometer just before your braking point for Turn 1.",
+          "practical": "Drive a 10-lap stint experimenting with earlier throttle application out of Turn 2 (The Ess) and Turn 6 (Downhill). Prioritize smooth, progressive throttle engagement over sudden stomping.",
+          "challenge": "Increase your maximum straightaway speed prior to Turn 1 by 3 mph compared to your Week 1 average.",
+          "assessment": [
+            {
+              "id": "q1",
+              "question": "Why does a small increase in exit speed create a large gain in overall lap time?",
+              "options": [
+                "Higher initial exit speed carries down every single foot of the straightaway, lowering straight time exponentially",
+                "Higher exit speed reduces aerodynamic drag",
+                "Higher exit speed cools the rear tire compound",
+                "Higher exit speed eliminates the need to brake for the next turn"
+              ],
+              "correctIndex": 0
+            },
+            {
+              "id": "q2",
+              "question": "What is the relationship between exit speed and top speed at the end of a straightaway?",
+              "options": [
+                "Higher exit speed yields a higher top speed at the end of the straightaway",
+                "Exit speed has no impact on top speed",
+                "Higher exit speed decreases top speed due to rev limiter caps",
+                "Exit speed only affects mid-straight acceleration, not top speed"
+              ],
+              "correctIndex": 0
+            },
+            {
+              "id": "q3",
+              "question": "Where should a driver aim to begin applying throttle in a typical exit-priority corner?",
+              "options": [
+                "At or near the apex, squeezing progressively toward full throttle",
+                "100 feet before the turn-in point",
+                "Only after the steering wheel is completely straight and in the braking zone",
+                "While heavy threshold braking before turn-in"
+              ],
+              "correctIndex": 0
+            }
+          ],
+          "psychCheckin": [
+            {
+              "id": "p1",
+              "prompt": "Did you feel hesitant or aggressive when applying full throttle at the apex?",
+              "type": "scale",
+              "minLabel": "1 (Hesitant/Scared)",
+              "maxLabel": "5 (Smooth & Confident)"
+            },
+            {
+              "id": "p2",
+              "prompt": "Did you stay patient until the car reached the apex before matting the gas pedal?",
+              "type": "scale",
+              "minLabel": "1 (Rushed Throttle Early)",
+              "maxLabel": "5 (Disciplined Apex Patience)"
+            },
+            {
+              "id": "p3",
+              "prompt": "How confident were you in the rear-end traction of the MX-5?",
+              "type": "scale",
+              "minLabel": "1 (Low Confidence)",
+              "maxLabel": "5 (High Confidence)"
+            }
+          ],
+          "reflection": [
+            "How much did your top speed at the end of the main straight increase when you achieved an earlier exit throttle application?",
+            "What felt different about the car's balance when applying power early versus late?",
+            "Did you notice any wheelspin on the Moza R3 force feedback?"
+          ]
+        },
+        {
+          "id": "session_1_5",
+          "moduleId": 1,
+          "sessionNum": 5,
+          "weekNum": 2,
+          "weekTitle": "WEEK 2 — Priority 2: Corner Exit Speed & Acceleration",
+          "title": "Throttle Application & Unwinding the Wheel",
+          "subtitle": "Priority 2: Corner Exit Speed — Session 5",
+          "durationMinutes": 45,
+          "setup": {
+            "car": "Mazda MX-5 Miata (1990)",
+            "track": "Lime Rock Park (Full)",
+            "mozaR3Note": "Max Steering Angle: 900°, FFB: 100%, Max Wheel Speed: 100%, Damper: 0%, Interpolator: Level 0/1, Speed Damping: 0%.",
+            "forzaNote": "Steering: Simulation, TCS: OFF, STM: OFF, ABS: OFF, Shifting: Manual, Driving Line: OFF."
+          },
+          "theory": "A frequent mistake made by drivers seeking higher exit speed is applying full throttle while holding the steering wheel at a tight turning angle. If your tires are utilizing 100% of their lateral grip to turn the car, adding acceleration forces overloads the rear tires, triggering a slide or power-oversteer spin.\n\nTo accelerate hard out of a corner, you must free up tire grip by unwinding the steering wheel.\n\nAs you pass the apex, your steering input and throttle input must move in inverse synchronicity: as your foot squeezes down on the accelerator, your hands must smoothly unwind the steering wheel toward straight. Unwinding the wheel increases the radius of your exit arc, allowing the car to absorb acceleration forces without breaking traction.\n\nIf you find yourself having to increase steering angle past the apex, you applied throttle too early or missed your apex line, and you will be forced to lift off the gas pedal.",
+          "drill": "Inverse Hands-and-Feet Sync Drill: In Turn 6 (Downhill), practice the physical connection: as your left/right steering angle decreases from peak lock back to center, your right foot must depress the accelerator in direct proportion.",
+          "practical": "Run 10 laps focusing on smooth, continuous unwinding out of Turn 1, Turn 3, and Turn 6. Pay attention to track-out position: if you unwind smoothly, the car should naturally drift to the very outside kerb.",
+          "challenge": "Complete 5 laps where you apply 100% full throttle before the exit kerb without requiring mid-corner steering corrections or lifts.",
+          "assessment": [
+            {
+              "id": "q1",
+              "question": "What is the physical relationship between steering unwinding and throttle application?",
+              "options": [
+                "Inverse synchronicity: as your right foot depresses the throttle, your hands must unwindingly reduce steering angle",
+                "Direct correlation: turning tighter allows more throttle",
+                "Independent: steering angle should remain locked while full throttle is applied",
+                "Random: inputs depend solely on engine noise"
+              ],
+              "correctIndex": 0
+            },
+            {
+              "id": "q2",
+              "question": "Why is applying 100% throttle while maintaining maximum steering angle counterproductive?",
+              "options": [
+                "It overloads rear tire lateral grip budget, causing power oversteer slides or spins",
+                "It locks the front brake calipers",
+                "It increases steering rack wear",
+                "It causes immediate understeer into the wall"
+              ],
+              "correctIndex": 0
+            },
+            {
+              "id": "q3",
+              "question": "What does it indicate if you are forced to add steering lock after the apex?",
+              "options": [
+                "You applied throttle too early or missed your apex line, forcing you to lift",
+                "You unwound the wheel too fast",
+                "Your tire pressures are too low",
+                "The DD wheel motor force feedback is miscalibrated"
+              ],
+              "correctIndex": 0
+            }
+          ],
+          "psychCheckin": [
+            {
+              "id": "p1",
+              "prompt": "Were your hand movements smooth and fluid while unwinding?",
+              "type": "scale",
+              "minLabel": "1 (Jerky/Erratic)",
+              "maxLabel": "5 (Smooth & Fluid)"
+            },
+            {
+              "id": "p2",
+              "prompt": "Did you feel the car naturally tracking out toward the exit kerbs?",
+              "type": "scale",
+              "minLabel": "1 (Pinched Exit)",
+              "maxLabel": "5 (Natural Full Track-Out)"
+            },
+            {
+              "id": "p3",
+              "prompt": "Did you feel in sync with the Moza R3’s self-centering alignment torque?",
+              "type": "scale",
+              "minLabel": "1 (Fighting Wheel Torque)",
+              "maxLabel": "5 (Natural Sync)"
+            }
+          ],
+          "reflection": [
+            "Describe the sensation on the steering wheel as you squeezed the throttle and unwound the hands out of Turn 6.",
+            "What happened if you attempted to unwind the wheel too slowly while applying gas?",
+            "How did unwinding the wheel early prevent oversteer in the MX-5?"
+          ]
+        },
+        {
+          "id": "session_1_6",
+          "moduleId": 1,
+          "sessionNum": 6,
+          "weekNum": 2,
+          "weekTitle": "WEEK 2 — Priority 2: Corner Exit Speed & Acceleration",
+          "title": "Mixing Traction (Cornering vs. Acceleration)",
+          "subtitle": "Priority 2: Corner Exit Speed — Session 6",
+          "durationMinutes": 45,
+          "setup": {
+            "car": "Mazda MX-5 Miata (1990)",
+            "track": "Lime Rock Park (Full)",
+            "mozaR3Note": "Max Steering Angle: 900°, FFB: 100%, Max Wheel Speed: 100%, Damper: 0%, Interpolator: Level 0/1, Speed Damping: 0%.",
+            "forzaNote": "Steering: Simulation, TCS: OFF, STM: OFF, ABS: OFF, Shifting: Manual, Driving Line: OFF."
+          },
+          "theory": "Tires possess a finite budget of total friction, often visualized as a 'Traction Circle'. This total grip budget can be used exclusively for cornering, exclusively for acceleration/braking, or split as a combination of both.\n\nWhen cornering at 100% limit, zero traction remains for acceleration. However, you do not need to wait until the steering wheel is completely straight before applying power. You can mix abilities by trading lateral cornering force for longitudinal acceleration force in real time.\n\nIf you use 80% of tire grip for cornering, you have 20% available for light throttle. As the car moves past the apex and you unwind the wheel to reduce cornering load to 50%, you can increase throttle to 50%. By the time steering lock reaches zero, 100% of tire traction is dedicated to acceleration.\n\nThe secret to exit speed is initiating this smooth compromise early in the corner exit phase, ensuring a continuous transition from pure cornering to pure acceleration.",
+          "drill": "Traction Budget Allocation Drill: Drive 6 laps focusing on Turn 3 (Lefthand). Intentionally feel the compromise: squeeze 20% throttle at the apex while holding steering angle, then smoothly scale up to 100% throttle as you unwind to the exit.",
+          "practical": "Execute a 10-lap stint linking all corners at Lime Rock Park. Focus on achieving a seamless, linear transition from trail-throttle to full acceleration across all exits.",
+          "challenge": "Log a 5-lap consistency run where your exit speed out of Turn 4 varies by less than 1.0 mph across all laps.",
+          "assessment": [
+            {
+              "id": "q1",
+              "question": "What concept describes the finite friction limit of a racing tire?",
+              "options": [
+                "The Traction Circle (or Friction Circle)",
+                "The Aerodynamic Downforce Limit",
+                "The Engine Power Curve",
+                "The Steering Torque Ratio"
+              ],
+              "correctIndex": 0
+            },
+            {
+              "id": "q2",
+              "question": "If a tire is using 70% of its available grip to turn, how much grip remains for acceleration?",
+              "options": [
+                "30%",
+                "70%",
+                "0%",
+                "100%"
+              ],
+              "correctIndex": 0
+            },
+            {
+              "id": "q3",
+              "question": "What must happen to cornering force as acceleration force increases toward 100%?",
+              "options": [
+                "Cornering force must decrease to zero by unwinding steering angle",
+                "Cornering force must increase to match acceleration",
+                "Cornering force stays constant regardless of throttle",
+                "Cornering force flips to rear axle only"
+              ],
+              "correctIndex": 0
+            }
+          ],
+          "psychCheckin": [
+            {
+              "id": "p1",
+              "prompt": "Did you feel the threshold limit of tire grip through the Moza R3 force feedback?",
+              "type": "scale",
+              "minLabel": "1 (Disconnected)",
+              "maxLabel": "5 (Highly Sensitive)"
+            },
+            {
+              "id": "p2",
+              "prompt": "Was your throttle foot modulated with precision or acted like an on/off switch?",
+              "type": "scale",
+              "minLabel": "1 (On/Off Switch)",
+              "maxLabel": "5 (Micro-Calibrated Modulation)"
+            },
+            {
+              "id": "p3",
+              "prompt": "Did you maintain patience during mid-corner transition phases?",
+              "type": "scale",
+              "minLabel": "1 (Impatient/Rushed)",
+              "maxLabel": "5 (Patient & Smooth)"
+            }
+          ],
+          "reflection": [
+            "How did mixing cornering and acceleration forces change your lap times compared to a simple 'wait-then-stomp' approach?",
+            "Did you experience understeer or oversteer when misjudging the grip budget split?",
+            "What feedback did the Moza R3 give when rear tire grip reached its limit?"
+          ]
+        },
+        {
+          "id": "session_1_7",
+          "moduleId": 1,
+          "sessionNum": 7,
+          "weekNum": 3,
+          "weekTitle": "WEEK 3 — Priority 3: Straight-Line Threshold Braking",
+          "title": "Straight-Line Threshold Braking",
+          "subtitle": "Priority 3: Straight-Line Threshold Braking — Session 7",
+          "durationMinutes": 45,
+          "setup": {
+            "car": "Mazda MX-5 Miata (1990)",
+            "track": "Lime Rock Park (Full)",
+            "mozaR3Note": "Max Steering Angle: 900°, FFB: 100%, Max Wheel Speed: 100%, Damper: 0%, Interpolator: Level 0/1, Speed Damping: 0%.",
+            "forzaNote": "Steering: Simulation, TCS: OFF, STM: OFF, ABS: OFF, Shifting: Manual, Driving Line: OFF."
+          },
+          "theory": "Only after mastering the racing line (Priority 1) and corner exit speed (Priority 2) should you turn your attention to Priority 3: Slowing the car for corners. Novice drivers frequently over-emphasize late braking, entering corners too fast, missing the apex, and compromising exit speed.\n\nThe correct method for maximum deceleration is Threshold Braking.\n\nThreshold braking means applying maximum brake pressure to bring the tires to the absolute edge of locking up (or ABS activation), without exceeding that boundary. Maximum deceleration occurs when the tires are slipping between 10% and 15% relative to the road surface.\n\nIn a straight line, the car’s full grip capacity is dedicated to deceleration. You should apply heavy brake pressure rapidly at your braking marker while the car is travelling completely straight, then hold that pressure steady as speed drops. As aerodynamic downforce declines or speed bleeds off, you must slightly bleed off pedal pressure to prevent tire lockup as you approach turn-in.",
+          "drill": "Braking Marker Calibration Drill: Drive 6 laps focusing on Turn 1 (Big Bend). Establish a conservative braking marker (e.g., 300ft board). Practice hard, immediate initial brake application in a straight line, ensuring the car is slowed to entry speed before initiating turn-in.",
+          "practical": "Run 10 laps at full pace. Move your braking point forward in 10-foot increments for Turn 1 and Turn 3, while holding to the strict rule: all heavy threshold braking must be completed in a straight line.",
+          "challenge": "Identify a precise braking point for Turn 1 that allows 100% threshold braking without locking tires or triggering ABS intervention.",
+          "assessment": [
+            {
+              "id": "q1",
+              "question": "Why is straight-line braking placed third in Skip Barber's priority list?",
+              "options": [
+                "Because mastering the geometric line and exit speed yields far greater lap time gains than late braking",
+                "Because braking requires no driver skill",
+                "Because race cars slow down automatically in corners",
+                "Because braking damages tires on early laps"
+              ],
+              "correctIndex": 0
+            },
+            {
+              "id": "q2",
+              "question": "What is 'Threshold Braking'?",
+              "options": [
+                "Applying maximum brake pressure to reach the absolute edge of tire lockup (10-15% slip) without locking up",
+                "Stomping the pedal until tires screech and smoke",
+                "Lightly tapping the brake pedal to transfer weight",
+                "Pumping the pedal repeatedly into corners"
+              ],
+              "correctIndex": 0
+            },
+            {
+              "id": "q3",
+              "question": "What happens to maximum available braking pressure as vehicle speed drops?",
+              "options": [
+                "Braking pressure capacity decreases, requiring driver to ease off pedal slightly to prevent lockup",
+                "Braking pressure capacity increases infinitely",
+                "Braking pressure capacity stays identical at all speeds",
+                "Brake pedal locks up automatically"
+              ],
+              "correctIndex": 0
+            }
+          ],
+          "psychCheckin": [
+            {
+              "id": "p1",
+              "prompt": "Did you feel confident stomping the brake pedal firmly at your marker?",
+              "type": "scale",
+              "minLabel": "1 (Hesitant/Weak)",
+              "maxLabel": "5 (Decisive & Firm)"
+            },
+            {
+              "id": "p2",
+              "prompt": "Did you keep your body steady and braced under heavy braking forces?",
+              "type": "scale",
+              "minLabel": "1 (Unstable Body)",
+              "maxLabel": "5 (Stable Core & Grip)"
+            },
+            {
+              "id": "p3",
+              "prompt": "Did you avoid panicking when approaching the entry zone at high speed?",
               "type": "scale",
               "minLabel": "1 (Panicked)",
-              "maxLabel": "5 (Fully Composed)"
-            },
-            {
-              "id": "p3",
-              "prompt": "Overall focus score for Module 1 completion:",
-              "type": "scale",
-              "minLabel": "1 (Distracted)",
-              "maxLabel": "5 (Peak Flow)"
+              "maxLabel": "5 (Calm & Focused)"
             }
           ],
           "reflection": [
-            "How did throttle modulation alter your corner exit trajectory?",
-            "What was your biggest breakthrough in Module 1?",
-            "State your primary goal for starting Module 2 (Braking)."
-          ]
-        }
-      ]
-    },
-    {
-      "id": 2,
-      "title": "MODULE 2: BRAKING & WEIGHT TRANSFER",
-      "description": "Master threshold braking, trail braking techniques, and longitudinal weight balance.",
-      "mozaR3Global": {
-        "ffbStrength": "100%",
-        "brakeDeadzoneInner": "2%",
-        "brakeDeadzoneOuter": "98%",
-        "pedalLinearity": "100% Linear"
-      },
-      "forzaGlobal": {
-        "steeringMode": "Normal",
-        "abs": "OFF (or ON for initial calibration)",
-        "tcs": "OFF",
-        "stm": "OFF",
-        "brakingForce": "100%"
-      },
-      "sessions": [
-        {
-          "id": "session_2_1",
-          "moduleId": 2,
-          "sessionNum": 4,
-          "title": "Threshold Braking & Lockup Avoidance",
-          "subtitle": "Maximizing straight-line deceleration without triggering ABS lockups",
-          "durationMinutes": 45,
-          "setup": {
-            "car": "2018 Subaru BRZ TS",
-            "track": "Watkins Glen Short Course",
-            "mozaR3Note": "Calibrate the Moza R3 pedal stiffness to ensure 100% brake pressure requires firm muscle engagement.",
-            "forzaNote": "Turn ABS OFF for this session. Use HUD Telemetry brake bar to monitor threshold percentage."
-          },
-          "theory": "Threshold braking means applying maximum brake pressure just short of locking up the tires. At high speed, downforce and momentum allow high initial brake pressure (~85-95%). As the car slows and downforce drops, you must gradually bleed off pedal pressure to prevent lockup.",
-          "drill": "On the front straightaway of Watkins Glen, practice hitting 90% peak brake pressure instantly at braking markers, then smoothly bleeding pressure off down to turn-in.",
-          "practical": "Run 10 laps focusing solely on straight-line braking zone precision before Turn 1 and the Inner Loop chicanes.",
-          "challenge": "Log 5 straight laps without locking up front tires or flat-spotting.",
-          "assessment": [
-            {
-              "id": "q1",
-              "question": "Why must brake pedal pressure be reduced as vehicle speed decreases?",
-              "options": [
-                "Loss of aerodynamic downforce and load reduces available grip before lockup",
-                "Brake fluid boils at lower speeds",
-                "Engine power increases as speed drops",
-                "Tires expand at lower speeds"
-              ],
-              "correctIndex": 0
-            },
-            {
-              "id": "q2",
-              "question": "What is the immediate indicator of front tire lockup with ABS OFF?",
-              "options": [
-                "Steering becomes unresponsive, tires screech heavily, car pushes straight",
-                "Car spins 180 degrees backwards",
-                "Engine revs to redline instantly",
-                "Brake pedal vibrates continuously"
-              ],
-              "correctIndex": 0
-            },
-            {
-              "id": "q3",
-              "question": "What is the recommended initial brake pressure hit in heavy braking zones at high speed?",
-              "options": [
-                "20% light dab",
-                "85% to 95% rapid initial squeeze",
-                "100% sudden stomp with immediate release",
-                "50% steady holding pressure"
-              ],
-              "correctIndex": 1
-            }
-          ],
-          "psychCheckin": [
-            {
-              "id": "p1",
-              "prompt": "How confident were you in hitting peak initial brake pressure?",
-              "type": "scale",
-              "minLabel": "1 (Hesitant)",
-              "maxLabel": "5 (Decisive)"
-            },
-            {
-              "id": "p2",
-              "prompt": "How quickly did you release brake pressure when lockup occurred?",
-              "type": "scale",
-              "minLabel": "1 (Slow Reaction)",
-              "maxLabel": "5 (Instant Bleed)"
-            },
-            {
-              "id": "p3",
-              "prompt": "Rate your overall foot-eye pedal coordination today:",
-              "type": "scale",
-              "minLabel": "1 (Clumsy)",
-              "maxLabel": "5 (Precise)"
-            }
-          ],
-          "reflection": [
-            "What reference marker gave you the cleanest threshold braking zone?",
-            "How did muscle memory develop for peak pedal pressure across 10 laps?",
-            "What step will you focus on to refine trail braking tomorrow?"
+            "What physical reference marker did you select for your Turn 1 braking point?",
+            "How did hard straight-line braking impact your car's pitch and front tire grip at turn-in?",
+            "Did you feel any front tire lockup or ABS chatter during threshold application?"
           ]
         },
         {
-          "id": "session_2_2",
-          "moduleId": 2,
-          "sessionNum": 5,
-          "title": "Trail Braking & Corner Entry Balance",
-          "subtitle": "Tapering brake pressure while blending in steering turn-in",
-          "durationMinutes": 45,
-          "setup": {
-            "car": "2018 Subaru BRZ TS",
-            "track": "Laguna Seca",
-            "mozaR3Note": "Feel for front axle compression feedback through the Moza R3 motor during trail braking.",
-            "forzaNote": "ABS OFF. Telemetry HUD showing Friction Ellipse / G-Force meter."
-          },
-          "theory": "Trail braking is trailing off the brake pedal from turn-in point all the way to the apex. Combined grip is limited by friction traction circles: 100% braking leaves 0% for cornering. As you turn the wheel 20%, you must bleed brake pressure down to 80%, smoothly blending braking out as cornering load increases.",
-          "drill": "At Laguna Seca Turn 2 (Andretti Hairpin) and Turn 11, focus on carrying 15-5% light brake pressure all the way to the geometric apex curb.",
-          "practical": "Execute 12 laps focusing on seamless blending between pedal release and wheel turn-in.",
-          "challenge": "Maintain smooth, continuous nose-down pitch through Turn 2 turn-in for 4 consecutive laps.",
-          "assessment": [
-            {
-              "id": "q1",
-              "question": "What is the primary objective of trail braking into a corner apex?",
-              "options": [
-                "Keep weight on the front tires to increase entry grip and rotate car to apex",
-                "To stop the car completely before the apex",
-                "To heat up rear brakes for exit traction",
-                "To prevent downshifting"
-              ],
-              "correctIndex": 0
-            },
-            {
-              "id": "q2",
-              "question": "According to the friction circle principle, if you are using 50% lateral grip for turning, how much maximum braking grip remains?",
-              "options": [
-                "100%",
-                "50% (approximate friction allocation budget)",
-                "0%",
-                "75%"
-              ],
-              "correctIndex": 1
-            },
-            {
-              "id": "q3",
-              "question": "What happens if you hold 90% heavy brake pressure while turning the steering wheel hard?",
-              "options": [
-                "Front tires exceed traction limit and car plows straight understeer/lockup",
-                "Car turns twice as fast",
-                "Rear tires lock up instantly",
-                "Lap time improves"
-              ],
-              "correctIndex": 0
-            }
-          ],
-          "psychCheckin": [
-            {
-              "id": "p1",
-              "prompt": "How smooth was the transition between braking foot release and steering hand turn-in?",
-              "type": "scale",
-              "minLabel": "1 (Jumpy/Disjointed)",
-              "maxLabel": "5 (Fluid Blend)"
-            },
-            {
-              "id": "p2",
-              "prompt": "How comfortable were you trailing brakes deep into apexes?",
-              "type": "scale",
-              "minLabel": "1 (Scared of Spinning)",
-              "maxLabel": "5 (Completely Natural)"
-            },
-            {
-              "id": "p3",
-              "prompt": "Overall execution score for Laguna Seca trail braking:",
-              "type": "scale",
-              "minLabel": "1 (Needs Work)",
-              "maxLabel": "5 (Flawless)"
-            }
-          ],
-          "reflection": [
-            "Which corner at Laguna Seca benefited most from trail braking?",
-            "Did you experience any rear instability on turn-in, and how did you correct it?",
-            "How will you carry this weight transfer control into Module 2's final session?"
-          ]
-        },
-        {
-          "id": "session_2_3",
-          "moduleId": 2,
-          "sessionNum": 6,
-          "title": "Braking Marker Calibration & Consistency",
-          "subtitle": "Establishing fixed reference points and managing heat fade",
-          "durationMinutes": 45,
-          "setup": {
-            "car": "2018 Subaru BRZ TS",
-            "track": "Silverstone International",
-            "mozaR3Note": "Check pedal calibration in Moza Pit House app before starting.",
-            "forzaNote": "Fuel and Tire Wear: ON (Accelerated) to practice adapting brake points as tires degrade."
-          },
-          "theory": "Consistency comes from visual reference discipline. Never brake by feel or guesswork; choose static trackside objects (150m board, curbing start, gantry shadow) as your braking markers. As tire wear occurs during a stint, move your brake point back by 5-10 meters to protect entry speed.",
-          "drill": "Pick explicit static visual braking markers for every corner on Silverstone. Write them down mentally before each stint.",
-          "practical": "Run a 15-lap simulated stint on Silverstone. Track how your brake markers adjust as tires warm up and wear down.",
-          "challenge": "Log 6 consecutive laps with lap times within a 0.35s window.",
-          "assessment": [
-            {
-              "id": "q1",
-              "question": "Why should brake markers be chosen from fixed static objects rather than shadows or portable cones?",
-              "options": [
-                "Shadows shift with sun position and cones can be knocked away during races",
-                "Static objects are harder to see",
-                "Cones add aerodynamic drag",
-                "Static objects lower brake temperature"
-              ],
-              "correctIndex": 0
-            },
-            {
-              "id": "q2",
-              "question": "How should your braking point change as tires wear down during a long stint?",
-              "options": [
-                "Brake 5 to 10 meters earlier to compensate for reduced friction",
-                "Brake 20 meters later to make up lost time",
-                "Keep braking point identical regardless of wear",
-                "Brake with left foot only"
-              ],
-              "correctIndex": 0
-            },
-            {
-              "id": "q3",
-              "question": "What is the primary indicator of brake fade or tire thermal degradation?",
-              "options": [
-                "Increased stopping distance and softer initial bite feeling",
-                "Higher top speed on straights",
-                "Engine temperature dropping",
-                "Steering wheel shaking side to side"
-              ],
-              "correctIndex": 0
-            }
-          ],
-          "psychCheckin": [
-            {
-              "id": "p1",
-              "prompt": "How disciplined were your eyes in finding braking markers early?",
-              "type": "scale",
-              "minLabel": "1 (Late Vision)",
-              "maxLabel": "5 (Early Target Spotting)"
-            },
-            {
-              "id": "p2",
-              "prompt": "How consistently did you hit your exact brake release points?",
-              "type": "scale",
-              "minLabel": "1 (Highly Variable)",
-              "maxLabel": "5 (Robotically Consistent)"
-            },
-            {
-              "id": "p3",
-              "prompt": "Module 2 Mastery Confidence Score:",
-              "type": "scale",
-              "minLabel": "1 (Low)",
-              "maxLabel": "5 (High)"
-            }
-          ],
-          "reflection": [
-            "List your primary brake markers for Silverstone's 3 heaviest braking zones.",
-            "How did tire wear on lap 12 compare to fresh tires on lap 2?",
-            "What is your key takeaway from Module 2 (Braking)?"
-          ]
-        }
-      ]
-    },
-    {
-      "id": 3,
-      "title": "MODULE 3: RACING LINE & CORNER PHASES",
-      "description": "Deconstruct corners into entry, apex, and exit phases to maximize straightaway exit speeds.",
-      "mozaR3Global": {
-        "ffbStrength": "100%",
-        "wheelRotation": "900°",
-        "speedDamping": "10%"
-      },
-      "forzaGlobal": {
-        "steeringMode": "Normal",
-        "abs": "OFF",
-        "tcs": "OFF",
-        "stm": "OFF",
-        "suggestedLine": "OFF (or Apex Only for visual verification)"
-      },
-      "sessions": [
-        {
-          "id": "session_3_1",
-          "moduleId": 3,
-          "sessionNum": 7,
-          "title": "Geometric vs. Late Apex Lines",
-          "subtitle": "Sacrificing entry speed to prioritize long exit acceleration",
-          "durationMinutes": 45,
-          "setup": {
-            "car": "2017 Ford Mustang GT",
-            "track": "Road America",
-            "mozaR3Note": "The high torque of the Mustang requires smooth throttle exit application on the Moza R3 setup.",
-            "forzaNote": "Turn Suggested Line OFF to force independent visual line recognition."
-          },
-          "theory": "The traditional geometric apex maximizes corner radius, but the late apex is the fastest line into a long straight. By delaying turn-in and clipping the apex late, you straighten the car earlier, opening up the throttle sooner. 'Slow in, fast out' yields higher speeds all the way down the following straight.",
-          "drill": "At Road America Turn 5 and Turn 14, practice driving a late apex line: brake deeper on the outside, rotate hard mid-corner, and hit full throttle before the curbing apex.",
-          "practical": "Run 10 laps focusing on maximum exit speed onto Road America's main straightaways.",
-          "challenge": "Achieve higher top speed at the end of the front straight on 4 consecutive laps compared to geometric line baselines.",
-          "assessment": [
-            {
-              "id": "q1",
-              "question": "What is the main advantage of taking a late apex line leading onto a long straightaway?",
-              "options": [
-                "Allows earlier full-throttle acceleration and higher exit speed down the straight",
-                "Shortens overall track distance by 50%",
-                "Reduces brake pad temperature",
-                "Eliminates tire wear completely"
-              ],
-              "correctIndex": 0
-            },
-            {
-              "id": "q2",
-              "question": "How does turn-in timing differ between a geometric line and a late apex line?",
-              "options": [
-                "Late apex line turns in slightly later and sharper toward a point further down the corner",
-                "Late apex line turns in earlier and wider",
-                "Geometric line requires turning in twice",
-                "There is no difference in turn-in point"
-              ],
-              "correctIndex": 0
-            },
-            {
-              "id": "q3",
-              "question": "What rule of thumb governs corner priority on a racetrack?",
-              "options": [
-                "Prioritize the corner that precedes the longest straightaway",
-                "Prioritize the first corner of the track only",
-                "Prioritize slow chicane entry over exit speed",
-                "Brake as late as possible into every single turn"
-              ],
-              "correctIndex": 0
-            }
-          ],
-          "psychCheckin": [
-            {
-              "id": "p1",
-              "prompt": "How disciplined were you in resisting early turn-in temptation?",
-              "type": "scale",
-              "minLabel": "1 (Turned in Early)",
-              "maxLabel": "5 (Strict Late Turn-in)"
-            },
-            {
-              "id": "p2",
-              "prompt": "How early were you able to apply full throttle on corner exit?",
-              "type": "scale",
-              "minLabel": "1 (Late Throttle)",
-              "maxLabel": "5 (Before Curb Apex)"
-            },
-            {
-              "id": "p3",
-              "prompt": "Rate your visual line recognition with Suggested Line disabled:",
-              "type": "scale",
-              "minLabel": "1 (Lost/Uncertain)",
-              "maxLabel": "5 (Clear Vision)"
-            }
-          ],
-          "reflection": [
-            "How much higher was your top speed at Road America's main straight using late apexes?",
-            "Which corner tempted you to turn in too early, and how did you correct it?",
-            "What will be your focus for complex corner combinations in the next drill?"
-          ]
-        },
-        {
-          "id": "session_3_2",
-          "moduleId": 3,
+          "id": "session_1_8",
+          "moduleId": 1,
           "sessionNum": 8,
-          "title": "Chicanes, S-Curves & Linked Corners",
-          "subtitle": "Sacrificing Corner 1 to maximize alignment and speed out of Corner 2",
+          "weekNum": 3,
+          "weekTitle": "WEEK 3 — Priority 3: Straight-Line Threshold Braking",
+          "title": "Braking & Turning (Entry Balance)",
+          "subtitle": "Priority 3: Straight-Line Threshold Braking — Session 8",
           "durationMinutes": 45,
           "setup": {
-            "car": "2017 Ford Mustang GT",
-            "track": "Suzuka Circuit (East / Full)",
-            "mozaR3Note": "Smooth directional weight shifts through Suzuka S-Curves demonstrate Moza R3 force feedback fidelity.",
-            "forzaNote": "Set Steering to Normal. TCS OFF."
+            "car": "Mazda MX-5 Miata (1990)",
+            "track": "Lime Rock Park (Full)",
+            "mozaR3Note": "Max Steering Angle: 900°, FFB: 100%, Max Wheel Speed: 100%, Damper: 0%, Interpolator: Level 0/1, Speed Damping: 0%.",
+            "forzaNote": "Steering: Simulation, TCS: OFF, STM: OFF, ABS: OFF, Shifting: Manual, Driving Line: OFF."
           },
-          "theory": "In connected corners (Ss, chicanes, double apexes), corners cannot be treated in isolation. The exit of turn 1 dictates the entry of turn 2. Always compromise the entry and speed of turn 1 to position the vehicle for the fastest line and exit out of the final turn in the sequence.",
-          "drill": "At Suzuka's famous S-Curves (Turns 3 through 6), drive at 80% pace focusing entirely on placement for the next corner entry.",
-          "practical": "Execute a 12-lap stint building speed rhythmically through the S-Curves without destabilizing the rear axle.",
-          "challenge": "Maintain smooth flow through Suzuka Ss for 5 straight laps without needing aggressive counter-steering.",
+          "theory": "While pure straight-line threshold braking is the safest method to slow down, advanced lap times require combining deceleration with corner entry—a concept Skip Barber calls Braking and Turning (or Trail Braking).\n\nIf you release 100% of the brake pedal before turning the steering wheel, weight transfers abruptly from the front tires to the rear tires. This leaves the front tires unloaded, causing understeer at turn-in. Conversely, if you attempt 100% threshold braking while turning, the front tires overload instantly, causing lockup or severe oversteer.\n\nTo balance the car upon corner entry, you must blend brake release with steering turn-in: as your hands turn the wheel into the corner, your foot must smoothly ease off the brake pedal.\n\nTrailing a small percentage of brake force (10-20%) into the first third of the corner keeps weight on the front nose, sharpens steering turn-in response, and allows you to carry higher entry speed safely down to the apex.",
+          "drill": "Trail-Brake Weight Transfer Drill: Practice at Turn 1 (Big Bend). Execute your initial heavy straight-line braking, but as you initiate steering turn-in, slowly taper off the brake pedal (trailing from 50% -> 20% -> 0%) right down to the apex kerb.",
+          "practical": "Drive 10 full laps incorporating subtle trail-braking at Turn 1 and Turn 3. Focus on maintaining a smooth, continuous weight transfer forward without unsettling the rear axle.",
+          "challenge": "Successfully trail-brake into Turn 1 for 5 consecutive laps, keeping front nose authority without inducing rear snap-oversteer.",
           "assessment": [
             {
               "id": "q1",
-              "question": "In a 2-corner sequence connected by a short straight, which corner should dictate your line choice?",
+              "question": "What happens to front tire grip when you completely lift off the brakes before turning in?",
               "options": [
-                "The second corner (exit placement takes priority)",
-                "The first corner (always enter as fast as possible)",
-                "Neither corner matters",
-                "Whichever corner has the highest curb"
+                "Weight transfers abruptly to the rear, unloading front tires and causing turn-in understeer",
+                "Front tires gain maximum cornering grip",
+                "Rear tires lock up instantly",
+                "Vehicle speed increases automatically"
               ],
               "correctIndex": 0
             },
             {
               "id": "q2",
-              "question": "What is the main danger of carrying too much speed into Turn 1 of an S-bend chicane?",
+              "question": "How should brake pedal pressure change as steering angle increases during corner entry?",
               "options": [
-                "Pushes car out wide, ruining entry angle and speed for Turn 2",
-                "Makes Turn 2 wider and faster",
-                "Shortens overall track distance",
-                "Cuts gear shift times in half"
+                "Brake pressure must smoothly taper off (trail down) as steering angle increases",
+                "Brake pressure must increase to maximum",
+                "Brake pressure must hold constant at 100%",
+                "Brake pressure should be pumped rapidly"
               ],
               "correctIndex": 0
             },
             {
               "id": "q3",
-              "question": "How should kerbs be used in tight chicanes?",
+              "question": "What is the primary performance benefit of trail-braking into a turn?",
               "options": [
-                "Clip flat kerbs smoothly to straighten the line, avoiding tall kerbs that launch the car",
-                "Hit every kerb as hard as possible",
-                "Never touch any kerbs under any circumstance",
-                "Drive entirely on the grass"
+                "Keeps weight on front tires, sharpening turn-in steering response and allowing higher entry speed down to apex",
+                "Reduces engine water temperature",
+                "Prevents transmission gear wear",
+                "Eliminates steering wheel force feedback"
               ],
               "correctIndex": 0
             }
@@ -679,80 +666,82 @@
           "psychCheckin": [
             {
               "id": "p1",
-              "prompt": "How rhythmically did you link Suzuka's S-Curves today?",
+              "prompt": "Did you feel in control of the vehicle's weight transfer during turn-in?",
               "type": "scale",
-              "minLabel": "1 (Jerky/Disconnected)",
-              "maxLabel": "5 (Flowing Rhythm)"
+              "minLabel": "1 (Abrupt Weight Shifts)",
+              "maxLabel": "5 (Smooth Weight Flow)"
             },
             {
               "id": "p2",
-              "prompt": "How willing were you to sacrifice speed in Turn 1 for Turn 2 position?",
+              "prompt": "Was your transition from brake pedal to throttle pedal smooth and seamless?",
               "type": "scale",
-              "minLabel": "1 (Greedy on Entry)",
-              "maxLabel": "5 (Disciplined Priority)"
+              "minLabel": "1 (Clunky Foot Transition)",
+              "maxLabel": "5 (Seamless Footwork)"
             },
             {
               "id": "p3",
-              "prompt": "Overall confidence in linked corner management:",
+              "prompt": "Did you feel any fear of rear-end instability during entry?",
               "type": "scale",
-              "minLabel": "1 (Low)",
-              "maxLabel": "5 (High)"
+              "minLabel": "1 (High Fear/Anxiety)",
+              "maxLabel": "5 (Confident Control)"
             }
           ],
           "reflection": [
-            "Where in the Suzuka S-Curves did you feel the car balance was cleanest?",
-            "What happened when you entered Turn 3 too fast during your stint?",
-            "How will you apply elevation and banking balance in Session 3.3?"
+            "How did trailing the brakes into Turn 1 alter the car's willingness to turn toward the apex?",
+            "What visual marker signaled the point where you completely released the brake pedal?",
+            "Did the Moza R3 wheel communicate front-end load changes during trail-braking?"
           ]
         },
         {
-          "id": "session_3_3",
-          "moduleId": 3,
+          "id": "session_1_9",
+          "moduleId": 1,
           "sessionNum": 9,
-          "title": "Elevation, Compression & Off-Camber Curves",
-          "subtitle": "Managing vertical g-loads and camber traction changes",
+          "weekNum": 3,
+          "weekTitle": "WEEK 3 — Priority 3: Straight-Line Threshold Braking",
+          "title": "Downshifting & Axle Stability",
+          "subtitle": "Priority 3: Straight-Line Threshold Braking — Session 9",
           "durationMinutes": 45,
           "setup": {
-            "car": "2017 Ford Mustang GT",
-            "track": "Brands Hatch Grand Prix",
-            "mozaR3Note": "Compressions heavily load the Moza R3 direct drive motor; feel for heavy wheel resistance at bottom of hills.",
-            "forzaNote": "ABS OFF, TCS OFF, Steering Normal."
+            "car": "Mazda MX-5 Miata (1990)",
+            "track": "Lime Rock Park (Full)",
+            "mozaR3Note": "Max Steering Angle: 900°, FFB: 100%, Max Wheel Speed: 100%, Damper: 0%, Interpolator: Level 0/1, Speed Damping: 0%.",
+            "forzaNote": "Steering: Simulation, TCS: OFF, STM: OFF, ABS: OFF, Shifting: Manual, Driving Line: OFF."
           },
-          "theory": "Track topography changes available tire grip dramatically. Downhill off-camber turns spill weight away from the tires, reducing traction and requiring lower cornering speeds. Uphill compressions squash tires into the tarmac, boosting grip and allowing aggressive braking and corner speeds.",
-          "drill": "At Brands Hatch Paddock Hill Bend (downhill compression) and Druids (uphill hairpin), observe how vertical load alters tire grip limits.",
-          "practical": "Run 12 continuous practice laps mastering weight balance over Brand Hatch's crests and compressions.",
-          "challenge": "Complete 5 clean laps without running wide at Paddock Hill Bend exit.",
+          "theory": "Downshifting during deceleration serves one primary purpose: placing the engine into its optimal powerband so you can accelerate efficiently out of the corner exit. Downshifting does not exist to slow the racecar down—that is the job of the braking system.\n\nImproper downshifting techniques can instantly ruin corner entry. If you drop to a lower gear without rev-matching (blipping the throttle while holding the brake pedal), the engine speed lags behind transmission speed. When the clutch engages, the sudden mechanical drag acts like a sudden pull on the handbrake, locking or dragging the rear tires.\n\nThis compression lockup instantly destabilizes the rear end, causing unexpected spins at corner entry.\n\nTo maintain chassis stability during deceleration, downshifts must be executed smoothly while threshold braking in a straight line. Blip the throttle firmly to match engine RPM to vehicle speed before releasing the clutch, ensuring the chassis remains perfectly level and stable.",
+          "drill": "Heel-Toe / Rev-Match Downshift Drill: Practice downshifting from 4th gear to 3rd gear on the approach to Turn 1 (Big Bend). Focus exclusively on throttle-blip accuracy to ensure zero rear tire chirp or engine braking drag upon clutch release.",
+          "practical": "Run a 10-lap stint focusing on downshift timing for Turn 1 and Turn 3. Ensure all gear changes are completed while the car is tracking straight, prior to initiating steering turn-in.",
+          "challenge": "Complete 8 consecutive downshifts without triggering rear axle instability, engine over-rev, or vehicle pitch upset.",
           "assessment": [
             {
               "id": "q1",
-              "question": "What happens to available tire grip when descending into an off-camber downhill turn?",
+              "question": "What is the primary purpose of downshifting in a racecar?",
               "options": [
-                "Grip decreases as vertical load drops and gravity pushes car outward",
-                "Grip doubles automatically due to gravity",
-                "Braking distance is reduced by half",
-                "Tire temperature drops to zero"
+                "Placing the engine into its optimal powerband for maximum corner exit acceleration",
+                "Slowing the car down to replace brake usage",
+                "Cooling the transmission fluid",
+                "Increasing tire slip angle"
               ],
               "correctIndex": 0
             },
             {
               "id": "q2",
-              "question": "Why can you brake harder at the bottom of an uphill compression zone?",
+              "question": "What causes 'compression lockup' during an un-matched downshift?",
               "options": [
-                "Vertical compression increases normal force on tire contact patches, boosting friction",
-                "Uphill slopes reduce brake caliper heat",
-                "Engine braking is disabled uphill",
-                "Steering angle is not required uphill"
+                "Engine RPM lagging behind transmission speed, creating sudden mechanical drag that locks or drags rear tires",
+                "Overheating the brake pads",
+                "Too much throttle blip force",
+                "High tire pressure in front tires"
               ],
               "correctIndex": 0
             },
             {
               "id": "q3",
-              "question": "What is the primary danger when cresting a hill while turning?",
+              "question": "At what phase of the deceleration zone should downshifting ideally be completed?",
               "options": [
-                "Vehicle becomes light (unloaded suspension), causing sudden oversteer or loss of control",
-                "Tires lock up instantly in mid-air",
-                "Fuel tank stops feeding engine",
-                "Moza R3 wheel disconnects"
+                "While threshold braking in a straight line before initiating steering turn-in",
+                "At the exact apex point while cornering at maximum G",
+                "After fully accelerating out of the corner exit",
+                "During mid-corner trail-braking"
               ],
               "correctIndex": 0
             }
@@ -760,100 +749,82 @@
           "psychCheckin": [
             {
               "id": "p1",
-              "prompt": "How well did you anticipate grip changes over crests and compressions?",
+              "prompt": "Did downshifting feel mechanical and rhythmic or rushed and frantic?",
               "type": "scale",
-              "minLabel": "1 (Surprised by Grip Loss)",
-              "maxLabel": "5 (Fully Anticipated)"
+              "minLabel": "1 (Frantic & Clunky)",
+              "maxLabel": "5 (Rhythmic & Precise)"
             },
             {
               "id": "p2",
-              "prompt": "How smooth were your pedal inputs when unloading over Paddock Hill crest?",
+              "prompt": "Were your foot inputs on the brake and throttle independent and precise?",
               "type": "scale",
-              "minLabel": "1 (Abrupt)",
-              "maxLabel": "5 (Delicate Balance)"
+              "minLabel": "1 (Erratic Footwork)",
+              "maxLabel": "5 (Calibrated Independence)"
             },
             {
               "id": "p3",
-              "prompt": "Module 3 Overall Mastery Rating:",
+              "prompt": "Did you maintain focus on your forward braking marker while executing gear shifts?",
               "type": "scale",
-              "minLabel": "1 (Novice)",
-              "maxLabel": "5 (Advanced Line Reader)"
+              "minLabel": "1 (Distracted by Shifter)",
+              "maxLabel": "5 (Visual Horizon Maintained)"
             }
           ],
           "reflection": [
-            "How did compression at the bottom of Paddock Hill change your steering effort?",
-            "What adjustments did you make to throttle application over hill crests?",
-            "State your focus as you enter the final Module 4 (Racecraft & Telemetry)."
+            "Describe how a smooth rev-matched downshift affected your entry stability into Turn 1.",
+            "What happened to the rear tire traction when a downshift blip was missed or under-rpm'd?",
+            "Did gear shifting distract your peripheral vision from tracking turn-in points?"
           ]
-        }
-      ]
-    },
-    {
-      "id": 4,
-      "title": "MODULE 4: RACECRAFT & TELEMETRY OPTIMIZATION",
-      "description": "Synthesize all driving techniques into race conditions, lap time analysis, and consistent stint execution.",
-      "mozaR3Global": {
-        "ffbStrength": "100%",
-        "wheelRotation": "900°",
-        "speedDamping": "10%",
-        "equalizerFFB": "Linear 1:1"
-      },
-      "forzaGlobal": {
-        "steeringMode": "Simulation (or Normal for high stability)",
-        "abs": "OFF",
-        "tcs": "OFF",
-        "stm": "OFF",
-        "damage": "Fuel & Tire Wear On"
-      },
-      "sessions": [
+        },
         {
-          "id": "session_4_1",
-          "moduleId": 4,
+          "id": "session_1_10",
+          "moduleId": 1,
           "sessionNum": 10,
-          "title": "Sector Analysis & Lap Delta Optimization",
-          "subtitle": "Isolating weak sectors using split telemetry deltas",
+          "weekNum": 4,
+          "weekTitle": "WEEK 4 — Priority 4: Integration & Formula Barber Benchmark",
+          "title": "Eliminating The 4 Common Driver Mistakes",
+          "subtitle": "Priority 4: Integration & Benchmark — Session 10",
           "durationMinutes": 45,
           "setup": {
-            "car": "2019 Porsche 911 GT3 RS",
-            "track": "Spa-Francorchamps",
-            "mozaR3Note": "High speed downforce requires firm wheel control through Eau Rouge / Raidillon.",
-            "forzaNote": "Enable On-Screen Lap Time Delta display in Forza HUD options."
+            "car": "Mazda Formula Mazda (2015)",
+            "track": "Lime Rock Park (Full)",
+            "mozaR3Note": "Max Steering Angle: 900°, FFB: 100%, Max Wheel Speed: 100%, Damper: 0%, Interpolator: Level 0/1, Speed Damping: 0%.",
+            "forzaNote": "Steering: Simulation, TCS: OFF, STM: OFF, ABS: OFF, Shifting: Manual, Driving Line: OFF."
           },
-          "theory": "True speed comes from isolating your weakest sector, not pushing harder everywhere. Compare sector split times against your personal best delta. If Sector 1 is -0.3s green but Sector 2 is +0.5s red, analyze whether over-driving in Sector 1 compromised tire temperatures or entry positioning for Sector 2.",
-          "drill": "Drive 5 reference laps around Spa. Identify your worst performing sector, then spend the next 5 laps experimenting with line and braking adjustments in that single sector.",
-          "practical": "Execute a 15-lap focused telemetry stint monitoring real-time split deltas.",
-          "challenge": "Improve your weakest sector split time by at least 0.3 seconds without losing time in other sectors.",
+          "theory": "As drivers attempt to increase pace, four classic errors consistently appear. Skip Barber categorizes these as the primary causes of lost lap time and vehicle crashes:\n\n1. Running Off the Road Exiting Corners: Caused by entering too fast, turning in too early, or holding steering lock while stomping the gas.\n2. Turning In Too Early: The most frequent novice mistake. Turning in early shrinks the corner radius, forces a pinch at the exit, and severely delays throttle application.\n3. Going Hopelessly Late Before Braking: Trying to win a lap in the braking zone leads to locked tires, missed apices, ruined exit speeds, and massive lap time loss.\n4. Carelessly Lifting Off the Throttle: Abruptly lifting off the accelerator mid-corner shifts weight violently off the rear tires, triggering snap oversteer and spins.\n\nRecognizing these four errors allows you to self-diagnose mistakes instantly. If you run wide at an exit, do not blame the car—trace back to an early turn-in or premature throttle application. Smoothness and foresight eliminate all four errors.",
+          "drill": "Late-Apex Guarantee Drill: In the high-speed Formula Mazda, intentionally delay your turn-in point into Turn 1 (Big Bend) by 1 car length. Observe how a slightly later turn-in opens up the exit radius and eliminates any danger of running off the road at exit.",
+          "practical": "Execute 10 laps in the Formula Mazda. Audit every corner exit against the 4 mistakes. Ensure steering inputs are deliberate, progressive, and free of panic corrections.",
+          "challenge": "Complete 5 clean laps in the high-downforce Formula Mazda with ZERO early turn-in triggers or mid-corner throttle lifts.",
           "assessment": [
             {
               "id": "q1",
-              "question": "What is a telemetry split delta?",
+              "question": "What is the fundamental driving error that usually causes a car to run off the road at corner exit?",
               "options": [
-                "The live time difference (+/-) comparing your current lap to a benchmark reference lap",
-                "The maximum angle of steering rotation",
-                "The fuel consumption per lap",
-                "The difference between engine RPM and wheel speed"
+                "Turning in too early or entering too fast, forcing a pinched radius at exit",
+                "Braking in a straight line",
+                "Unwinding the steering wheel too early",
+                "Using too wide of an entry arc"
               ],
               "correctIndex": 0
             },
             {
               "id": "q2",
-              "question": "Why can over-driving Sector 1 lead to a red (slower) Sector 2 delta?",
+              "question": "Why does turning in too early compromise your exit speed down the following straight?",
               "options": [
-                "Over-driving overheats tire surface temperatures, reducing available grip for Sector 2",
-                "Sector 2 automatically slows down the car",
-                "Brake pads disintegrate in Sector 1",
-                "The engine rev limiter resets"
+                "It shrinks the corner radius at exit, delaying full throttle application and forcing a lift",
+                "It increases engine temperature",
+                "It reduces wing downforce on straightaways",
+                "It prevents clutch engagement"
               ],
               "correctIndex": 0
             },
             {
               "id": "q3",
-              "question": "What is the recommended mental approach when seeing a negative (green) delta during a lap?",
+              "question": "What dynamic vehicle balance change occurs when a driver carelessly lifts off the gas mid-corner?",
               "options": [
-                "Stay calm, execute standard braking markers and line discipline without rushing",
-                "Brake 30 meters later into the next turn to gain even more time",
-                "Hold full throttle through all remaining corners",
-                "Look exclusively at the timer number instead of the track"
+                "Weight shifts violently off the rear tires to the front, triggering snap oversteer and spins",
+                "The car accelerates forward rapidly",
+                "Front tires lock up automatically",
+                "Understeer increases safely"
               ],
               "correctIndex": 0
             }
@@ -861,80 +832,82 @@
           "psychCheckin": [
             {
               "id": "p1",
-              "prompt": "How calm did you stay when chasing green delta times today?",
+              "prompt": "How did moving into the open-wheel Formula Mazda affect your perception of speed?",
               "type": "scale",
-              "minLabel": "1 (Anxious/Over-driving)",
-              "maxLabel": "5 (Cool & Disciplined)"
+              "minLabel": "1 (Overwhelmed by Speed)",
+              "maxLabel": "5 (Calm & Focused)"
             },
             {
               "id": "p2",
-              "prompt": "How effectively did you isolate and improve your weakest sector?",
+              "prompt": "Did you respect the higher cornering limits of the open-wheel car without overdriving?",
               "type": "scale",
-              "minLabel": "1 (Struggled)",
-              "maxLabel": "5 (Targeted Improvement)"
+              "minLabel": "1 (Overdriving/Aggressive)",
+              "maxLabel": "5 (Respected Grip Limits)"
             },
             {
               "id": "p3",
-              "prompt": "Rate your visual discipline across Spa's high-speed sections:",
+              "prompt": "Were you self-aware of minor driver mistakes during the lap?",
               "type": "scale",
-              "minLabel": "1 (Narrow Vision)",
-              "maxLabel": "5 (Wide Panoramic Vision)"
+              "minLabel": "1 (Unaware of Errors)",
+              "maxLabel": "5 (Instant Self-Diagnosis)"
             }
           ],
           "reflection": [
-            "Which sector on Spa yielded the largest lap time gain when refined?",
-            "What over-driving habit were you able to eliminate today?",
-            "How will you manage traffic and defensive lines in Session 4.2?"
+            "How did the Formula Mazda respond differently to an early turn-in compared to the MX-5 Miata?",
+            "Did you experience any rear-end instability caused by lifting off the throttle mid-corner?",
+            "What adjustment did you make to your visual reference points for the faster car?"
           ]
         },
         {
-          "id": "session_4_2",
-          "moduleId": 4,
+          "id": "session_1_11",
+          "moduleId": 1,
           "sessionNum": 11,
-          "title": "Traffic Management & Overtaking Precision",
-          "subtitle": "Off-line braking, alternative apexes, and clean pass execution",
+          "weekNum": 4,
+          "weekTitle": "WEEK 4 — Priority 4: Integration & Formula Barber Benchmark",
+          "title": "The Sample Run (Coding the Racetrack)",
+          "subtitle": "Priority 4: Integration & Benchmark — Session 11",
           "durationMinutes": 45,
           "setup": {
-            "car": "2019 Porsche 911 GT3 RS",
-            "track": "Nürburgring GP Circuit",
-            "mozaR3Note": "Maintain spatial awareness through wheel FFB when side-by-side with opponent AI.",
-            "forzaNote": "Set Free Play race with 11 AI opponents on Expert difficulty, Grid position: 12th."
+            "car": "Mazda Formula Mazda (2015)",
+            "track": "Lime Rock Park (Full)",
+            "mozaR3Note": "Max Steering Angle: 900°, FFB: 100%, Max Wheel Speed: 100%, Damper: 0%, Interpolator: Level 0/1, Speed Damping: 0%.",
+            "forzaNote": "Steering: Simulation, TCS: OFF, STM: OFF, ABS: OFF, Shifting: Manual, Driving Line: OFF."
           },
-          "theory": "Overtaking requires breaking away from the ideal racing line without crashing or losing exit momentum. When taking an inside defensive line, your entry angle is sharper, meaning you must brake earlier and rotate the car quickly to avoid plowing into the opponent or running wide on exit.",
-          "drill": "In Free Play, start 12th on the grid. Practice making 3 clean overtakes into Turn 1 and Turn 10 taking strictly inside lines.",
-          "practical": "Run a 10-lap multi-car race. Focus on zero contact, clean apex positioning, and patient pass setup.",
-          "challenge": "Advance from 12th to top 5 without a single contact penalty or off-track infraction.",
+          "theory": "To master a circuit, you must mentally 'code' the racetrack into distinct operational zones, as Skip Barber demonstrates in a sample lap around Sebring. Rather than seeing a continuous blur of asphalt, an expert driver visualizes every meter of the track coded by control state:\n\n- Solid Lines: 100% Acceleration zones (Straights).\n- X Zones: 100% Threshold Braking zones (Deceleration).\n- Dark Shaded Zones: Mixed Braking and Turning (Entry trail-braking).\n- Double Lines: 100% Cornering limit (Apex arc).\n- Light Shaded Zones: Mixed Acceleration and Turning (Unwinding exit).\n\nWhen you code a track, every action has a precise start and end boundary. You enter Turn 1 knowing exactly where braking ends, where trail-braking transitions to cornering, where apex clipping occurs, and where steering unwinding begins. Coding eliminates hesitation and ensures calculated inputs automatically at every point on the racetrack.",
+          "drill": "Track Coding Mapping Drill: Complete 5 slow laps in the Formula Mazda. Mentally call out your control state out loud in real time: 'Braking... Trailing... Turning... Unwinding... Accelerating...' for every single corner of Lime Rock Park.",
+          "practical": "Drive a 10-lap stint stringing together coded control transitions at full race pace. Aim for crisp, distinct hand and foot execution with no overlap ambiguity.",
+          "challenge": "Complete 5 laps where every control transition (Brake -> Turn -> Throttle) occurs at identical track locations on every lap.",
           "assessment": [
             {
               "id": "q1",
-              "question": "Why must you brake earlier when taking an inside overtaking line into a corner?",
+              "question": "What does it mean to 'code' a racetrack?",
               "options": [
-                "The entry angle is sharper, making the effective corner radius tighter and reducing entry speed capacity",
-                "Inside lines have no asphalt grip",
-                "Opponent cars slow down your brake pedal",
-                "Engine power is reduced on the inside"
+                "Mentally dividing the circuit into precise control zones (Acceleration, Threshold Braking, Trail-Braking, Apex Arc, Unwinding Exit)",
+                "Writing computer scripts for telemetry logging",
+                "Memorizing pit stop timing windows",
+                "Setting up custom force feedback profiles per corner"
               ],
               "correctIndex": 0
             },
             {
               "id": "q2",
-              "question": "What is the primary rule of clean racecraft when side-by-side with another car?",
+              "question": "What track state is represented by a 'Light Shaded Zone' in the Skip Barber coding system?",
               "options": [
-                "Leave a full car's width of track space for the opponent at all times",
-                "Squeeze opponent onto the grass immediately",
-                "Brake late and collide to gain position",
-                "Close your eyes and hold full throttle"
+                "Mixed Acceleration and Turning (Unwinding steering while increasing throttle out of apex)",
+                "100% Threshold Braking zone",
+                "Apex arc at 100% lateral cornering grip",
+                "Pure straightaway acceleration"
               ],
               "correctIndex": 0
             },
             {
               "id": "q3",
-              "question": "What is an 'undercut' exit pass?",
+              "question": "How does mental track coding prevent driver panic and hesitation?",
               "options": [
-                "Braking slightly earlier on a wider line, cutting underneath the opponent's compromised exit for superior acceleration",
-                "Passing under a red flag",
-                "Cutting across the pit lane entry",
-                "Spinning out the lead car"
+                "It defines exact start and end boundaries for every physical control input, replacing guesswork with calculated execution",
+                "It automatically steers the car via force feedback",
+                "It increases tire grip level by 10%",
+                "It removes the need for braking markers"
               ],
               "correctIndex": 0
             }
@@ -942,80 +915,82 @@
           "psychCheckin": [
             {
               "id": "p1",
-              "prompt": "How patient were you in setting up overtakes over multiple corners?",
+              "prompt": "Did calling out control states clarify your decision-making behind the wheel?",
               "type": "scale",
-              "minLabel": "1 (Forced Dumb Moves)",
-              "maxLabel": "5 (Calculated Setup)"
+              "minLabel": "1 (Confusing/Distracting)",
+              "maxLabel": "5 (Crystal Clear Execution)"
             },
             {
               "id": "p2",
-              "prompt": "How aware were you of AI car positioning around your vehicle?",
+              "prompt": "Was your focus clear and structured throughout the stint?",
               "type": "scale",
-              "minLabel": "1 (Tunnel Vision)",
-              "maxLabel": "5 (360° Spatial Awareness)"
+              "minLabel": "1 (Unstructured/Unfocused)",
+              "maxLabel": "5 (Highly Structured)"
             },
             {
               "id": "p3",
-              "prompt": "Rate your spatial composure during close side-by-side battles:",
+              "prompt": "Did you feel connected to the telemetry and vehicle dynamics?",
               "type": "scale",
-              "minLabel": "1 (Panic)",
-              "maxLabel": "5 (Total Calm)"
+              "minLabel": "1 (Disconnected)",
+              "maxLabel": "5 (Fully Connected)"
             }
           ],
           "reflection": [
-            "What was your cleanest overtake move during the 10-lap race stint?",
-            "How did taking inside lines alter your exit acceleration onto straights?",
-            "What is your target strategy for the final 30-Day Graduation Stint tomorrow?"
+            "Which section of Lime Rock Park was the easiest to code, and which was the most complex?",
+            "How did track coding help you transition smoothly from braking to throttle in Turn 3?",
+            "Did the Formula Mazda’s direct steering feel clearer once your track code was established?"
           ]
         },
         {
-          "id": "session_4_3",
-          "moduleId": 4,
+          "id": "session_1_12",
+          "moduleId": 1,
           "sessionNum": 12,
-          "title": "The 30-Day Graduation Stint & Telemetry Assessment",
-          "subtitle": "20-lap endurance stint synthesizing all steering, braking, line, and racecraft mastery",
+          "weekNum": 4,
+          "weekTitle": "WEEK 4 — Priority 4: Integration & Formula Barber Benchmark",
+          "title": "Module 1 Final Benchmark Challenge",
+          "subtitle": "Priority 4: Integration & Benchmark — Session 12",
           "durationMinutes": 45,
           "setup": {
-            "car": "2019 Porsche 911 GT3 RS",
-            "track": "Le Mans Bugatti Circuit (or Silverstone GP)",
-            "mozaR3Note": "Ensure Moza R3 wheel and pedals are fully calibrated for your final test.",
-            "forzaNote": "20-Lap Free Play Race, Fuel/Tire Wear: ON, ABS: OFF, TCS: OFF, Steering: Normal/Simulation."
+            "car": "Mazda Formula Mazda (2015)",
+            "track": "Lime Rock Park (Full)",
+            "mozaR3Note": "Max Steering Angle: 900°, FFB: 100%, Max Wheel Speed: 100%, Damper: 0%, Interpolator: Level 0/1, Speed Damping: 0%.",
+            "forzaNote": "Steering: Simulation, TCS: OFF, STM: OFF, ABS: OFF, Shifting: Manual, Driving Line: OFF."
           },
-          "theory": "Congratulations on reaching Session 12! This final graduation stint tests your complete driver development. You will execute a 20-lap continuous endurance stint. The objective is not one lucky flyer lap, but robotic consistency, tire preservation, smooth weight transfer, and mental poise over a full race distance.",
-          "drill": "Perform a 3-lap warm-up focusing on breathing, shoulder relaxation, visual scanning, and pedal touch.",
-          "practical": "Complete the full 20-lap continuous graduation stint. Maintain smooth Moza R3 wheel inputs, trail braking precision, and late-apex exits throughout.",
-          "challenge": "Complete 20 laps with 100% clean status (no invalidations), less than 0.5s lap variance across your best 10 laps, and zero spin-outs.",
+          "theory": "Congratulations on reaching the final session of Module 1. Over the past 30 days, you have systematically explored Skip Barber’s core methodology: finding the geometric line, maximizing corner exit speed, mastering threshold braking, and eliminating fundamental driving errors.\n\nToday’s session is not about driving frantically or taking foolish risks to set a single heroic lap. In motor racing, true speed is a byproduct of precision, consistency, and discipline. Bravery without skill is merely recklessness; true confidence comes from knowing exact vehicle limits and executing your plan of attack lap after lap.\n\nIn this final benchmark, you will integrate all three priorities into a complete 12-lap performance stint in the Formula Mazda. You will demonstrate consistent reference points, perfect steering unwinding, clean threshold braking, and error-free track coding. This session establishes your official baseline score for Module 1.",
+          "drill": "Warm-Up & Reference Verification: Drive 4 warm-up laps to verify track temperature, brake pedal firmness, and visual reference alignment at Lime Rock Park.",
+          "practical": "Execute a formal 12-Lap Stint at maximum sustainable race pace. Maintain complete mental composure, smooth inputs, and precise track positioning on every lap.",
+          "challenge": "Complete a 10-lap stint where your fastest lap and slowest lap are within 0.50 seconds of each other, while setting a new Module 1 personal best lap time.",
           "assessment": [
             {
               "id": "q1",
-              "question": "What defines a truly master simracer according to APEX coaching principles?",
+              "question": "What are the three priorities of Skip Barber's driving methodology in correct order?",
               "options": [
-                "Robotic consistency, tire preservation, smooth weight transfer, and calm adaptability over full stint distances",
-                "One single fast lap achieved by crashing 10 times prior",
-                "Using max traction control and automatic braking assists",
-                "Buying expensive gear without practicing technique"
+                "1. The Line (Path), 2. Corner Exit Speed, 3. Straight-Line Threshold Braking",
+                "1. Late Braking, 2. Passing Speed, 3. Tire Pressure",
+                "1. Top Speed, 2. Quick Shifting, 3. Apex Clipping",
+                "1. Engine Tuning, 2. Aerodynamics, 3. Line Selection"
               ],
               "correctIndex": 0
             },
             {
               "id": "q2",
-              "question": "How do smooth inputs affect tire degradation over a 20-lap stint?",
+              "question": "Why is consistency a more reliable indicator of driver skill than a single fast lap?",
               "options": [
-                "Reduces peak thermal spikes and mechanical wear, preserving grip for late-stint pace",
-                "Increases tire wear by 300%",
-                "Makes tires freeze over",
-                "Has no physical impact on tire wear"
+                "Consistency proves mastery of repeatable reference points and dynamic vehicle control rather than lucky mistakes",
+                "Consistency reduces fuel consumption",
+                "Consistency is required by race stewards to avoid penalties",
+                "Single fast laps break the steering rack"
               ],
               "correctIndex": 0
             },
             {
               "id": "q3",
-              "question": "What is the key to maintaining focus during the final laps of a long race stint?",
+              "question": "What mind-set separates a structured, professional racer from an impulsive novice?",
               "options": [
-                "Focusing on the immediate next braking marker and maintaining relaxed breathing",
-                "Thinking about lap records and celebrating early",
-                "Staring at the lap counter constantly",
-                "Changing wheel settings mid-corner"
+                "Precision, disciplined planning, and systematic execution over reckless bravery",
+                "Driving at 110% limit on every single corner entry",
+                "Aggressive late braking regardless of exit speed",
+                "Ignoring physical reference markers and driving on instinct"
               ],
               "correctIndex": 0
             }
@@ -1023,30 +998,30 @@
           "psychCheckin": [
             {
               "id": "p1",
-              "prompt": "Rate your overall stint consistency and poise across 20 laps:",
+              "prompt": "Did you feel in a state of 'flow' during your 12-lap benchmark stint?",
               "type": "scale",
-              "minLabel": "1 (Erratic/Fatigued)",
-              "maxLabel": "5 (Masterclass Consistency)"
+              "minLabel": "1 (Frantic/Stressed)",
+              "maxLabel": "5 (Deep Flow State)"
             },
             {
               "id": "p2",
-              "prompt": "How well did you preserve tire grip through the final 5 laps?",
+              "prompt": "How effectively did you manage anxiety and pressure during the timed challenge?",
               "type": "scale",
-              "minLabel": "1 (Tires Ruined)",
-              "maxLabel": "5 (Grip Preserved)"
+              "minLabel": "1 (High Anxiety)",
+              "maxLabel": "5 (Calm Under Pressure)"
             },
             {
               "id": "p3",
-              "prompt": "How proud are you of your 30-day APEX driving transformation?",
+              "prompt": "Are you satisfied with your mechanical and physical progress over these 30 days?",
               "type": "scale",
-              "minLabel": "1 (Just Started)",
-              "maxLabel": "5 (Transformed Driver!)"
+              "minLabel": "1 (Unsatisfied)",
+              "maxLabel": "5 (Fully Satisfied & Calibrated)"
             }
           ],
           "reflection": [
-            "Reflect on your growth from Session 1.1 steering basics to completing this 20-lap graduation stint.",
-            "What was your single most valuable lap time reduction technique learned in APEX?",
-            "Write your personal driver pledge for your ongoing simracing journey!"
+            "Compare your driving precision, line accuracy, and confidence today to Session 1. What is your single biggest improvement?",
+            "Which of the 3 priorities (Line, Exit Speed, Braking) requires the most focus as you move into Module 2?",
+            "How did the Moza R3 direct drive wheel help you detect subtle tire grip limits during the final stint?"
           ]
         }
       ]

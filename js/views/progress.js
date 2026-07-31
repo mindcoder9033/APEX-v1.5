@@ -78,9 +78,14 @@ export function renderProgressView(curriculumData) {
               SCORE: ${item.data.correctCount || 0}/3
             </span>
           </div>
-          <div class="card-subtitle" style="margin-bottom: 0.5rem;">
+          <div class="card-subtitle" style="margin-bottom: 0.25rem;">
             ${dateStr} | ${item.session.setup.car} @ ${item.session.setup.track}
           </div>
+          ${item.data.bestLapTime || item.data.lapsCompleted ? `
+            <div class="mono-text" style="font-size: 0.8rem; color: var(--accent-green); margin-bottom: 0.35rem;">
+              ${item.data.bestLapTime ? `BEST LAP: ${item.data.bestLapTime}` : ''} ${item.data.lapsCompleted ? `// LAPS: ${item.data.lapsCompleted}` : ''}
+            </div>
+          ` : ''}
           ${reflections[0] ? `
             <div style="font-size: 0.85rem; color: var(--text-secondary); background: var(--bg-primary); padding: 0.5rem; border-left: 2px solid var(--border-highlight); margin-top: 0.4rem;">
               " ${reflections[0]} "

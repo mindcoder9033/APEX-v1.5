@@ -47,7 +47,17 @@ export function renderCurriculumView(curriculumData) {
         <div class="session-list">
     `;
 
+    let currentWeekTitle = '';
     mod.sessions.forEach(sess => {
+      if (sess.weekTitle && sess.weekTitle !== currentWeekTitle) {
+        currentWeekTitle = sess.weekTitle;
+        html += `
+          <div style="font-family: var(--font-header); font-size: 0.85rem; font-weight: 700; color: var(--accent-red); margin-top: 0.75rem; margin-bottom: 0.35rem; letter-spacing: 0.05em; text-transform: uppercase;">
+            ${currentWeekTitle}
+          </div>
+        `;
+      }
+
       const isCompleted = completedSessions.includes(sess.id);
       const isUnlocked = previousSessionCompleted;
       previousSessionCompleted = isCompleted;
