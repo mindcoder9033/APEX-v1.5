@@ -2,14 +2,14 @@
    APEX Simracing Coach - Main Application Entry
    ========================================== */
 
-import { storage } from './storage.js';
-import { router } from './router.js';
-import { ui } from './ui.js';
+import { storage } from './storage.js?v=1.5.1';
+import { router } from './router.js?v=1.5.1';
+import { ui } from './ui.js?v=1.5.1';
 
-import { renderDashboardView } from './views/dashboard.js';
-import { renderCurriculumView, renderModuleDetailView } from './views/curriculum.js';
-import { renderSessionView } from './views/session.js';
-import { renderProgressView } from './views/progress.js';
+import { renderDashboardView } from './views/dashboard.js?v=1.5.1';
+import { renderCurriculumView, renderModuleDetailView } from './views/curriculum.js?v=1.5.1';
+import { renderSessionView } from './views/session.js?v=1.5.1';
+import { renderProgressView } from './views/progress.js?v=1.5.1';
 
 class ApexApp {
   constructor() {

@@ -2,10 +2,10 @@
    APEX Simracing Coach - 9-Step Session Wizard Renderer
    ========================================== */
 
-import { storage } from '../storage.js';
-import { router } from '../router.js';
-import { ui } from '../ui.js';
-import { exportSessionPDF } from '../pdf/pdf-exporter.js';
+import { storage } from '../storage.js?v=1.5.1';
+import { router } from '../router.js?v=1.5.1';
+import { ui } from '../ui.js?v=1.5.1';
+import { exportSessionPDF } from '../pdf/pdf-exporter.js?v=1.5.1';
 
 let currentStep = 1; // 1 to 9
 let activeSession = null;
