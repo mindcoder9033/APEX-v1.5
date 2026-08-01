@@ -556,13 +556,24 @@ function attachWizardListeners() {
 function saveAndCompleteSession() {
   // Check if assessment questions passed
   let correctCount = 0;
-  activeSession.assessment.forEach(q => {
-    if (wizardFormData.assessmentAnswers[q.id] === q.correctIndex) {
-      correctCount++;
-    }
-  });
+  let totalQuestions = 0;
+  let passed = true;
 
-  const passed = correctCount >= 2; // Pass criteria: at least 2/3 correct
+  if (activeSession && activeSession.assessment && activeSession.assessment.length > 0) {
+    totalQuestions = activeSession.assessment.length;
+    activeSession.assessment.forEach(q => {
+      if (wizardFormData.assessmentAnswers[q.id] === q.correctIndex) {
+        correctCount++;
+      }
+    });
+    const requiredMin = Math.min(2, totalQuestions);
+    passed = correctCount >= requiredMin;
+  }
+
+  if (!passed) {
+    ui.showToast(`Quiz pass score (minimum ${Math.min(2, totalQuestions)}/${totalQuestions} correct) required to complete drill! Please review Step 6 and retry.`, 'error');
+    return;
+  }
 
   storage.updateState(state => {
     if (!state.progress.completedSessions.includes(activeSession.id)) {
@@ -576,7 +587,7 @@ function saveAndCompleteSession() {
       assessmentScores: wizardFormData.assessmentAnswers,
       assessmentPassed: passed,
       correctCount: correctCount,
-      totalQuestions: activeSession.assessment.length,
+      totalQuestions: totalQuestions,
       psychRatings: wizardFormData.psychRatings,
       reflections: wizardFormData.reflectionAnswers,
       feedbackRating: wizardFormData.feedbackRating,
@@ -586,6 +597,6 @@ function saveAndCompleteSession() {
     };
   });
 
-  ui.showToast(`Session Completed! Assessment Score: ${correctCount}/3`, passed ? 'success' : 'info');
+  ui.showToast(`Session Completed! Assessment Score: ${correctCount}/${totalQuestions}`, 'success');
   router.navigate('/progress');
 }

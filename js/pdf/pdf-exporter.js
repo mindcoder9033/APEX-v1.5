@@ -1,41 +1,32 @@
 /* ==========================================
    APEX Simracing Coach - PDF Exporter Module
-   Powered by React & @react-pdf/renderer
+   Powered by html2pdf.js (Browser Native Export)
    ========================================== */
 
 /**
- * Ensures React and @react-pdf/renderer scripts are loaded in the browser.
+ * Ensures html2pdf library script is loaded in the browser.
  */
 export async function ensurePdfLibrariesLoaded() {
-  if (window.React && window.ReactPDF) {
+  if (window.html2pdf) {
     return true;
   }
 
   return new Promise((resolve, reject) => {
-    const loadScript = (src) => {
-      return new Promise((res, rej) => {
-        if (document.querySelector(`script[src="${src}"]`)) {
-          res();
-          return;
+    const src = 'https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.10.1/html2pdf.bundle.min.js';
+    if (document.querySelector(`script[src="${src}"]`)) {
+      const checkInterval = setInterval(() => {
+        if (window.html2pdf) {
+          clearInterval(checkInterval);
+          resolve(true);
         }
-        const script = document.createElement('script');
-        script.src = src;
-        script.onload = res;
-        script.onerror = () => rej(new Error(`Failed to load script ${src}`));
-        document.head.appendChild(script);
-      });
-    };
-
-    Promise.all([
-      loadScript('https://unpkg.com/react@18/umd/react.production.min.js'),
-      loadScript('https://unpkg.com/react-dom@18/umd/react-dom.production.min.js')
-    ])
-      .then(() => loadScript('https://unpkg.com/@react-pdf/renderer@3.4.0/dist/react-pdf.browser.min.js'))
-      .then(() => resolve(true))
-      .catch((err) => {
-        console.error('Error loading PDF libraries:', err);
-        reject(err);
-      });
+      }, 50);
+      return;
+    }
+    const script = document.createElement('script');
+    script.src = src;
+    script.onload = () => resolve(true);
+    script.onerror = () => reject(new Error(`Failed to load PDF export library script: ${src}`));
+    document.head.appendChild(script);
   });
 }
 
@@ -48,445 +39,216 @@ export async function ensurePdfLibrariesLoaded() {
 export async function exportSessionPDF(session, sessionData, module) {
   await ensurePdfLibrariesLoaded();
 
-  const { ReactPDF, React } = window;
-  const { Document, Page, Text, View, StyleSheet, pdf } = ReactPDF;
-  const e = React.createElement;
-
-  // Define APEX Telemetry PDF Styles (Clean Print Theme with F1 Red accents)
-  const styles = StyleSheet.create({
-    page: {
-      paddingTop: 0,
-      paddingBottom: 30,
-      paddingHorizontal: 0,
-      backgroundColor: '#FFFFFF',
-      fontFamily: 'Helvetica',
-      fontSize: 10,
-      color: '#1A1A1A'
-    },
-    // Header Bar
-    headerBar: {
-      backgroundColor: '#121212',
-      paddingVertical: 14,
-      paddingHorizontal: 30,
-      borderBottomWidth: 3,
-      borderBottomColor: '#E10600',
-      flexDirection: 'row',
-      justifyContent: 'space-between',
-      alignItems: 'center'
-    },
-    headerTitle: {
-      color: '#FFFFFF',
-      fontSize: 16,
-      fontFamily: 'Helvetica-Bold',
-      letterSpacing: 1
-    },
-    headerSubtitle: {
-      color: '#E10600',
-      fontSize: 11,
-      fontFamily: 'Helvetica-Bold'
-    },
-    headerRightText: {
-      color: '#A0A0B0',
-      fontSize: 8,
-      textAlign: 'right'
-    },
-    bodyContainer: {
-      paddingHorizontal: 30,
-      paddingTop: 16
-    },
-    // Meta Banner
-    metaBanner: {
-      backgroundColor: '#F4F4F6',
-      borderLeftWidth: 3,
-      borderLeftColor: '#E10600',
-      padding: 10,
-      marginBottom: 14,
-      flexDirection: 'row',
-      justifyContent: 'space-between'
-    },
-    metaBlock: {
-      flexDirection: 'column'
-    },
-    metaLabel: {
-      fontSize: 7,
-      color: '#6C6C7D',
-      fontFamily: 'Helvetica-Bold',
-      letterSpacing: 0.5,
-      marginBottom: 2
-    },
-    metaValue: {
-      fontSize: 11,
-      color: '#121212',
-      fontFamily: 'Helvetica-Bold'
-    },
-    // Section Header
-    sectionHeader: {
-      fontSize: 11,
-      fontFamily: 'Helvetica-Bold',
-      color: '#121212',
-      borderBottomWidth: 1,
-      borderBottomColor: '#121212',
-      paddingBottom: 3,
-      marginTop: 12,
-      marginBottom: 8,
-      letterSpacing: 0.5
-    },
-    // Setup Grid
-    setupGrid: {
-      flexDirection: 'row',
-      marginBottom: 10,
-      gap: 8
-    },
-    setupBox: {
-      flex: 1,
-      backgroundColor: '#FAFAFC',
-      borderWidth: 1,
-      borderColor: '#E0E0E8',
-      padding: 8
-    },
-    // Telemetry Stat Boxes
-    telemetryGrid: {
-      flexDirection: 'row',
-      gap: 8,
-      marginBottom: 12
-    },
-    statCard: {
-      flex: 1,
-      backgroundColor: '#F8F8FA',
-      borderWidth: 1,
-      borderColor: '#D8D8E0',
-      padding: 8,
-      alignItems: 'center'
-    },
-    statValue: {
-      fontSize: 14,
-      fontFamily: 'Helvetica-Bold',
-      color: '#E10600',
-      marginTop: 2
-    },
-    statValueGreen: {
-      fontSize: 14,
-      fontFamily: 'Helvetica-Bold',
-      color: '#00A859',
-      marginTop: 2
-    },
-    // Table
-    table: {
-      width: '100%',
-      borderWidth: 1,
-      borderColor: '#E0E0E8',
-      marginBottom: 12
-    },
-    tableHeaderRow: {
-      backgroundColor: '#1E1E28',
-      flexDirection: 'row',
-      paddingVertical: 5,
-      paddingHorizontal: 8
-    },
-    tableHeaderCell: {
-      color: '#FFFFFF',
-      fontSize: 8,
-      fontFamily: 'Helvetica-Bold'
-    },
-    tableRow: {
-      flexDirection: 'row',
-      borderTopWidth: 1,
-      borderTopColor: '#E0E0E8',
-      paddingVertical: 5,
-      paddingHorizontal: 8,
-      alignItems: 'center'
-    },
-    tableRowAlt: {
-      backgroundColor: '#FAFAFC'
-    },
-    badgePass: {
-      backgroundColor: '#E6F9F0',
-      color: '#008744',
-      paddingVertical: 2,
-      paddingHorizontal: 6,
-      fontSize: 7,
-      fontFamily: 'Helvetica-Bold'
-    },
-    badgeFail: {
-      backgroundColor: '#FFEBEB',
-      color: '#CC0000',
-      paddingVertical: 2,
-      paddingHorizontal: 6,
-      fontSize: 7,
-      fontFamily: 'Helvetica-Bold'
-    },
-    // Reflections & Notes
-    noteBox: {
-      backgroundColor: '#FAFAFC',
-      borderLeftWidth: 2,
-      borderLeftColor: '#3A3A45',
-      padding: 8,
-      marginBottom: 6
-    },
-    questionText: {
-      fontSize: 8,
-      fontFamily: 'Helvetica-Bold',
-      color: '#555566',
-      marginBottom: 2
-    },
-    answerText: {
-      fontSize: 9,
-      color: '#121212',
-      fontFamily: 'Courier'
-    },
-    // Footer
-    footer: {
-      position: 'absolute',
-      bottom: 12,
-      left: 30,
-      right: 30,
-      borderTopWidth: 1,
-      borderTopColor: '#E0E0E8',
-      paddingTop: 6,
-      flexDirection: 'row',
-      justifyContent: 'space-between',
-      fontSize: 7,
-      color: '#888899'
-    }
-  });
-
-  // Calculate metrics
   const dateFormatted = sessionData.completedAt
     ? new Date(sessionData.completedAt).toLocaleString()
     : new Date().toLocaleString();
 
   const correctCount = sessionData.correctCount !== undefined ? sessionData.correctCount : 0;
-  const totalQuestions = sessionData.totalQuestions || (session.assessment ? session.assessment.length : 3);
+  const totalQuestions = sessionData.totalQuestions || (session && session.assessment ? session.assessment.length : 3);
   const passed = sessionData.assessmentPassed !== undefined ? sessionData.assessmentPassed : correctCount >= 2;
 
-  // Build Document
-  const doc = e(
-    Document,
-    { title: `APEX Telemetry Report - ${session.title}` },
-    e(
-      Page,
-      { size: 'A4', style: styles.page },
-      // Header
-      e(
-        View,
-        { style: styles.headerBar },
-        e(
-          View,
-          null,
-          e(Text, { style: styles.headerTitle }, 'APEX // SIMRACING COACH'),
-          e(Text, { style: styles.headerSubtitle }, 'TELEMETRY SESSION REPORT')
-        ),
-        e(
-          View,
-          null,
-          e(Text, { style: styles.headerRightText }, 'MOZA R3 DIRECT DRIVE'),
-          e(Text, { style: styles.headerRightText }, 'FORZA MOTORSPORT (2023)')
-        )
-      ),
+  // Build HTML string for PDF rendering
+  let quizRowsHtml = '';
+  if (session && session.assessment && session.assessment.length > 0) {
+    quizRowsHtml = session.assessment.map((q, idx) => {
+      const userAnsIdx = sessionData.assessmentScores ? sessionData.assessmentScores[q.id] : undefined;
+      const userAnsText = userAnsIdx !== undefined && q.options[userAnsIdx] ? q.options[userAnsIdx] : 'Not Answered';
+      const isCorrect = userAnsIdx === q.correctIndex;
 
-      // Body Container
-      e(
-        View,
-        { style: styles.bodyContainer },
+      return `
+        <tr style="border-bottom: 1px solid #EAEAEA; font-size: 11px;">
+          <td style="padding: 8px; color: #121212;"><strong>${idx + 1}.</strong> ${q.question}</td>
+          <td style="padding: 8px; color: #444455;">${userAnsText}</td>
+          <td style="padding: 8px; text-align: center;">
+            <span style="display: inline-block; padding: 2px 8px; border-radius: 3px; font-weight: bold; font-size: 10px; ${isCorrect ? 'background: #E6F9F0; color: #008744;' : 'background: #FFEBEB; color: #CC0000;'}">
+              ${isCorrect ? 'PASS' : 'FAIL'}
+            </span>
+          </td>
+        </tr>
+      `;
+    }).join('');
+  } else {
+    quizRowsHtml = `<tr><td colspan="3" style="padding: 8px; color: #888; text-align: center;">No assessment recorded.</td></tr>`;
+  }
 
-        // Metadata Banner
-        e(
-          View,
-          { style: styles.metaBanner },
-          e(
-            View,
-            { style: styles.metaBlock },
-            e(Text, { style: styles.metaLabel }, 'MODULE'),
-            e(Text, { style: styles.metaValue }, `MOD ${module.id}: ${module.title}`)
-          ),
-          e(
-            View,
-            { style: styles.metaBlock },
-            e(Text, { style: styles.metaLabel }, 'SESSION DRILL'),
-            e(Text, { style: styles.metaValue }, session.title)
-          ),
-          e(
-            View,
-            { style: styles.metaBlock },
-            e(Text, { style: styles.metaLabel }, 'COMPLETED AT'),
-            e(Text, { style: styles.metaValue }, dateFormatted)
-          )
-        ),
+  let psychHtml = '';
+  if (session && session.psychCheckin && session.psychCheckin.length > 0) {
+    psychHtml = session.psychCheckin.map((p, idx) => {
+      const val = sessionData.psychRatings && sessionData.psychRatings[p.id] !== undefined
+        ? sessionData.psychRatings[p.id]
+        : (sessionData.psychRatings ? sessionData.psychRatings[p.prompt] || 'N/A' : 'N/A');
+      return `
+        <div style="flex: 1; min-width: 110px; background: #F8F9FA; border: 1px solid #E0E0E8; border-radius: 4px; padding: 8px 12px; margin-right: 8px; margin-bottom: 8px;">
+          <div style="font-size: 9px; font-weight: bold; color: #666; text-transform: uppercase;">CHECK-IN #${idx + 1}</div>
+          <div style="font-size: 14px; font-weight: bold; color: #121212; margin-top: 4px;">${val} / 5</div>
+        </div>
+      `;
+    }).join('');
+  } else {
+    psychHtml = ['Focus', 'Confidence', 'Energy', 'Stress'].map(label => {
+      const val = sessionData.psychRatings ? sessionData.psychRatings[label.toLowerCase()] || 'N/A' : 'N/A';
+      return `
+        <div style="flex: 1; min-width: 110px; background: #F8F9FA; border: 1px solid #E0E0E8; border-radius: 4px; padding: 8px 12px; margin-right: 8px; margin-bottom: 8px;">
+          <div style="font-size: 9px; font-weight: bold; color: #666; text-transform: uppercase;">${label.toUpperCase()}</div>
+          <div style="font-size: 14px; font-weight: bold; color: #121212; margin-top: 4px;">${val} / 5</div>
+        </div>
+      `;
+    }).join('');
+  }
 
-        // Section: Hardware & Setup
-        e(Text, { style: styles.sectionHeader }, '1. HARDWARE & TRACK SETUP'),
-        e(
-          View,
-          { style: styles.setupGrid },
-          e(
-            View,
-            { style: styles.setupBox },
-            e(Text, { style: styles.metaLabel }, 'TARGET CAR'),
-            e(Text, { style: { fontSize: 10, fontFamily: 'Helvetica-Bold' } }, session.setup ? session.setup.car : 'N/A')
-          ),
-          e(
-            View,
-            { style: styles.setupBox },
-            e(Text, { style: styles.metaLabel }, 'TARGET TRACK'),
-            e(Text, { style: { fontSize: 10, fontFamily: 'Helvetica-Bold' } }, session.setup ? session.setup.track : 'N/A')
-          )
-        ),
-        session.setup && session.setup.mozaR3Note
-          ? e(
-              View,
-              { style: [styles.noteBox, { borderLeftColor: '#E10600', marginBottom: 10 }] },
-              e(Text, { style: styles.questionText }, 'MOZA R3 FFB NOTE:'),
-              e(Text, { style: { fontSize: 8.5, color: '#333344' } }, session.setup.mozaR3Note)
-            )
-          : null,
+  let reflectionHtml = '';
+  const reflectionPrompts = session ? (session.reflection || session.reflectionPrompts) : null;
+  if (reflectionPrompts && reflectionPrompts.length > 0) {
+    reflectionHtml = reflectionPrompts.map((prompt, idx) => {
+      const ans = sessionData.reflections ? sessionData.reflections[idx] : '';
+      return `
+        <div style="background: #F8F9FA; border-left: 3px solid #3A3A45; padding: 8px 12px; margin-bottom: 8px; border-radius: 0 4px 4px 0;">
+          <div style="font-size: 10px; font-weight: bold; color: #555566; margin-bottom: 2px;">PROMPT ${idx + 1}: ${prompt}</div>
+          <div style="font-size: 11px; color: #121212; font-family: monospace;">${ans || '(No response provided)'}</div>
+        </div>
+      `;
+    }).join('');
+  }
 
-        // Section: Telemetry & Performance
-        e(Text, { style: styles.sectionHeader }, '2. TELEMETRY & PERFORMANCE SUMMARY'),
-        e(
-          View,
-          { style: styles.telemetryGrid },
-          e(
-            View,
-            { style: styles.statCard },
-            e(Text, { style: styles.metaLabel }, 'BEST LAP TIME'),
-            e(Text, { style: styles.statValue }, sessionData.bestLapTime || 'N/A')
-          ),
-          e(
-            View,
-            { style: styles.statCard },
-            e(Text, { style: styles.metaLabel }, 'LAPS COMPLETED'),
-            e(Text, { style: styles.statValue }, sessionData.lapsCompleted || 'N/A')
-          ),
-          e(
-            View,
-            { style: styles.statCard },
-            e(Text, { style: styles.metaLabel }, 'QUIZ SCORE'),
-            e(
-              Text,
-              { style: passed ? styles.statValueGreen : styles.statValue },
-              `${correctCount}/${totalQuestions} (${passed ? 'PASSED' : 'RETRY'})`
-            )
-          ),
-          e(
-            View,
-            { style: styles.statCard },
-            e(Text, { style: styles.metaLabel }, 'DRIVER FEEDBACK'),
-            e(Text, { style: styles.statValue }, `${sessionData.feedbackRating || 5} / 5 Stars`)
-          )
-        ),
+  const container = document.createElement('div');
+  container.style.width = '794px'; // A4 width at 96 DPI
+  container.style.padding = '0';
+  container.style.margin = '0 auto';
+  container.style.backgroundColor = '#FFFFFF';
+  container.style.fontFamily = 'Helvetica, Arial, sans-serif';
+  container.style.color = '#121212';
+  container.style.boxSizing = 'border-box';
 
-        // Section: Knowledge Assessment Results
-        e(Text, { style: styles.sectionHeader }, '3. KNOWLEDGE ASSESSMENT RESULTS'),
-        session.assessment && session.assessment.length > 0
-          ? e(
-              View,
-              { style: styles.table },
-              e(
-                View,
-                { style: styles.tableHeaderRow },
-                e(Text, { style: [styles.tableHeaderCell, { flex: 3 }] }, 'QUESTION'),
-                e(Text, { style: [styles.tableHeaderCell, { flex: 2 }] }, 'SELECTED ANSWER'),
-                e(Text, { style: [styles.tableHeaderCell, { flex: 1, textAlign: 'center' }] }, 'RESULT')
-              ),
-              ...session.assessment.map((q, idx) => {
-                const userAnsIdx = sessionData.assessmentScores ? sessionData.assessmentScores[q.id] : undefined;
-                const userAnsText = userAnsIdx !== undefined && q.options[userAnsIdx] ? q.options[userAnsIdx] : 'Not Answered';
-                const isCorrect = userAnsIdx === q.correctIndex;
+  container.innerHTML = `
+    <!-- Header Bar -->
+    <div style="background: #121212; border-bottom: 4px solid #E10600; padding: 16px 30px; display: flex; justify-content: space-between; align-items: center;">
+      <div>
+        <div style="color: #FFFFFF; font-size: 18px; font-weight: 800; letter-spacing: 1px;">APEX // SIMRACING COACH</div>
+        <div style="color: #E10600; font-size: 12px; font-weight: 700; margin-top: 2px;">TELEMETRY SESSION REPORT</div>
+      </div>
+      <div style="text-align: right; color: #A0A0B0; font-size: 9px; font-weight: 600;">
+        <div>MOZA R3 DIRECT DRIVE</div>
+        <div>FORZA MOTORSPORT (2023)</div>
+      </div>
+    </div>
 
-                return e(
-                  View,
-                  { key: q.id || idx, style: [styles.tableRow, idx % 2 === 1 ? styles.tableRowAlt : null] },
-                  e(Text, { style: { flex: 3, fontSize: 8 } }, `${idx + 1}. ${q.question}`),
-                  e(Text, { style: { flex: 2, fontSize: 8, color: '#333344' } }, userAnsText),
-                  e(
-                    View,
-                    { style: { flex: 1, alignItems: 'center' } },
-                    e(Text, { style: isCorrect ? styles.badgePass : styles.badgeFail }, isCorrect ? 'PASS' : 'FAIL')
-                  )
-                );
-              })
-            )
-          : e(Text, { style: { fontSize: 8.5, color: '#6C6C7D' } }, 'No assessment recorded.'),
+    <div style="padding: 24px 30px;">
+      <!-- Meta Banner -->
+      <div style="background: #F4F4F6; border-left: 4px solid #E10600; border-radius: 0 4px 4px 0; padding: 12px 16px; margin-bottom: 20px; display: flex; justify-content: space-between;">
+        <div>
+          <div style="font-size: 9px; font-weight: bold; color: #E10600; text-transform: uppercase;">MODULE ${module ? module.id : ''}</div>
+          <div style="font-size: 12px; font-weight: bold; color: #121212; margin-top: 2px;">${module ? module.title : ''}</div>
+        </div>
+        <div>
+          <div style="font-size: 9px; font-weight: bold; color: #666; text-transform: uppercase;">SESSION DRILL</div>
+          <div style="font-size: 12px; font-weight: bold; color: #121212; margin-top: 2px;">${session ? session.title : ''}</div>
+        </div>
+        <div style="text-align: right;">
+          <div style="font-size: 9px; font-weight: bold; color: #666; text-transform: uppercase;">COMPLETED AT</div>
+          <div style="font-size: 11px; font-weight: bold; color: #121212; margin-top: 2px;">${dateFormatted}</div>
+        </div>
+      </div>
 
-        // Section: Psychological Check-In Ratings
-        e(Text, { style: styles.sectionHeader }, '4. PSYCHOLOGICAL CHECK-IN RATINGS'),
-        session.psychCheckin && session.psychCheckin.length > 0
-          ? e(
-              View,
-              { style: styles.telemetryGrid },
-              session.psychCheckin.map((p, idx) => {
-                const val = sessionData.psychRatings && sessionData.psychRatings[p.id] !== undefined
-                  ? sessionData.psychRatings[p.id]
-                  : (sessionData.psychRatings ? sessionData.psychRatings[p.prompt] || 'N/A' : 'N/A');
-                return e(
-                  View,
-                  { key: p.id || idx, style: styles.statCard },
-                  e(Text, { style: styles.metaLabel }, `CHECK-IN #${idx + 1}`),
-                  e(Text, { style: { fontSize: 12, fontFamily: 'Helvetica-Bold', color: '#121212', marginTop: 2 } }, `${val} / 5`)
-                );
-              })
-            )
-          : e(
-              View,
-              { style: styles.telemetryGrid },
-              ['Focus', 'Confidence', 'Energy', 'Stress'].map((label) => {
-                const val = sessionData.psychRatings ? sessionData.psychRatings[label.toLowerCase()] || 'N/A' : 'N/A';
-                return e(
-                  View,
-                  { key: label, style: styles.statCard },
-                  e(Text, { style: styles.metaLabel }, label.toUpperCase()),
-                  e(Text, { style: { fontSize: 12, fontFamily: 'Helvetica-Bold', color: '#121212', marginTop: 2 } }, `${val} / 5`)
-                );
-              })
-            ),
+      <!-- Section 1: Hardware & Setup -->
+      <div style="font-size: 11px; font-weight: bold; color: #121212; border-bottom: 1.5px solid #121212; padding-bottom: 4px; margin-bottom: 10px; letter-spacing: 0.5px;">
+        1. HARDWARE & TRACK SETUP
+      </div>
+      <div style="display: flex; gap: 12px; margin-bottom: 12px;">
+        <div style="flex: 1; background: #F8F9FA; border: 1px solid #E0E0E8; border-radius: 4px; padding: 8px 12px;">
+          <div style="font-size: 9px; font-weight: bold; color: #666;">TARGET CAR</div>
+          <div style="font-size: 12px; font-weight: bold; color: #121212; margin-top: 2px;">${session && session.setup ? session.setup.car : 'N/A'}</div>
+        </div>
+        <div style="flex: 1; background: #F8F9FA; border: 1px solid #E0E0E8; border-radius: 4px; padding: 8px 12px;">
+          <div style="font-size: 9px; font-weight: bold; color: #666;">TARGET TRACK</div>
+          <div style="font-size: 12px; font-weight: bold; color: #121212; margin-top: 2px;">${session && session.setup ? session.setup.track : 'N/A'}</div>
+        </div>
+      </div>
+      ${session && session.setup && session.setup.mozaR3Note ? `
+        <div style="background: #FFF8F8; border-left: 3px solid #E10600; padding: 8px 12px; margin-bottom: 16px; border-radius: 0 4px 4px 0;">
+          <div style="font-size: 9px; font-weight: bold; color: #E10600; margin-bottom: 2px;">MOZA R3 FFB NOTE:</div>
+          <div style="font-size: 10px; color: #333344;">${session.setup.mozaR3Note}</div>
+        </div>
+      ` : ''}
 
-        // Section: Driver Reflections & Notes
-        e(Text, { style: styles.sectionHeader }, '5. DRIVER REFLECTION & NOTES'),
-        (() => {
-          const reflectionPrompts = session.reflection || session.reflectionPrompts;
-          return reflectionPrompts && reflectionPrompts.length > 0
-            ? reflectionPrompts.map((prompt, idx) => {
-                const ans = sessionData.reflections ? sessionData.reflections[idx] : '';
-                return e(
-                  View,
-                  { key: idx, style: styles.noteBox },
-                  e(Text, { style: styles.questionText }, `PROMPT ${idx + 1}: ${prompt}`),
-                  e(Text, { style: styles.answerText }, ans || '(No response provided)')
-                );
-              })
-            : null;
-        })(),
-        sessionData.driverNotes
-          ? e(
-              View,
-              { style: [styles.noteBox, { marginTop: 4 }] },
-              e(Text, { style: styles.questionText }, 'ADDITIONAL DRIVER TELEMETRY NOTES:'),
-              e(Text, { style: styles.answerText }, sessionData.driverNotes)
-            )
-          : null
-      ),
+      <!-- Section 2: Telemetry & Performance -->
+      <div style="font-size: 11px; font-weight: bold; color: #121212; border-bottom: 1.5px solid #121212; padding-bottom: 4px; margin-bottom: 10px; letter-spacing: 0.5px;">
+        2. TELEMETRY & PERFORMANCE SUMMARY
+      </div>
+      <div style="display: flex; gap: 12px; margin-bottom: 16px;">
+        <div style="flex: 1; background: #F8F9FA; border: 1px solid #E0E0E8; border-radius: 4px; padding: 10px 12px;">
+          <div style="font-size: 9px; font-weight: bold; color: #666;">BEST LAP TIME</div>
+          <div style="font-size: 14px; font-weight: bold; color: #121212; margin-top: 2px;">${sessionData.bestLapTime || 'N/A'}</div>
+        </div>
+        <div style="flex: 1; background: #F8F9FA; border: 1px solid #E0E0E8; border-radius: 4px; padding: 10px 12px;">
+          <div style="font-size: 9px; font-weight: bold; color: #666;">LAPS COMPLETED</div>
+          <div style="font-size: 14px; font-weight: bold; color: #121212; margin-top: 2px;">${sessionData.lapsCompleted || 'N/A'}</div>
+        </div>
+        <div style="flex: 1; background: #F8F9FA; border: 1px solid #E0E0E8; border-radius: 4px; padding: 10px 12px;">
+          <div style="font-size: 9px; font-weight: bold; color: #666;">QUIZ SCORE</div>
+          <div style="font-size: 14px; font-weight: bold; color: ${passed ? '#008744' : '#E10600'}; margin-top: 2px;">
+            ${correctCount}/${totalQuestions} (${passed ? 'PASSED' : 'RETRY'})
+          </div>
+        </div>
+        <div style="flex: 1; background: #F8F9FA; border: 1px solid #E0E0E8; border-radius: 4px; padding: 10px 12px;">
+          <div style="font-size: 9px; font-weight: bold; color: #666;">DRIVER RATING</div>
+          <div style="font-size: 14px; font-weight: bold; color: #121212; margin-top: 2px;">${sessionData.feedbackRating || 5} / 5 Stars</div>
+        </div>
+      </div>
 
-      // Footer
-      e(
-        View,
-        { style: styles.footer },
-        e(Text, null, 'APEX SIMRACING TELEMETRY SYSTEM v1.5 • OFFICIAL SESSION DRILL REPORT'),
-        e(Text, null, `Generated: ${new Date().toLocaleDateString()}`)
-      )
-    )
-  );
+      <!-- Section 3: Knowledge Assessment -->
+      <div style="font-size: 11px; font-weight: bold; color: #121212; border-bottom: 1.5px solid #121212; padding-bottom: 4px; margin-bottom: 10px; letter-spacing: 0.5px;">
+        3. KNOWLEDGE ASSESSMENT RESULTS
+      </div>
+      <table style="width: 100%; border-collapse: collapse; margin-bottom: 16px; border: 1px solid #E0E0E8; border-radius: 4px; overflow: hidden;">
+        <thead>
+          <tr style="background: #121212; color: #FFFFFF; font-size: 10px; text-align: left;">
+            <th style="padding: 8px; width: 50%;">QUESTION</th>
+            <th style="padding: 8px; width: 35%;">SELECTED ANSWER</th>
+            <th style="padding: 8px; width: 15%; text-align: center;">RESULT</th>
+          </tr>
+        </thead>
+        <tbody>
+          ${quizRowsHtml}
+        </tbody>
+      </table>
 
-  // Generate PDF Blob
-  const blob = await pdf(doc).toBlob();
+      <!-- Section 4: Psych Check-in -->
+      <div style="font-size: 11px; font-weight: bold; color: #121212; border-bottom: 1.5px solid #121212; padding-bottom: 4px; margin-bottom: 10px; letter-spacing: 0.5px;">
+        4. PSYCHOLOGICAL CHECK-IN RATINGS
+      </div>
+      <div style="display: flex; flex-wrap: wrap; margin-bottom: 16px;">
+        ${psychHtml}
+      </div>
 
-  // Trigger Download
-  const filename = `APEX_Session_${session.id}_${new Date().toISOString().replace(/[:.]/g, '-').slice(0, 19)}.pdf`;
-  const blobUrl = URL.createObjectURL(blob);
-  const downloadLink = document.createElement('a');
-  downloadLink.href = blobUrl;
-  downloadLink.download = filename;
-  document.body.appendChild(downloadLink);
-  downloadLink.click();
-  document.body.removeChild(downloadLink);
-  setTimeout(() => URL.revokeObjectURL(blobUrl), 1000);
+      <!-- Section 5: Driver Reflections & Notes -->
+      <div style="font-size: 11px; font-weight: bold; color: #121212; border-bottom: 1.5px solid #121212; padding-bottom: 4px; margin-bottom: 10px; letter-spacing: 0.5px;">
+        5. DRIVER REFLECTION & NOTES
+      </div>
+      ${reflectionHtml}
+      ${sessionData.driverNotes ? `
+        <div style="background: #F8F9FA; border-left: 3px solid #E10600; padding: 8px 12px; margin-top: 8px; border-radius: 0 4px 4px 0;">
+          <div style="font-size: 10px; font-weight: bold; color: #E10600; margin-bottom: 2px;">ADDITIONAL TELEMETRY NOTES:</div>
+          <div style="font-size: 11px; color: #121212; font-family: monospace;">${sessionData.driverNotes}</div>
+        </div>
+      ` : ''}
+
+      <!-- Footer -->
+      <div style="margin-top: 24px; border-top: 1px solid #E0E0E8; padding-top: 8px; display: flex; justify-content: space-between; font-size: 9px; color: #888899;">
+        <div>APEX SIMRACING TELEMETRY SYSTEM v1.5 • OFFICIAL SESSION DRILL REPORT</div>
+        <div>Generated: ${new Date().toLocaleDateString()}</div>
+      </div>
+    </div>
+  `;
+
+  // Render to PDF using html2pdf
+  const filename = `APEX_Session_${session ? session.id : 'drill'}_${new Date().toISOString().replace(/[:.]/g, '-').slice(0, 19)}.pdf`;
+  const opt = {
+    margin: 0,
+    filename: filename,
+    image: { type: 'jpeg', quality: 0.98 },
+    html2canvas: { scale: 2, useCORS: true, logging: false },
+    jsPDF: { unit: 'pt', format: 'a4', orientation: 'portrait' }
+  };
+
+  return window.html2pdf().set(opt).from(container).save();
 }
