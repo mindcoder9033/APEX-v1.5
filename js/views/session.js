@@ -2,10 +2,10 @@
    APEX Simracing Coach - 9-Step Session Wizard Renderer
    ========================================== */
 
-import { storage } from '../storage.js?v=1.5.1';
-import { router } from '../router.js?v=1.5.1';
-import { ui } from '../ui.js?v=1.5.1';
-import { exportSessionPDF } from '../pdf/pdf-exporter.js?v=1.5.1';
+import { storage } from '../storage.js?v=1.5.2';
+import { router } from '../router.js?v=1.5.2';
+import { ui } from '../ui.js?v=1.5.2';
+import { exportSessionPDF } from '../pdf/pdf-exporter.js?v=1.5.2';
 
 let currentStep = 1; // 1 to 9
 let activeSession = null;
@@ -51,7 +51,7 @@ function renderWizardStep() {
   const viewContainer = document.getElementById('view-session');
   if (!viewContainer || !activeSession) return;
 
-  const totalSteps = 9;
+  const totalSteps = 10;
   const stepNames = [
     "SETUP & HARDWARE",
     "DRIVING THEORY",
@@ -61,7 +61,8 @@ function renderWizardStep() {
     "KNOWLEDGE ASSESSMENT",
     "PSYCH CHECK-IN",
     "SESSION REFLECTION",
-    "FEEDBACK & COMPLETION"
+    "FEEDBACK & DEBRIEF",
+    "EXPORT PDF & COMPLETE"
   ];
 
   // Render Segmented Progress Bar
@@ -256,7 +257,7 @@ function renderWizardStep() {
       `;
       break;
 
-    case 9: // Feedback & Completion
+    case 9: // Feedback & Debrief
       stepContentHtml = `
         <div class="step-card">
           <div class="step-section-title">
@@ -294,15 +295,65 @@ function renderWizardStep() {
             </div>
           </div>
 
-          <div style="margin-top: 1.5rem; display: flex; flex-direction: column; gap: 0.75rem;">
-            <button id="export-pdf-step9-btn" class="btn btn-secondary btn-block" style="padding: 0.85rem; font-size: 1rem;">
-              <svg viewBox="0 0 24 24" width="20" height="20" fill="currentColor" style="vertical-align: middle; margin-right: 6px;">
+          <div style="margin-top: 1.5rem;">
+            <button id="goto-step10-btn" class="btn btn-primary btn-block" style="padding: 1rem; font-size: 1.05rem;">
+              PROCEED TO PDF EXPORT (STEP 10) →
+            </button>
+          </div>
+        </div>
+      `;
+      break;
+
+    case 10: // Export PDF & Complete
+      let correctCount = 0;
+      if (activeSession.assessment) {
+        activeSession.assessment.forEach(q => {
+          if (wizardFormData.assessmentAnswers[q.id] === q.correctIndex) {
+            correctCount++;
+          }
+        });
+      }
+      const passed = correctCount >= 2;
+
+      stepContentHtml = `
+        <div class="step-card">
+          <div class="step-section-title">
+            <svg viewBox="0 0 24 24"><path d="M19 9h-4V3H9v6H5l7 7 7-7zM5 18v2h14v-2H5z"/></svg>
+            EXPORT PDF REPORT & COMPLETE
+          </div>
+
+          <div class="telemetry-block" style="margin-bottom: 1.25rem; background-color: var(--bg-primary);">
+            <div class="telemetry-label" style="color: var(--accent-red); margin-bottom: 0.5rem;">SESSION DRILL SUMMARY</div>
+            <div style="font-size: 1rem; font-weight: 700; color: var(--text-primary); margin-bottom: 0.75rem;">
+              ${activeSession.title}
+            </div>
+            
+            <div class="flex-row gap-sm" style="margin-bottom: 0.5rem;">
+              <div class="telemetry-block" style="flex: 1; padding: 0.5rem; background: var(--bg-secondary);">
+                <div class="telemetry-label">LAPS DONE</div>
+                <div class="telemetry-value" style="font-size: 1.1rem;">${wizardFormData.lapsCompleted || '0'}</div>
+              </div>
+              <div class="telemetry-block" style="flex: 1; padding: 0.5rem; background: var(--bg-secondary);">
+                <div class="telemetry-label">BEST LAP</div>
+                <div class="telemetry-value text-green" style="font-size: 1.1rem;">${wizardFormData.bestLapTime || 'N/A'}</div>
+              </div>
+              <div class="telemetry-block" style="flex: 1; padding: 0.5rem; background: var(--bg-secondary);">
+                <div class="telemetry-label">QUIZ SCORE</div>
+                <div class="telemetry-value ${passed ? 'text-green' : ''}" style="font-size: 1.1rem;">${correctCount}/3</div>
+              </div>
+            </div>
+          </div>
+
+          <div style="margin-top: 1.5rem; display: flex; flex-direction: column; gap: 0.85rem;">
+            <button id="export-pdf-step10-btn" class="btn btn-primary btn-block" style="padding: 1.1rem; font-size: 1.1rem; background-color: var(--accent-red); border-color: var(--accent-red);">
+              <svg viewBox="0 0 24 24" width="22" height="22" fill="currentColor" style="vertical-align: middle; margin-right: 8px;">
                 <path d="M19 9h-4V3H9v6H5l7 7 7-7zM5 18v2h14v-2H5z"/>
               </svg>
-              EXPORT PDF REPORT
+              DOWNLOAD PDF TELEMETRY REPORT
             </button>
-            <button id="complete-session-action-btn" class="btn btn-primary btn-block" style="padding: 1rem; font-size: 1.1rem;">
-              <svg viewBox="0 0 24 24" width="22" height="22" fill="currentColor"><path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z"/></svg>
+
+            <button id="complete-session-action-btn" class="btn btn-secondary btn-block" style="padding: 0.95rem; font-size: 1rem;">
+              <svg viewBox="0 0 24 24" width="20" height="20" fill="currentColor" style="vertical-align: middle; margin-right: 6px;"><path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z"/></svg>
               LOG & COMPLETE SESSION DRILL
             </button>
           </div>
@@ -373,7 +424,7 @@ function attachWizardListeners() {
 
   if (nextBtn) {
     nextBtn.addEventListener('click', () => {
-      if (currentStep < 9) {
+      if (currentStep < 10) {
         currentStep++;
         renderWizardStep();
       }
@@ -440,14 +491,23 @@ function attachWizardListeners() {
     });
   });
 
-  // Step 9 Export PDF Button Listener
-  const exportPdfBtn = document.getElementById('export-pdf-step9-btn');
-  if (exportPdfBtn) {
-    exportPdfBtn.addEventListener('click', async () => {
+  // Step 9 -> Step 10 Navigation Listener
+  const gotoStep10Btn = document.getElementById('goto-step10-btn');
+  if (gotoStep10Btn) {
+    gotoStep10Btn.addEventListener('click', () => {
+      currentStep = 10;
+      renderWizardStep();
+    });
+  }
+
+  // Step 10 Export PDF Button Listener
+  const exportPdfStep10Btn = document.getElementById('export-pdf-step10-btn');
+  if (exportPdfStep10Btn) {
+    exportPdfStep10Btn.addEventListener('click', async () => {
       try {
-        exportPdfBtn.disabled = true;
-        const originalHtml = exportPdfBtn.innerHTML;
-        exportPdfBtn.innerHTML = `GENERATING TELEMETRY PDF...`;
+        exportPdfStep10Btn.disabled = true;
+        const originalHtml = exportPdfStep10Btn.innerHTML;
+        exportPdfStep10Btn.innerHTML = `GENERATING TELEMETRY PDF...`;
 
         let correctCount = 0;
         if (activeSession.assessment) {
@@ -474,12 +534,12 @@ function attachWizardListeners() {
 
         await exportSessionPDF(activeSession, currentSessionData, activeModule);
         ui.showToast('PDF Telemetry Report Generated!', 'success');
-        exportPdfBtn.innerHTML = originalHtml;
+        exportPdfStep10Btn.innerHTML = originalHtml;
       } catch (err) {
         console.error('PDF Export Error:', err);
         ui.showToast('Failed to generate PDF report', 'error');
       } finally {
-        exportPdfBtn.disabled = false;
+        exportPdfStep10Btn.disabled = false;
       }
     });
   }
