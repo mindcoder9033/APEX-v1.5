@@ -22,6 +22,9 @@
   <link rel="stylesheet" href="css/views.css">
 
   <!-- React & @react-pdf/renderer Browser Distribution -->
+  <script>
+    window.process = window.process || { env: { NODE_ENV: 'production' } };
+  </script>
   <script src="https://unpkg.com/react@18/umd/react.production.min.js"></script>
   <script src="https://unpkg.com/react-dom@18/umd/react-dom.production.min.js"></script>
   <script src="https://unpkg.com/@react-pdf/renderer@3.4.0/dist/react-pdf.browser.min.js"></script>

@@ -151,26 +151,34 @@ class StorageEngine {
    */
   openIndexedDB() {
     return new Promise((resolve, reject) => {
+      if (typeof indexedDB === 'undefined' || !indexedDB) {
+        return reject(new Error('IndexedDB not supported in this environment'));
+      }
       if (this.indexedDB) return resolve(this.indexedDB);
 
-      const request = indexedDB.open(DB_NAME, 1);
-      request.onupgradeneeded = (evt) => {
-        const db = evt.target.result;
-        if (!db.objectStoreNames.contains(DB_STORE_NAME)) {
-          db.createObjectStore(DB_STORE_NAME, { keyPath: 'id' });
-        }
-      };
+      try {
+        const request = indexedDB.open(DB_NAME, 1);
+        request.onupgradeneeded = (evt) => {
+          const db = evt.target.result;
+          if (!db.objectStoreNames.contains(DB_STORE_NAME)) {
+            db.createObjectStore(DB_STORE_NAME, { keyPath: 'id' });
+          }
+        };
 
-      request.onsuccess = (evt) => {
-        this.indexedDB = evt.target.result;
-        resolve(this.indexedDB);
-      };
+        request.onsuccess = (evt) => {
+          this.indexedDB = evt.target.result;
+          resolve(this.indexedDB);
+        };
 
-      request.onerror = (evt) => reject(evt.target.error);
+        request.onerror = (evt) => reject(evt.target.error);
+      } catch (err) {
+        reject(err);
+      }
     });
   }
 
   async readIndexedDB() {
+    if (typeof indexedDB === 'undefined' || !indexedDB) return null;
     const db = await this.openIndexedDB();
     return new Promise((resolve, reject) => {
       const tx = db.transaction(DB_STORE_NAME, 'readonly');
@@ -182,6 +190,7 @@ class StorageEngine {
   }
 
   async writeIndexedDB(data) {
+    if (typeof indexedDB === 'undefined' || !indexedDB) return false;
     const db = await this.openIndexedDB();
     return new Promise((resolve, reject) => {
       const tx = db.transaction(DB_STORE_NAME, 'readwrite');

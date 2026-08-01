@@ -8,14 +8,19 @@ class HashRouter {
     this.routes = [];
     this.currentPath = '';
     this.defaultPath = '/dashboard';
+    this.initialized = false;
     
     // Bind hashchange listener
-    window.addEventListener('hashchange', () => this.handleHashChange());
+    window.addEventListener('hashchange', () => {
+      if (this.initialized) {
+        this.handleHashChange();
+      }
+    });
   }
 
   /**
    * Register a route mapping path pattern to view handler
-   * Example: router.register('/session/:modId/:sessId', renderSessionView)
+   * Example: router.register('/session/:modId/:sessId', 'view-session', renderSessionView)
    */
   register(pattern, viewId, renderHandler) {
     // Convert pattern like '/session/:modId/:sessId' to regex
@@ -40,6 +45,7 @@ class HashRouter {
    * Initialize router & parse current URL hash
    */
   init() {
+    this.initialized = true;
     this.handleHashChange();
   }
 
@@ -47,25 +53,38 @@ class HashRouter {
    * Navigate programmatically to a new path
    */
   navigate(path) {
-    window.location.hash = `#${path}`;
+    const targetHash = `#${path}`;
+    if (window.location.hash === targetHash) {
+      // Force handle hash change if same path
+      this.handleHashChange();
+    } else {
+      window.location.hash = targetHash;
+    }
   }
 
   /**
    * Handle hash change event
    */
   handleHashChange() {
-    let hash = window.location.hash.slice(1); // remove '#'
-    if (!hash || hash === '/') {
-      hash = this.defaultPath;
-      window.location.hash = `#${this.defaultPath}`;
-      return;
+    if (!this.initialized) return;
+
+    let rawHash = window.location.hash.slice(1).trim(); // remove '#'
+    
+    // If empty or root slash, set default hash
+    if (!rawHash || rawHash === '/') {
+      rawHash = this.defaultPath;
+      if (window.location.hash !== `#${this.defaultPath}`) {
+        window.location.hash = `#${this.defaultPath}`;
+      }
     }
 
-    this.currentPath = hash;
+    // Clean hash (strip query string and trailing slash if any)
+    const cleanHash = rawHash.split('?')[0].replace(/\/$/, '') || this.defaultPath;
+    this.currentPath = cleanHash;
     let matched = false;
 
     for (const route of this.routes) {
-      const match = hash.match(route.regex);
+      const match = cleanHash.match(route.regex);
       if (match) {
         matched = true;
         
@@ -79,7 +98,7 @@ class HashRouter {
         this.activateView(route.viewId);
 
         // 2. Update Bottom Nav active state
-        this.updateNavState(route.viewId, hash);
+        this.updateNavState(route.viewId, cleanHash);
 
         // 3. Call view render handler
         if (typeof route.renderHandler === 'function') {
@@ -94,8 +113,10 @@ class HashRouter {
     }
 
     if (!matched) {
-      console.warn(`[APEX Router] Unmatched hash route: ${hash}, redirecting to default`);
-      this.navigate(this.defaultPath);
+      console.warn(`[APEX Router] Unmatched hash route: ${cleanHash}, redirecting to ${this.defaultPath}`);
+      if (cleanHash !== this.defaultPath) {
+        this.navigate(this.defaultPath);
+      }
     }
   }
 
