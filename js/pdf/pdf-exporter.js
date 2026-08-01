@@ -410,33 +410,52 @@ export async function exportSessionPDF(session, sessionData, module) {
 
         // Section: Psychological Check-In Ratings
         e(Text, { style: styles.sectionHeader }, '4. PSYCHOLOGICAL CHECK-IN RATINGS'),
-        e(
-          View,
-          { style: styles.telemetryGrid },
-          ['Focus', 'Confidence', 'Energy', 'Stress'].map((label) => {
-            const val = sessionData.psychRatings ? sessionData.psychRatings[label.toLowerCase()] || 'N/A' : 'N/A';
-            return e(
+        session.psychCheckin && session.psychCheckin.length > 0
+          ? e(
               View,
-              { key: label, style: styles.statCard },
-              e(Text, { style: styles.metaLabel }, label.toUpperCase()),
-              e(Text, { style: { fontSize: 12, fontFamily: 'Helvetica-Bold', color: '#121212', marginTop: 2 } }, `${val} / 5`)
-            );
-          })
-        ),
+              { style: styles.telemetryGrid },
+              session.psychCheckin.map((p, idx) => {
+                const val = sessionData.psychRatings && sessionData.psychRatings[p.id] !== undefined
+                  ? sessionData.psychRatings[p.id]
+                  : (sessionData.psychRatings ? sessionData.psychRatings[p.prompt] || 'N/A' : 'N/A');
+                return e(
+                  View,
+                  { key: p.id || idx, style: styles.statCard },
+                  e(Text, { style: styles.metaLabel }, `CHECK-IN #${idx + 1}`),
+                  e(Text, { style: { fontSize: 12, fontFamily: 'Helvetica-Bold', color: '#121212', marginTop: 2 } }, `${val} / 5`)
+                );
+              })
+            )
+          : e(
+              View,
+              { style: styles.telemetryGrid },
+              ['Focus', 'Confidence', 'Energy', 'Stress'].map((label) => {
+                const val = sessionData.psychRatings ? sessionData.psychRatings[label.toLowerCase()] || 'N/A' : 'N/A';
+                return e(
+                  View,
+                  { key: label, style: styles.statCard },
+                  e(Text, { style: styles.metaLabel }, label.toUpperCase()),
+                  e(Text, { style: { fontSize: 12, fontFamily: 'Helvetica-Bold', color: '#121212', marginTop: 2 } }, `${val} / 5`)
+                );
+              })
+            ),
 
         // Section: Driver Reflections & Notes
         e(Text, { style: styles.sectionHeader }, '5. DRIVER REFLECTION & NOTES'),
-        session.reflectionPrompts && session.reflectionPrompts.length > 0
-          ? session.reflectionPrompts.map((prompt, idx) => {
-              const ans = sessionData.reflections ? sessionData.reflections[idx] : '';
-              return e(
-                View,
-                { key: idx, style: styles.noteBox },
-                e(Text, { style: styles.questionText }, `PROMPT ${idx + 1}: ${prompt}`),
-                e(Text, { style: styles.answerText }, ans || '(No response provided)')
-              );
-            })
-          : null,
+        (() => {
+          const reflectionPrompts = session.reflection || session.reflectionPrompts;
+          return reflectionPrompts && reflectionPrompts.length > 0
+            ? reflectionPrompts.map((prompt, idx) => {
+                const ans = sessionData.reflections ? sessionData.reflections[idx] : '';
+                return e(
+                  View,
+                  { key: idx, style: styles.noteBox },
+                  e(Text, { style: styles.questionText }, `PROMPT ${idx + 1}: ${prompt}`),
+                  e(Text, { style: styles.answerText }, ans || '(No response provided)')
+                );
+              })
+            : null;
+        })(),
         sessionData.driverNotes
           ? e(
               View,
